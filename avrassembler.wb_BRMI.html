@@ -1,9 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta content="IE=edge" http-equiv="X-UA-Compatible" />
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>BRMI - Branch if Minus -  - AVR Assembler</title><meta content="DocBook XSL Stylesheets V1.78.1" name="generator" /><link rel="home" href="index.html" title="AVR Assembler" /><link rel="up" href="avrassembler.wb_instruction_list.html" title="Instructions" /><link rel="prev" href="avrassembler.wb_BRLT.html" title="BRLT - Branch if Less Than (Signed)" /><link rel="next" href="avrassembler.wb_BRNE.html" title="BRNE - Branch if Not Equal" /><meta content="BRMI - Branch if Minus" name="Section-title" /><script type="text/javascript">
-			//The id for tree cookie
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+  <title>
+   BRMI - Branch if Minus -  - AVR Assembler
+  </title>
+  <meta content="DocBook XSL Stylesheets V1.78.1" name="generator"/>
+  <link href="index.html" rel="home" title="AVR Assembler"/>
+  <link href="avrassembler.wb_instruction_list.html" rel="up" title="Instructions"/>
+  <link href="avrassembler.wb_BRLT.html" rel="prev" title="BRLT - Branch if Less Than (Signed)"/>
+  <link href="avrassembler.wb_BRNE.html" rel="next" title="BRNE - Branch if Not Equal"/>
+  <meta content="BRMI - Branch if Minus" name="Section-title"/>
+  <script type="text/javascript">
+   //The id for tree cookie
 			var treeCookieId = "treeview-36481";
 			var language = "en";
 			var w = new Object();
@@ -13,8 +23,13 @@
 			txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
 			txt_please_wait = "Please wait. Search in progress...";
 			txt_results_for = "Results for: ";
-		</script><link type="image/x-icon" href="../favicon.ico" rel="shortcut icon" /><link href="../common/css/positioning.css" type="text/css" rel="stylesheet" /><link href="../common/jquery/theme-redmond/jquery-ui-1.8.2.custom.css" type="text/css" rel="stylesheet" /><link href="../common/jquery/treeview/jquery.treeview.css" type="text/css" rel="stylesheet" /><style type="text/css">
-			#noscript{
+  </script>
+  <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+  <link href="../common/css/positioning.css" rel="stylesheet" type="text/css"/>
+  <link href="../common/jquery/theme-redmond/jquery-ui-1.8.2.custom.css" rel="stylesheet" type="text/css"/>
+  <link href="../common/jquery/treeview/jquery.treeview.css" rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+   #noscript{
 			font-weight:bold;
 			background-color:#55AA55;
 			font-weight:bold;
@@ -189,10 +204,54 @@
 			.ui-layout-toggler{ /* all 'toggler-buttons' */
 			background:#AAA;
 			}
-		</style><!--[if IE]>
+  </style>
+  <!--[if IE]>
 	<link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-	<![endif]--><script src="../common/browserDetect.js" type="text/javascript"><!----></script><script src="../common/jquery/jquery-1.7.2.min.js" type="text/javascript"><!----></script><script src="../common/jquery/jquery.ui.all.js" type="text/javascript"><!----></script><script src="../common/jquery/jquery.cookie.js" type="text/javascript"><!----></script><script src="../common/jquery/treeview/jquery.treeview.min.js" type="text/javascript"><!----></script><script src="../common/jquery/layout/jquery.layout.js" type="text/javascript"><!----></script><script src="search/l10n.js" type="text/javascript"><!----></script><script src="search/htmlFileInfoList.js" type="text/javascript"><!----></script><script src="search/nwSearchFnt.js" type="text/javascript"><!----></script><script src="search/stemmers/en_stemmer.js" type="text/javascript" /><script src="search/index-1.js" type="text/javascript"><!----></script><script src="search/index-2.js" type="text/javascript"><!----></script><script src="search/index-3.js" type="text/javascript"><!----></script><meta name="date" content="" /><meta name="dc.date.created" content="" /><link rel="stylesheet" type="text/css" href="../common/css/docbook.css" /><link media="print" rel="stylesheet" type="text/css" href="../common/css/print.css" /><script type="text/javascript">
-				  var _gaq = _gaq || [];
+	<![endif]-->
+  <script src="../common/browserDetect.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="../common/jquery/jquery-1.7.2.min.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="../common/jquery/jquery.ui.all.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="../common/jquery/jquery.cookie.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="../common/jquery/treeview/jquery.treeview.min.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="../common/jquery/layout/jquery.layout.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="search/l10n.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="search/htmlFileInfoList.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="search/nwSearchFnt.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="search/stemmers/en_stemmer.js" type="text/javascript">
+  </script>
+  <script src="search/index-1.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="search/index-2.js" type="text/javascript">
+   <!---->
+  </script>
+  <script src="search/index-3.js" type="text/javascript">
+   <!---->
+  </script>
+  <meta content="" name="date"/>
+  <meta content="" name="dc.date.created"/>
+  <link href="../common/css/docbook.css" rel="stylesheet" type="text/css"/>
+  <link href="../common/css/print.css" media="print" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">
+   var _gaq = _gaq || [];
 				  _gaq.push(['_setAccount', 'UA-41389295-1']);
 				  _gaq.push(['_trackPageview']);
 
@@ -201,250 +260,1485 @@
 					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 				  })();
-		</script>
-  <script>!function(){function o(n,i){if(n&&i)for(var r in i)i.hasOwnProperty(r)&&(void 0===n[r]?n[r]=i[r]:n[r].constructor===Object&&i[r].constructor===Object?o(n[r],i[r]):n[r]=i[r])}try{var n=decodeURIComponent("");if(n.length>0&&window.JSON&&"function"==typeof window.JSON.parse){var i=JSON.parse(n);void 0!==window.BOOMR_config?o(window.BOOMR_config,i):window.BOOMR_config=i}}catch(r){window.console&&"function"==typeof window.console.error&&console.error("mPulse: Could not parse configuration",r)}}();</script>
-  <script>!function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,o,r,O=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);O.src="javascript:void(0)",O.title="",O.role="presentation",(O.frameElement||O).style.cssText="width:0;height:0;border:0;display:none;",r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(O,r);try{o=O.contentWindow.document}catch(_){i=document.domain,O.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",o=O.contentWindow.document}o.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"HCSEV-U5H4D-73E56-YQZHY-A3PRY",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},o.write("<bo"+'dy onload="document._l();">'),o.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="eaauxoacyakm4kqce3yacdqcqjoy2sr4-f-b07f83b4f-clienttons-s.akamaihd.net",i={"ak.v":23,"ak.cp":"211479","ak.ai":parseInt("179286",10),"ak.ol":"0","ak.cr":48,"ak.ipv":6,"ak.proto":"","ak.rid":"53b88836","ak.r":34326,"ak.a2":e,"ak.m":"dsca","ak.n":"essl","ak.bpcip":"2001:4bb8:2c0:14ce::","ak.cport":34364,"ak.gh":"84.53.161.28","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1569540668"};if(""!==t)i["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head><body><noscript><link rel="stylesheet" type="text/css" href="../common/css/print.css" /><div id="noscript">JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.</div></noscript><div id="header"><a href="http://www.atmel.com/webdoc"><img id="logo" alt="Atmel Logo" src="../common/images/logo.png" /></a><h1>AVR Assembler<br />Instructions</h1><div id="navheader"><!----><table class="navLinks"><tr><td><a title="Hide TOC tree" tabindex="5" class="pointLeft" onclick="myLayout.toggle('west')" href="#" id="showHideButton">Sidebar
-                            </a></td><td><a tabindex="5" class="navLinkPrevious" accesskey="p" href="avrassembler.wb_BRLT.html">Prev</a>
-                                        |
-                                        <a tabindex="5" class="navLinkUp" accesskey="u" href="avrassembler.wb_instruction_list.html">Up</a>
-                                    |
-                                    <a tabindex="5" class="navLinkNext" accesskey="n" href="avrassembler.wb_BRNE.html">Next</a></td></tr></table></div></div><div id="content"><!----><div class="section"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both"><a id="avrassembler.wb_BRMI" />
-      <abbr class="abbrev"><a id="avrassembler.wb_BRMI1" />BRMI</abbr>  - Branch if Minus</h2></div></div></div><a xmlns="http://www.w3.org/1999/xhtml" class="indexterm" id="VsIde.Assembler.Instruction.BRMI" /><h3><a id="N138E7" />Description:</h3><p>Conditional relative branch. Tests the Negative flag (N) and
+  </script>
+  <script>
+   !function(){function o(n,i){if(n&&i)for(var r in i)i.hasOwnProperty(r)&&(void 0===n[r]?n[r]=i[r]:n[r].constructor===Object&&i[r].constructor===Object?o(n[r],i[r]):n[r]=i[r])}try{var n=decodeURIComponent("");if(n.length>0&&window.JSON&&"function"==typeof window.JSON.parse){var i=JSON.parse(n);void 0!==window.BOOMR_config?o(window.BOOMR_config,i):window.BOOMR_config=i}}catch(r){window.console&&"function"==typeof window.console.error&&console.error("mPulse: Could not parse configuration",r)}}();
+  </script>
+  <script>
+   !function(a){var e="https://s.go-mpulse.net/boomerang/",t="addEventListener";if("False"=="True")a.BOOMR_config=a.BOOMR_config||{},a.BOOMR_config.PageParams=a.BOOMR_config.PageParams||{},a.BOOMR_config.PageParams.pci=!0,e="https://s2.go-mpulse.net/boomerang/";if(function(){function n(e){a.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!a.BOOMR||!a.BOOMR.version&&!a.BOOMR.snippetExecuted){a.BOOMR=a.BOOMR||{},a.BOOMR.snippetExecuted=!0;var i,o,r,O=document.createElement("iframe");if(a[t])a[t]("load",n,!1);else if(a.attachEvent)a.attachEvent("onload",n);O.src="javascript:void(0)",O.title="",O.role="presentation",(O.frameElement||O).style.cssText="width:0;height:0;border:0;display:none;",r=document.getElementsByTagName("script")[0],r.parentNode.insertBefore(O,r);try{o=O.contentWindow.document}catch(_){i=document.domain,O.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",o=O.contentWindow.document}o.open()._l=function(){var a=this.createElement("script");if(i)this.domain=i;a.id="boomr-if-as",a.src=e+"HCSEV-U5H4D-73E56-YQZHY-A3PRY",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(a)},o.write("<bo"+'dy onload="document._l();">'),o.close()}}(),"".length>0)if(a&&"performance"in a&&a.performance&&"function"==typeof a.performance.setResourceTimingBufferSize)a.performance.setResourceTimingBufferSize();!function(){if(BOOMR=a.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var e=""=="true"?1:0,t="",n="eaauxoacyakm4kqce3yacdqcqjoy2sr4-f-b07f83b4f-clienttons-s.akamaihd.net",i={"ak.v":23,"ak.cp":"211479","ak.ai":parseInt("179286",10),"ak.ol":"0","ak.cr":48,"ak.ipv":6,"ak.proto":"","ak.rid":"53b88836","ak.r":34326,"ak.a2":e,"ak.m":"dsca","ak.n":"essl","ak.bpcip":"2001:4bb8:2c0:14ce::","ak.cport":34364,"ak.gh":"84.53.161.28","ak.quicv":"","ak.tlsv":"tls1.2","ak.0rtt":"","ak.csrc":"-","ak.acc":"reno","ak.t":"1569540668"};if(""!==t)i["ak.ruds"]=t;var o={i:!1,av:function(e){var t="http.initiator";if(e&&(!e[t]||"spa_hard"===e[t]))i["ak.feo"]=void 0!==a.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.r","ak.acc","ak.t"];BOOMR.removeVar(a)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:n,init:function(){if(!o.i){var a=BOOMR.subscribe;a("before_beacon",o.av,null,null),a("onbeacon",o.rv,null,null),o.i=!0}return this},is_complete:function(){return!0}}}}()}(window);
+  </script>
+ </head>
+ <body>
+  <noscript>
+   <link href="../common/css/print.css" rel="stylesheet" type="text/css"/>
+   <div id="noscript">
+    JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.
+   </div>
+  </noscript>
+  <div id="header">
+   <a href="http://www.atmel.com/webdoc">
+    <img alt="Atmel Logo" id="logo" src="../common/images/logo.png"/>
+   </a>
+   <h1>
+    AVR Assembler
+    <br/>
+    Instructions
+   </h1>
+   <div id="navheader">
+    <!-- -->
+    <table class="navLinks">
+     <tr>
+      <td>
+       <a class="pointLeft" href="#" id="showHideButton" onclick="myLayout.toggle('west')" tabindex="5" title="Hide TOC tree">
+        Sidebar
+       </a>
+      </td>
+      <td>
+       <a accesskey="p" class="navLinkPrevious" href="avrassembler.wb_BRLT.html" tabindex="5">
+        Prev
+       </a>
+       |
+       <a accesskey="u" class="navLinkUp" href="avrassembler.wb_instruction_list.html" tabindex="5">
+        Up
+       </a>
+       |
+       <a accesskey="n" class="navLinkNext" href="avrassembler.wb_BRNE.html" tabindex="5">
+        Next
+       </a>
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_BRMI">
+        </a>
+        <abbr class="abbrev">
+         <a id="avrassembler.wb_BRMI1">
+         </a>
+         BRMI
+        </abbr>
+        - Branch if Minus
+       </h2>
+      </div>
+     </div>
+    </div>
+    <a class="indexterm" id="VsIde.Assembler.Instruction.BRMI" xmlns="http://www.w3.org/1999/xhtml">
+    </a>
+    <h3>
+     <a id="N138E7">
+     </a>
+     Description:
+    </h3>
+    <p>
+     Conditional relative branch. Tests the Negative flag (N) and
 branches relatively to PC if N is set. This instruction branches
-relatively to PC in either direction (PC - 63 &le; destination &le;
+relatively to PC in either direction (PC - 63 ≤ destination ≤
 PC + 64). The parameter k is the offset from PC and is represented
-in two's complement form. (Equivalent to instruction <a class="xref" href="avrassembler.wb_BRBS.html" title="BRBS - Branch if Bit in SREG is Set">BRBS</a> 2,k).</p><p>Operation:</p><p>If N = 1 then PC &larr; PC + k + 1, else PC &larr; PC + 1</p><p>
-Syntax: Operands: Program Counter:</p><p>BRMI k -64 &le; k &le; +63 PC &larr; PC + k + 1</p><p>PC &larr; PC
-+ 1, if condition is false</p><p>16-bit Opcode:</p><div class="informaltable"><table border="1"><colgroup><col class="col1" /><col class="col2" /><col class="col3" /><col class="col4" /></colgroup><tbody><tr><td>
-                  <p>1111</p>
-               </td><td>
-                  <p>00kk</p>
-               </td><td>
-                  <p>kkkk</p>
-               </td><td>
-                  <p>k010</p>
-               </td></tr></tbody></table></div><h3><a id="N13920" />Status Register (SREG) and Boolean
-Formula:</h3><div class="informaltable"><table border="1"><colgroup><col class="col1" /><col class="col2" /><col class="col3" /><col class="col4" /><col class="col5" /><col class="col6" /><col class="col7" /><col class="col8" /></colgroup><thead><tr><th>
-                  <p>I</p>
-               </th><th>
-                  <p>T</p>
-               </th><th>
-                  <p>H</p>
-               </th><th>
-                  <p>S</p>
-               </th><th>
-                  <p>V</p>
-               </th><th>
-                  <p>N</p>
-               </th><th>
-                  <p>Z</p>
-               </th><th>
-                  <p>C</p>
-               </th></tr></thead><tbody><tr><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td><td>
-                  <p>-</p>
-               </td></tr></tbody></table></div><p>Example:</p><p>subi
-r18,4 ; Subtract 4 from r18</p><p>brmi
-negative ; Branch if result negative</p><p>
-...</p><p>
-negative: nop ; Branch destination (do nothing)</p><p>Words: 1 (2 bytes)</p><p>Cycles: 1 if condition is false</p><p>2 if condition is true</p></div><script src="../common/main.js" type="text/javascript"><!----></script><script src="../common/splitterInit.js" type="text/javascript"><!----></script><div class="navfooter"><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="avrassembler.wb_BRLT.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="avrassembler.wb_instruction_list.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="avrassembler.wb_BRNE.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></div><div id="sidebar"><div style="padding-top:3px;" id="leftnavigation"><div id="tabs"><ul><li><a tabindex="1" style="outline:0;" href="#treeDiv"><span class="contentsTab">Contents</span></a></li><li><a onclick="doSearch()" tabindex="1" style="outline:0;" href="#searchDiv"><span class="searchTab">Search</span></a></li></ul><div id="treeDiv"><img style="display:block;" id="tocLoading" alt="loading table of contents..." src="../common/images/loading.gif" /><span class="dochome"><a href="../index.html" tabindex="1">Documentation Home</a></span><span class="root"><a href="index.html" tabindex="1">AVR Assembler</a></span><div style="display:none" id="ulTreeDiv"><ul class="filetree" id="tree"><li><span class="file"><a tabindex="1" href="pr01.html">Preface</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_Known_Issues.html">AVR Assembler Known Issues</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_Command_Line_Options.html">AVR Assembler Command Line Options</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_source.html">Assembler source</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_Syntax.html">AVR Assembler Syntax</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_directives.html">Assembler directives</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.html">AVR Assembler Preprocessor</a></span><ul><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.Introduction.html">Introduction</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.Preprocessor_directives.html">Preprocessor directives</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.define.html">#define</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.undef.html">#undef</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.ifdef.html">#ifdef</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.ifndef.html">#ifndef</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.if.html">#if and #elif</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.else.html">#else</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.endif.html">#endif</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.error.html">#error, #warning and #message</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.include.html">#include</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.pragma.html">#pragma, general purpose</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.pragma_part.html">#pragma , AVR part related</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.empty.html"># (empty directive)</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.Operators.html">Operators</a></span><ul><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.Stringification.html">Stringification (#)</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.Concatenation.html">Concatenation (##)</a></span></li></ul></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_preprocessor.Pre-defined_macros.html">Pre-defined macros</a></span></li></ul></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_expressions.html">Expressions</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_instructions.html">Instruction mnemonics</a></span><ul><li><span class="file"><a tabindex="1" href="avrassembler.wb_instructions.Arithmetic_and_Logic_Instructions.html">Arithmetic
-    and logic instructions</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_instructions.Branch_Instructions.html">Branch
-    Instructions</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_instructions.Data_Transfer_Instructions.html">Data Transfer
-    Instructions</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html">Bit and
-    Bit-test Instructions</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_registers.html">I/O Registers</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_nomenclature.html">Instruction Set Nomenclature:</a></span></li></ul></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_instruction_list.html">Instructions</a></span><ul><li><span class="file"><a tabindex="1" href="avrassembler.wb_ADC.html">
-      ADC - Add with Carry</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ADD.html">
-      ADD - Add without Carry</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ADIW.html">
-      ADIW - Add Immediate to Word</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_AND.html">
-      AND  - Logical AND</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ANDI.html">
-      ANDI - Logical AND with Immediateand</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ASR.html">
-      ASR - Arithmetic Shift Right</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BCLR.html">
-      BCLR - Bit Clear in SREG</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BLD.html"> 
-      BLD - Bit Load from the T Flag in SREG to a Bit in Register.</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRBC.html">
-      BRBC -  Branch if Bit in SREG is Cleared</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRBS.html"> 
-      BRBS -  Branch if Bit in SREG is Set</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRCC.html">
-      BRCC -  Branch if Carry Cleared</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRCS.html"> 
-      BRCS -  Branch if Carry Set</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BREAK.html"> 
-      BREAK -  Break</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BREQ.html"> 
-      BREQ -  Branch if Equal</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRGE.html"> 
-      BRGE - Branch if Greater or Equal Signed)</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRHC.html"> 
-      BRHC -  Branch if Half Carry Flag is Cleared</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRHS.html"> 
-      BRHS - Branch if Half Carry Flag is Set</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRID.html">
-      BRID -  Branch if Global Interrupt is Disabled</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRIE.html">
-      BRIE - Branch if Global Interrupt is Enabled</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRLO.html">
-      BRLO  - Branch if Lower (Unsigned)</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRLT.html"> 
-      BRLT  -  Branch if Less Than (Signed)</a></span></li><li id="webhelp-currentid"><span class="file"><a tabindex="1" href="avrassembler.wb_BRMI.html">
-      BRMI  - Branch if Minus</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRNE.html">
-      BRNE  - Branch if Not Equal</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRPL.html">
-      BRPL  - Branch if Plus</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRSH.html">
-      BRSH  - Branch if Same or Higher (Unsigned)</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRTC.html">
-      BRTC  -  if the T Flag is Cleared</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRTS.html">
-      BRTS  - Branch if the T Flag is Set</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRVC.html">
-      BRVC  - Branch if Overflow Cleared</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BRVS.html">
-      BRVS  - Branch if Overflow Set</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BSET.html">
-      BSET - Bit Set in SREG</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_BST.html">
-      BST  - Bit Store from Bit in Register to T Flag in SREG</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CALL.html">
-      CALL  - Long Call to a Subroutine</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CBI.html">
-      CBI - Clear Bit in I/O Register</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CBR.html">
-      CBR  - Clear Bits in Register</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLC.html">
-      CLC  - Clear Carry Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLH.html">
-      CLH - Clear Half Carry Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLI.html">
-      CLI  - Clear Global Interrupt Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLN.html">
-      CLN  - Clear Negative Flag </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLR.html">
-      CLR - Clear Register </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLS.html">
-      CLS - Clear Signed Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLT.html">
-      CLT  - Clear T Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLV.html">
-      CLV - Clear Overflow Flag
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CLZ.html">
-      CLZ  - Clear Zero Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_COM.html">
-      COM- One's Complement</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CP.html">
-      CP- Compare
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CPC.html">
-      CPC- Compare with Carry
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CPI.html">
-      CPI- Compare with Immediate
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_CPSE.html">
-      CPSE- Compare Skip if Equal
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_DEC.html">
-      DEC- Decrement
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_EICALL.html">
-      EICALL  - Extended Indirect Call to Subroutine
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_EIJMP.html">
-      EIJMP - Extended Indirect Jump
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ELPM.html">
-      ELPM - Extended Load Program Memory
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_EOR.html">
-      EOR - Exclusive OR
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_FMUL.html">
-      FMUL- Fractional Multiply Unsigned
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_FMULS.html">
-      FMULS - Fractional Multiply Signed
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_FMULSU.html">
-      FMULSU - Fractional Multiply Signed with Unsigned
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ICALL.html">
-      ICALL - Indirect Call to Subroutine
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_IJMP.html">
-      IJMP - Indirect Jump
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_IN.html">
-      IN - Load an I/O Location to Register
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_INC.html">
-      INC- Increment
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_JMP.html">
-      JMP - Jump
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LD.html">
-      LD - Load Indirect from data space to Register using Index X
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LAT.html">
-      LAT - Load and Toggle</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LAS.html">
-      LAS - Load and Set</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LAC.html">
-      LAC - Load and Clear</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LDD.html">
-      LD (LDD)- Load Indirect from data space
-  to Register using Index Y</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LDD_Z.html">
-      LD (LDD) - Load Indirect From data
-  space to Register using Index Z</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LDI.html">
-      LDI - Load Immediate
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LDS.html">
-      LDS - Load Direct from data space</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LDS_-_Load_direct_from_SRAM.html">
-      LDS - Load Direct from SRAM</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LPM.html">
-      LPM - Load Program Memory
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LSL.html">
-      LSL- Logical Shift Left</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_LSR.html">
-      LSR- Logical Shift Right
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_MOV.html">
-      MOV - Copy Register
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_MOVW.html">
-      MOVW - Copy Register Word
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_MUL.html">
-      MUL- Multiply Unsigned
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_MULS.html">
-      MULS - Multiply Signed
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_MULSU.html">
-      MULSU - Multiply Signed with Unsigned
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_NEG.html">
-      NEG- Two's Complement
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_NOP.html">
-      NOP - No Operation
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_OR.html">
-      OR- Logical OR
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ORI.html">
-      ORI- Logical OR with Immediate
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_OUT.html">
-      OUT - Store Register to I/O Location</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_POP.html">
-      POP - Pop Register from Stack</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_PUSH.html">
-      PUSH - Push Register on Stack
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_RCALL.html">
-      RCALL - Relative Call to Subroutine
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_RET.html">
-      RET - Return from Subroutine
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_RETI.html">
-      RETI - Return from Interrupt
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_RJMP.html">
-      RJMP- Relative Jump
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ROL.html">
-      ROL- Rotate Left trough Carry</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ROR.html">
-      ROR- Rotate Right through Carry</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBC.html">
-      SBC- Subtract with Carry
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBCI.html">
-      SBCI- Subtract Immediate with Carry
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBI.html">
-      SBI - Set Bit in I/O Register
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBIC.html">
-      SBIC - Skip if Bit in I/O Register is Cleared
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBIS.html">
-      SBIS - Skip if Bit in I/O Register is Set
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBIW.html">
-      SBIW - Subtract Immediate from Word</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBR.html">
-      SBR- Set Bits in Register
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBRC.html">
-      SBRC - Skip if Bit in Register is Cleared
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SBRS.html">
-      SBRS - Skip if Bit in Register is Set
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SEC.html">
-      SEC - Set Carry Flag
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SEH.html">
-      SEH - Set Half Carry Flag
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SEI.html">
-      SEI - Set Global Interrupt Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SEN.html">
-      SEN - Set Negative Flag
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SER.html">
-      SER  - Set all bits in Register
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SES.html">
-      SES  - Set Signed Flag
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SET.html">
-      SET  - Set T Flag
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SEV.html">
-      SEV - Overflow Flag</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SEZ.html">
-      SEZ  - Set Zero Flag
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SLEEP.html">
-      SLEEP- Sleep mode
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SPM.html">
-      SPM  - Store Program Memory</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_ST.html">
-      ST  - Store Indirect From Register to data space using Index X
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_STD.html">ST (STD) - Store Indirect From Register to data space using Index Y</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_STD_Z.html">
-      ST (STD) - Store Indirect From
-  Register to data space using Index Z</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_STS.html">
-      STS  - Store Direct to data space
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_STS_-_Store_Direct_to_SRAM.html">
-      STS - Store
-  Direct to SRAM</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SUB.html">
-      SUB- Subtract without Carry
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SUBI.html">
-      SUBI- Subtract Immediate
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_SWAP.html">
-      SWAP  - Swap Nibbles
-  </a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_TST.html">
-      TST- Test for Zero or Minus</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_WDR.html">
-      WDR - Watchdog Reset
-</a></span></li><li><span class="file"><a tabindex="1" href="avrassembler.wb_XCH.html">
-      XCH - Exchange</a></span></li></ul></li></ul></div></div><div id="searchDiv"><div id="search"><form class="searchForm" name="searchForm" onsubmit="Verifie(searchForm);return false"><div><input tabindex="1" class="searchText" placeholder="Search" type="search" name="textToSearch" id="textToSearch" /> &nbsp; <input tabindex="1" id="doSearch" value="Go" class="searchButton" type="button" onclick="Verifie(searchForm)" /></div></form></div><div id="searchResults"><center /></div><p class="searchHighlight"><a onclick="toggleHighlight()" href="#">Search Highlighter (On/Off)</a></p></div></div></div></div></body></html>
+in two's complement form. (Equivalent to instruction
+     <a class="xref" href="avrassembler.wb_BRBS.html" title="BRBS - Branch if Bit in SREG is Set">
+      BRBS
+     </a>
+     2,k).
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     If N = 1 then PC ← PC + k + 1, else PC ← PC + 1
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     BRMI k -64 ≤ k ≤ +63 PC ← PC + k + 1
+    </p>
+    <p>
+     PC ← PC
++ 1, if condition is false
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          1111
+         </p>
+        </td>
+        <td>
+         <p>
+          00kk
+         </p>
+        </td>
+        <td>
+         <p>
+          kkkk
+         </p>
+        </td>
+        <td>
+         <p>
+          k010
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N13920">
+     </a>
+     Status Register (SREG) and Boolean
+Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <p>
+     subi
+r18,4 ; Subtract 4 from r18
+    </p>
+    <p>
+     brmi
+negative ; Branch if result negative
+    </p>
+    <p>
+     ...
+    </p>
+    <p>
+     negative: nop ; Branch destination (do nothing)
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 1 if condition is false
+    </p>
+    <p>
+     2 if condition is true
+    </p>
+   </div>
+   <script src="../common/main.js" type="text/javascript">
+    <!---->
+   </script>
+   <script src="../common/splitterInit.js" type="text/javascript">
+    <!---->
+   </script>
+   <div class="navfooter">
+    <table summary="Navigation footer" width="100%">
+     <tr>
+      <td align="left" width="40%">
+       <a accesskey="p" href="avrassembler.wb_BRLT.html">
+        Prev
+       </a>
+      </td>
+      <td align="center" width="20%">
+       <a accesskey="u" href="avrassembler.wb_instruction_list.html">
+        Up
+       </a>
+      </td>
+      <td align="right" width="40%">
+       <a accesskey="n" href="avrassembler.wb_BRNE.html">
+        Next
+       </a>
+      </td>
+     </tr>
+     <tr>
+      <td align="left" valign="top" width="40%">
+      </td>
+      <td align="center" width="20%">
+       <a accesskey="h" href="index.html">
+        Home
+       </a>
+      </td>
+      <td align="right" valign="top" width="40%">
+      </td>
+     </tr>
+    </table>
+   </div>
+  </div>
+  <div id="sidebar">
+   <div id="leftnavigation" style="padding-top:3px;">
+    <div id="tabs">
+     <ul>
+      <li>
+       <a href="#treeDiv" style="outline:0;" tabindex="1">
+        <span class="contentsTab">
+         Contents
+        </span>
+       </a>
+      </li>
+      <li>
+       <a href="#searchDiv" onclick="doSearch()" style="outline:0;" tabindex="1">
+        <span class="searchTab">
+         Search
+        </span>
+       </a>
+      </li>
+     </ul>
+     <div id="treeDiv">
+      <img alt="loading table of contents..." id="tocLoading" src="../common/images/loading.gif" style="display:block;"/>
+      <span class="dochome">
+       <a href="../index.html" tabindex="1">
+        Documentation Home
+       </a>
+      </span>
+      <span class="root">
+       <a href="index.html" tabindex="1">
+        AVR Assembler
+       </a>
+      </span>
+      <div id="ulTreeDiv" style="display:none">
+       <ul class="filetree" id="tree">
+        <li>
+         <span class="file">
+          <a href="pr01.html" tabindex="1">
+           Preface
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_Known_Issues.html" tabindex="1">
+           AVR Assembler Known Issues
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_Command_Line_Options.html" tabindex="1">
+           AVR Assembler Command Line Options
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_source.html" tabindex="1">
+           Assembler source
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_Syntax.html" tabindex="1">
+           AVR Assembler Syntax
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_directives.html" tabindex="1">
+           Assembler directives
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_preprocessor.html" tabindex="1">
+           AVR Assembler Preprocessor
+          </a>
+         </span>
+         <ul>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.Introduction.html" tabindex="1">
+             Introduction
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.Preprocessor_directives.html" tabindex="1">
+             Preprocessor directives
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.define.html" tabindex="1">
+             #define
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.undef.html" tabindex="1">
+             #undef
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.ifdef.html" tabindex="1">
+             #ifdef
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.ifndef.html" tabindex="1">
+             #ifndef
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.if.html" tabindex="1">
+             #if and #elif
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.else.html" tabindex="1">
+             #else
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.endif.html" tabindex="1">
+             #endif
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.error.html" tabindex="1">
+             #error, #warning and #message
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.include.html" tabindex="1">
+             #include
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.pragma.html" tabindex="1">
+             #pragma, general purpose
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.pragma_part.html" tabindex="1">
+             #pragma , AVR part related
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.empty.html" tabindex="1">
+             # (empty directive)
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.Operators.html" tabindex="1">
+             Operators
+            </a>
+           </span>
+           <ul>
+            <li>
+             <span class="file">
+              <a href="avrassembler.wb_preprocessor.Stringification.html" tabindex="1">
+               Stringification (#)
+              </a>
+             </span>
+            </li>
+            <li>
+             <span class="file">
+              <a href="avrassembler.wb_preprocessor.Concatenation.html" tabindex="1">
+               Concatenation (##)
+              </a>
+             </span>
+            </li>
+           </ul>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_preprocessor.Pre-defined_macros.html" tabindex="1">
+             Pre-defined macros
+            </a>
+           </span>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_expressions.html" tabindex="1">
+           Expressions
+          </a>
+         </span>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_instructions.html" tabindex="1">
+           Instruction mnemonics
+          </a>
+         </span>
+         <ul>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_instructions.Arithmetic_and_Logic_Instructions.html" tabindex="1">
+             Arithmetic
+    and logic instructions
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_instructions.Branch_Instructions.html" tabindex="1">
+             Branch
+    Instructions
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_instructions.Data_Transfer_Instructions.html" tabindex="1">
+             Data Transfer
+    Instructions
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html" tabindex="1">
+             Bit and
+    Bit-test Instructions
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_registers.html" tabindex="1">
+             I/O Registers
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_nomenclature.html" tabindex="1">
+             Instruction Set Nomenclature:
+            </a>
+           </span>
+          </li>
+         </ul>
+        </li>
+        <li>
+         <span class="file">
+          <a href="avrassembler.wb_instruction_list.html" tabindex="1">
+           Instructions
+          </a>
+         </span>
+         <ul>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ADC.html" tabindex="1">
+             ADC - Add with Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ADD.html" tabindex="1">
+             ADD - Add without Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ADIW.html" tabindex="1">
+             ADIW - Add Immediate to Word
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_AND.html" tabindex="1">
+             AND  - Logical AND
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ANDI.html" tabindex="1">
+             ANDI - Logical AND with Immediateand
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ASR.html" tabindex="1">
+             ASR - Arithmetic Shift Right
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BCLR.html" tabindex="1">
+             BCLR - Bit Clear in SREG
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BLD.html" tabindex="1">
+             BLD - Bit Load from the T Flag in SREG to a Bit in Register.
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRBC.html" tabindex="1">
+             BRBC -  Branch if Bit in SREG is Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRBS.html" tabindex="1">
+             BRBS -  Branch if Bit in SREG is Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRCC.html" tabindex="1">
+             BRCC -  Branch if Carry Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRCS.html" tabindex="1">
+             BRCS -  Branch if Carry Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BREAK.html" tabindex="1">
+             BREAK -  Break
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BREQ.html" tabindex="1">
+             BREQ -  Branch if Equal
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRGE.html" tabindex="1">
+             BRGE - Branch if Greater or Equal Signed)
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRHC.html" tabindex="1">
+             BRHC -  Branch if Half Carry Flag is Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRHS.html" tabindex="1">
+             BRHS - Branch if Half Carry Flag is Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRID.html" tabindex="1">
+             BRID -  Branch if Global Interrupt is Disabled
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRIE.html" tabindex="1">
+             BRIE - Branch if Global Interrupt is Enabled
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRLO.html" tabindex="1">
+             BRLO  - Branch if Lower (Unsigned)
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRLT.html" tabindex="1">
+             BRLT  -  Branch if Less Than (Signed)
+            </a>
+           </span>
+          </li>
+          <li id="webhelp-currentid">
+           <span class="file">
+            <a href="avrassembler.wb_BRMI.html" tabindex="1">
+             BRMI  - Branch if Minus
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRNE.html" tabindex="1">
+             BRNE  - Branch if Not Equal
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRPL.html" tabindex="1">
+             BRPL  - Branch if Plus
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRSH.html" tabindex="1">
+             BRSH  - Branch if Same or Higher (Unsigned)
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRTC.html" tabindex="1">
+             BRTC  -  if the T Flag is Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRTS.html" tabindex="1">
+             BRTS  - Branch if the T Flag is Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRVC.html" tabindex="1">
+             BRVC  - Branch if Overflow Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BRVS.html" tabindex="1">
+             BRVS  - Branch if Overflow Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BSET.html" tabindex="1">
+             BSET - Bit Set in SREG
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_BST.html" tabindex="1">
+             BST  - Bit Store from Bit in Register to T Flag in SREG
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CALL.html" tabindex="1">
+             CALL  - Long Call to a Subroutine
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CBI.html" tabindex="1">
+             CBI - Clear Bit in I/O Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CBR.html" tabindex="1">
+             CBR  - Clear Bits in Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLC.html" tabindex="1">
+             CLC  - Clear Carry Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLH.html" tabindex="1">
+             CLH - Clear Half Carry Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLI.html" tabindex="1">
+             CLI  - Clear Global Interrupt Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLN.html" tabindex="1">
+             CLN  - Clear Negative Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLR.html" tabindex="1">
+             CLR - Clear Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLS.html" tabindex="1">
+             CLS - Clear Signed Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLT.html" tabindex="1">
+             CLT  - Clear T Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLV.html" tabindex="1">
+             CLV - Clear Overflow Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CLZ.html" tabindex="1">
+             CLZ  - Clear Zero Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_COM.html" tabindex="1">
+             COM- One's Complement
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CP.html" tabindex="1">
+             CP- Compare
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CPC.html" tabindex="1">
+             CPC- Compare with Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CPI.html" tabindex="1">
+             CPI- Compare with Immediate
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_CPSE.html" tabindex="1">
+             CPSE- Compare Skip if Equal
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_DEC.html" tabindex="1">
+             DEC- Decrement
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_EICALL.html" tabindex="1">
+             EICALL  - Extended Indirect Call to Subroutine
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_EIJMP.html" tabindex="1">
+             EIJMP - Extended Indirect Jump
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ELPM.html" tabindex="1">
+             ELPM - Extended Load Program Memory
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_EOR.html" tabindex="1">
+             EOR - Exclusive OR
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_FMUL.html" tabindex="1">
+             FMUL- Fractional Multiply Unsigned
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_FMULS.html" tabindex="1">
+             FMULS - Fractional Multiply Signed
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_FMULSU.html" tabindex="1">
+             FMULSU - Fractional Multiply Signed with Unsigned
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ICALL.html" tabindex="1">
+             ICALL - Indirect Call to Subroutine
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_IJMP.html" tabindex="1">
+             IJMP - Indirect Jump
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_IN.html" tabindex="1">
+             IN - Load an I/O Location to Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_INC.html" tabindex="1">
+             INC- Increment
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_JMP.html" tabindex="1">
+             JMP - Jump
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LD.html" tabindex="1">
+             LD - Load Indirect from data space to Register using Index X
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LAT.html" tabindex="1">
+             LAT - Load and Toggle
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LAS.html" tabindex="1">
+             LAS - Load and Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LAC.html" tabindex="1">
+             LAC - Load and Clear
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LDD.html" tabindex="1">
+             LD (LDD)- Load Indirect from data space
+  to Register using Index Y
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LDD_Z.html" tabindex="1">
+             LD (LDD) - Load Indirect From data
+  space to Register using Index Z
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LDI.html" tabindex="1">
+             LDI - Load Immediate
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LDS.html" tabindex="1">
+             LDS - Load Direct from data space
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LDS_-_Load_direct_from_SRAM.html" tabindex="1">
+             LDS - Load Direct from SRAM
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LPM.html" tabindex="1">
+             LPM - Load Program Memory
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LSL.html" tabindex="1">
+             LSL- Logical Shift Left
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_LSR.html" tabindex="1">
+             LSR- Logical Shift Right
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_MOV.html" tabindex="1">
+             MOV - Copy Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_MOVW.html" tabindex="1">
+             MOVW - Copy Register Word
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_MUL.html" tabindex="1">
+             MUL- Multiply Unsigned
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_MULS.html" tabindex="1">
+             MULS - Multiply Signed
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_MULSU.html" tabindex="1">
+             MULSU - Multiply Signed with Unsigned
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_NEG.html" tabindex="1">
+             NEG- Two's Complement
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_NOP.html" tabindex="1">
+             NOP - No Operation
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_OR.html" tabindex="1">
+             OR- Logical OR
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ORI.html" tabindex="1">
+             ORI- Logical OR with Immediate
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_OUT.html" tabindex="1">
+             OUT - Store Register to I/O Location
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_POP.html" tabindex="1">
+             POP - Pop Register from Stack
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_PUSH.html" tabindex="1">
+             PUSH - Push Register on Stack
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_RCALL.html" tabindex="1">
+             RCALL - Relative Call to Subroutine
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_RET.html" tabindex="1">
+             RET - Return from Subroutine
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_RETI.html" tabindex="1">
+             RETI - Return from Interrupt
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_RJMP.html" tabindex="1">
+             RJMP- Relative Jump
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ROL.html" tabindex="1">
+             ROL- Rotate Left trough Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ROR.html" tabindex="1">
+             ROR- Rotate Right through Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBC.html" tabindex="1">
+             SBC- Subtract with Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBCI.html" tabindex="1">
+             SBCI- Subtract Immediate with Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBI.html" tabindex="1">
+             SBI - Set Bit in I/O Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBIC.html" tabindex="1">
+             SBIC - Skip if Bit in I/O Register is Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBIS.html" tabindex="1">
+             SBIS - Skip if Bit in I/O Register is Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBIW.html" tabindex="1">
+             SBIW - Subtract Immediate from Word
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBR.html" tabindex="1">
+             SBR- Set Bits in Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBRC.html" tabindex="1">
+             SBRC - Skip if Bit in Register is Cleared
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SBRS.html" tabindex="1">
+             SBRS - Skip if Bit in Register is Set
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SEC.html" tabindex="1">
+             SEC - Set Carry Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SEH.html" tabindex="1">
+             SEH - Set Half Carry Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SEI.html" tabindex="1">
+             SEI - Set Global Interrupt Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SEN.html" tabindex="1">
+             SEN - Set Negative Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SER.html" tabindex="1">
+             SER  - Set all bits in Register
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SES.html" tabindex="1">
+             SES  - Set Signed Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SET.html" tabindex="1">
+             SET  - Set T Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SEV.html" tabindex="1">
+             SEV - Overflow Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SEZ.html" tabindex="1">
+             SEZ  - Set Zero Flag
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SLEEP.html" tabindex="1">
+             SLEEP- Sleep mode
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SPM.html" tabindex="1">
+             SPM  - Store Program Memory
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_ST.html" tabindex="1">
+             ST  - Store Indirect From Register to data space using Index X
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_STD.html" tabindex="1">
+             ST (STD) - Store Indirect From Register to data space using Index Y
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_STD_Z.html" tabindex="1">
+             ST (STD) - Store Indirect From
+  Register to data space using Index Z
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_STS.html" tabindex="1">
+             STS  - Store Direct to data space
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_STS_-_Store_Direct_to_SRAM.html" tabindex="1">
+             STS - Store
+  Direct to SRAM
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SUB.html" tabindex="1">
+             SUB- Subtract without Carry
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SUBI.html" tabindex="1">
+             SUBI- Subtract Immediate
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_SWAP.html" tabindex="1">
+             SWAP  - Swap Nibbles
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_TST.html" tabindex="1">
+             TST- Test for Zero or Minus
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_WDR.html" tabindex="1">
+             WDR - Watchdog Reset
+            </a>
+           </span>
+          </li>
+          <li>
+           <span class="file">
+            <a href="avrassembler.wb_XCH.html" tabindex="1">
+             XCH - Exchange
+            </a>
+           </span>
+          </li>
+         </ul>
+        </li>
+       </ul>
+      </div>
+     </div>
+     <div id="searchDiv">
+      <div id="search">
+       <form class="searchForm" name="searchForm" onsubmit="Verifie(searchForm);return false">
+        <div>
+         <input class="searchText" id="textToSearch" name="textToSearch" placeholder="Search" tabindex="1" type="search"/>
+         <input class="searchButton" id="doSearch" onclick="Verifie(searchForm)" tabindex="1" type="button" value="Go"/>
+        </div>
+       </form>
+      </div>
+      <div id="searchResults">
+       <center>
+       </center>
+      </div>
+      <p class="searchHighlight">
+       <a href="#" onclick="toggleHighlight()">
+        Search Highlighter (On/Off)
+       </a>
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
