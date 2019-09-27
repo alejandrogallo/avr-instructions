@@ -490,8 +490,6 @@
      - reserve bytes
   for a variable
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.BYTE">
-    </a>
     <p>
      The BYTE directive reserves memory resources in the SRAM or EEPROM. In
   order to be able to refer to the reserved location, the BYTE directive
@@ -549,8 +547,6 @@ ld r1,Z ; Load VAR1 into register 1</pre>
      </abbr>
      - Code segment
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.CSEG">
-    </a>
     <p>
      The CSEG directive defines the start of a Code Segment. An Assembler
   file can consist of several Code Segments, which are concatenated into one
@@ -597,8 +593,6 @@ mov r1,r0 ; Do something</pre>
      </abbr>
      - Program Memory Size
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.CSEGSIZE">
-    </a>
     <p>
      <span class="productname">
       AT94K
@@ -642,8 +636,6 @@ mov r1,r0 ; Do something</pre>
      - Define constant byte(s) in program memory and
   EEPROM
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.DB">
-    </a>
     <p>
      The DB directive reserves memory resources in the program memory or
   the EEPROM memory. In order to be able to refer to the reserved locations,
@@ -708,8 +700,6 @@ const2: .DB 1,2,3</pre>
      </abbr>
      - Set a symbolic name on a register
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.DEF">
-    </a>
     <p>
      The DEF directive allows the registers to be referred to through
   symbols. A defined symbol can be used in the rest of the program to refer to
@@ -753,8 +743,6 @@ eor temp,ior ; Exclusive or temp and ior</pre>
      - Undefine a register symbolic
   name
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.UNDEF">
-    </a>
     <p>
      'The UNDEF directive is used to undefine a symbol previously defined
   with the
@@ -800,8 +788,6 @@ ldi var1, 0x20
      </abbr>
      - Data Segment
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.DSEG">
-    </a>
     <p>
      The DSEG directive defines the start of a Data segment. An assembler
   source file can consist of several data segments, which are concatenated
@@ -849,8 +835,6 @@ ld r1,Z ; Load var1 into register 1</pre>
      - Define constant word(s) in program memory and
   EEPROM
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.DW">
-    </a>
     <p>
      The DW directive reserves memory resources in the program memory or
   the EEPROM memory. In order to be able to refer to the reserved locations,
@@ -900,8 +884,6 @@ eevarlst: .DW 0,0xffff,10</pre>
      - Define constant doubleword(s) in program memory and
   EEPROM
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.DD">
-    </a>
     <h2>
      <a id="avrassembler.wb_directives.DQ">
      </a>
@@ -913,8 +895,6 @@ eevarlst: .DW 0,0xffff,10</pre>
      - Define constant quadword(s) in program memory and
   EEPROM
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.DQ">
-    </a>
     <p>
      These directives are very similar to the
      <a class="link" href="avrassembler.wb_directives.html#avrassembler.wb_directives.DW" title="DW - Define constant word(s) in program memory and EEPROM">
@@ -961,10 +941,6 @@ eevarlst: .DQ 0,0xfadebabedeadbeef, 1 &lt;&lt; 62</pre>
      </abbr>
      - conditional assembly
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ELIF">
-    </a>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ELSE">
-    </a>
     <p>
      .ELIF will include code until the corresponding ENDIF of the next ELIF
   at the same level if the expression is true, and both the initial .IF clause
@@ -1026,8 +1002,6 @@ eevarlst: .DQ 0,0xfadebabedeadbeef, 1 &lt;&lt; 62</pre>
      </abbr>
      - conditional assembly
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ENDIF">
-    </a>
     <p>
      Conditional assembly includes a set of commands at assembly time. The
   ENDIF directive defines the end for the conditional IF or IFDEF or IFNDEF
@@ -1087,10 +1061,6 @@ eevarlst: .DQ 0,0xfadebabedeadbeef, 1 &lt;&lt; 62</pre>
      </abbr>
      - End macro
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ENDM">
-    </a>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ENDMACRO">
-    </a>
     <p>
      The ENDMACRO directive defines the end of a macro definition. The
   directive does not take any parameters. See the MACRO directive for more
@@ -1133,8 +1103,6 @@ sbci r17,high(@0) ; Subtract high byte
      </abbr>
      - Set a symbol equal to an expression
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.EQU">
-    </a>
     <p>
      The EQU directive assigns a value to a label. This label can then be
   used in later expressions. A label assigned to a value by the EQU directive
@@ -1173,8 +1141,6 @@ out porta,r2 ; Write to Port A</pre>
      </abbr>
      - Outputs an error message string
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ERROR">
-    </a>
     <p>
      The ERROR directive outputs a string and halts the assembling. May be
   used in conditional assembly.
@@ -1212,8 +1178,6 @@ out porta,r2 ; Write to Port A</pre>
      - Outputs a warning message
   string
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.WARNING">
-    </a>
     <p>
      The .WARNING directive outputs a warning string, but unlike the .ERROR
   directive does not halt assembling. May be used in conditional
@@ -1251,8 +1215,6 @@ out porta,r2 ; Write to Port A</pre>
      </abbr>
      - EEPROM Segment
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ESEG">
-    </a>
     <p>
      The ESEG directive defines the start of an EEPROM segment. An
   assembler source file can consist of several EEPROM segments, which are
@@ -1297,8 +1259,6 @@ eevar1: .DW 0xffff ; initialize 1 word in EEPROM</pre>
      </abbr>
      - Exit this file
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.EXIT">
-    </a>
     <p>
      The EXIT directive tells the Assembler to stop assembling the file.
   Normally, the Assembler runs until end of file (EOF). If an EXIT directive
@@ -1335,8 +1295,6 @@ eevar1: .DW 0xffff ; initialize 1 word in EEPROM</pre>
      </abbr>
      - Include another file
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.INCLUDE">
-    </a>
     <p>
      The INCLUDE directive tells the Assembler to start reading
   from a specified file. The Assembler then assembles the specified
@@ -1385,12 +1343,6 @@ in r0,sreg ; Read status register</pre>
      </abbr>
      - conditional assembly
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.IF">
-    </a>
-    <a class="indexterm" id="VsIde.Assembler.Directives.IFDEF">
-    </a>
-    <a class="indexterm" id="VsIde.Assembler.Directives.IFNDEF">
-    </a>
     <p>
      Conditional assembly includes a set of commands at assembly time. The
   IFDEF directive will include code till the corresponding ELSE directive if
@@ -1462,8 +1414,6 @@ sts @0, @2
      </abbr>
      - Turn the listfile generation on
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.LIST">
-    </a>
     <p>
      The LIST directive tells the Assembler to turn listfile generation on.
   The Assembler generates a listfile which is a combination of assembly source
@@ -1505,8 +1455,6 @@ sts @0, @2
      </abbr>
      - Turn macro expansion on
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.LISTMAC">
-    </a>
     <p>
      The LISTMAC directive tells the Assembler that when a macro is called,
   the expansion of the macro is to be shown on the listfile generated by the
@@ -1550,8 +1498,6 @@ MACX r2,r1 ; Call macro, show expansion</pre>
      </abbr>
      - Begin macro
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.MACRO">
-    </a>
     <p>
      The MACRO directive tells the Assembler that this is the start of a
   Macro. The MACRO directive takes the Macro name as parameter. When the name
@@ -1603,8 +1549,6 @@ SUBI16 0x1234,r16,r17 ; Sub.0x1234 from r17:r16</pre>
      </abbr>
      - Output a message string
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.MESSAGE">
-    </a>
     <p>
      The MESSAGE directive outputs a string. Useful in conditional
   assembly.
@@ -1641,8 +1585,6 @@ SUBI16 0x1234,r16,r17 ; Sub.0x1234 from r17:r16</pre>
      </abbr>
      - Turn listfile generation off
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.NOLIST">
-    </a>
     <p>
      The NOLIST directive tells the Assembler to turn listfile generation
   off. The Assembler normally generates a listfile which is a combination of
@@ -1684,8 +1626,6 @@ SUBI16 0x1234,r16,r17 ; Sub.0x1234 from r17:r16</pre>
      </abbr>
      - Set program origin
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.ORG">
-    </a>
     <p>
      The ORG directive sets the location counter to an absolute value. The
   value to set is given as a parameter. If an ORG directive is given within a
@@ -1739,8 +1679,6 @@ mov r0,r1 ; Do something</pre>
      </abbr>
      - Set a symbol equal to an expression
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.SET">
-    </a>
     <p>
      The SET directive assigns a value to a label. This label can then be
   used in later expressions. Unlike the
@@ -1783,10 +1721,6 @@ lds r1, FOO ; load next location into r1</pre>
      </abbr>
      - Set up overlapping section
     </h2>
-    <a class="indexterm" id="VsIde.Assembler.Directives.OVERLAP">
-    </a>
-    <a class="indexterm" id="VsIde.Assembler.Directives.NOOVERLAP">
-    </a>
     <p>
      Introduced in AVRASM 2.1. These directives are for projects with
   special needs and should normally not be used.
