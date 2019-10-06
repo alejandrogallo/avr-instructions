@@ -1,0 +1,35 @@
+AVR Assembler Assembler source
+==============================
+
+The Assembler works on source files containing instruction mnemonics, labels and directives. The instruction mnemonics and the directives often take operands.Code lines should be limited to 120 characters.
+
+Every input line can be preceded by a label, which is an alphanumeric string terminated by a colon. Labels are used as targets for jump and branch instructions and as variable names in Program memory and RAM.
+
+In input line may take one of the four following forms:
+
+<span class="bold"> **`         [label:] instruction [operands]   [Comment]        `** </span>
+
+<span class="bold"> **`         [label:] directive [operands]   [Comment]        `** </span>
+
+<span class="bold"> **`         Comment        `** </span>
+
+<span class="bold"> **`         Empty line        `** </span>
+
+A comment has the following form:
+
+<span class="bold"> **`         ; [Text]        `** </span>
+
+Items placed in braces are optional. The text between the comment-delimiter (;) and the end of line (EOL) is ignored by the Assembler. Labels, instructions and directives are described in more detail later. See also <a href="avrassembler.wb_Syntax.html" class="xref" title="AVR Assembler Syntax">AVR Assembler Syntax</a> .
+
+<a href="" id="N10239"></a> Examples:
+-------------------------------------
+
+``` programlisting
+label:  .EQU var1=100 ; Set var1 to 100 (Directive)         
+        .EQU var2=200 ; Set var2 to 200 
+                                                              
+test:   rjmp test ; Infinite loop (Instruction)
+        ; Pure comment line 
+                       
+        ; Another comment line 
+```

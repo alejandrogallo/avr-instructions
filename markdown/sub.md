@@ -1,0 +1,76 @@
+AVR Assembler Instructions
+==========================
+
+SUB - Subtract without Carry
+----------------------------
+
+### <a href="" id="N1A01B"></a> Description:
+
+Subtracts two registers and places the result in the destination register Rd.
+
+Operation:
+
+(i)Rd ← Rd - Rr
+
+Syntax: Operands: Program Counter:
+
+(i)SUB Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31 PC ← PC + 1
+
+16-bit Opcode:
+
+|      |      |      |      |
+|------|------|------|------|
+| 0001 | 10rd | dddd | rrrr |
+
+### <a href="" id="N1A04E"></a> Status Register and Boolean Formula:
+
+| I   | T   | H   | S   | V   | N   | Z   | C   |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
+
+H:
+
+$\\overline{Rd3} {Rr3} + {Rr3} {R3}+{R3} \\overline{Rd3}$
+
+Set if there was a borrow from bit 3; cleared otherwise
+
+S: N ⊕ V, For signed tests.
+
+V:
+
+${Rd7}{Rd7} \\overline{Rr7} \\overline{R7} + \\overline{Rd7} {Rr7} {R7}$
+
+Set if two’s complement overflow resulted from the operation; cleared otherwise.
+
+N:R7
+
+Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\\overline{R7} \\overline{R6} \\overline{R5} \\overline{R4}$
+
+$\\overline{R3} \\overline{R2} \\overline{R1} \\overline{R0}$
+
+Set if the result is $00; cleared otherwise.
+
+C:
+
+$\\overline{Rd7} {Rr7} + {Rr7} {R7} + {R7} \\overline{Rd7}$
+
+Set if the absolute value of the contents of Rr is larger than the absolute value of Rd; cleared otherwise.
+
+R (Result) equals Rd after the operation.
+
+Example:
+
+``` programlisting
+sub r13,r12 ; Subtract r12 from r13
+brne noteq ; Branch if r12⇔r13
+...
+noteq: nop ; Branch destination (do nothing)
+```
+
+Words: 1 (2 bytes)
+
+Cycles: 1

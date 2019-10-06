@@ -1,0 +1,69 @@
+AVR Assembler Instructions
+==========================
+
+ASR - Arithmetic Shift Right
+----------------------------
+
+### <a href="" id="N12BF3"></a> Description:
+
+Shifts all bits in Rd one place to the right. Bit 7 is held constant. Bit 0 is loaded into the C flag of the SREG. This operation effectively divides a signed value by two without changing its sign. The carry flag can be used to round the result.
+
+Operation:
+
+(i)
+
+Syntax: Operands: ProgramCounter:
+
+(i)ASR R d0 ≤ d ≤ 31 PC ← PC + 1
+
+16-bit Opcode:
+
+|      |      |      |      |
+|------|------|------|------|
+| 1001 | 010d | dddd | 0101 |
+
+### <a href="" id="N12C2B"></a> Status Register (SREG) and BooleanFormulae:
+
+| I   | T   | H   | S   | V   | N   | Z   | C   |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| -   | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
+
+S: N ⊕ V,
+
+For signed tests.
+
+V:N ⊕ C
+
+(For N and C after the shift)
+
+N:R7
+
+Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\\overline{R7} \\overline{R6} \\overline{R5} \\overline{R4}$
+
+$\\overline{R3} \\overline{R2} \\overline{R1} \\overline{R0}$
+
+Set if the result is $00; cleared otherwise.
+
+C:Rd0
+
+Set if, before the shift, the LSB of Rd was set; cleared otherwise.
+
+R (Result) equals Rd after the operation.
+
+Example:
+
+``` programlisting
+      ldi 16,$10 ; Load decimal 16 into r16
+      asr r16; r16=r16 / 2
+      ldi r17,$FC ; Load -4 in r17
+      asr r17; r17=r17/2
+      
+```
+
+Words: 1 (2 bytes)
+
+Cycles: 1

@@ -1,0 +1,76 @@
+AVR Assembler Instructions
+==========================
+
+ADD - Add without Carry
+-----------------------
+
+### <a href="" id="N125BD"></a> Description:
+
+Adds two registers without the C flag and places the result in the destination register Rd.
+
+Operation:
+
+Rd ← Rd + Rr
+
+Syntax: Operands: Program Counter:
+
+ADD Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31, PC ← PC + 1
+
+16-bit Opcode:
+
+|      |      |      |      |
+|------|------|------|------|
+| 0000 | 11rd | dddd | rrrr |
+
+### <a href="" id="N125F0"></a> Status Register (SREG) and Boolean Formulae:
+
+| I   | T   | H   | S   | V   | N   | Z   | C   |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
+
+H:
+
+${Rd3} {Rr3} + {Rr3} \\overline{R3}+\\overline{R3} {Rd3}$
+
+Set if there was a carry from bit 3; cleared otherwise
+
+S: N ⊕ V,
+
+For signed tests.
+
+V:
+
+${Rd7} {Rr7} \\overline{R7} + \\overline{Rd7} \\overline{Rr7} {R7}$
+
+Set if two’s complement overflow resulted from the operation; cleared otherwise.
+
+N: R7
+
+Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\\overline{R7} \\overline{R6} \\overline{R5} \\overline{R4}$
+
+$\\overline{R3} \\overline{R2} \\overline{R1} \\overline{R0}$
+
+Set if the result is $00; cleared otherwise.
+
+C:
+
+${Rd7} {Rr7} + {Rr7} \\overline{R7} + \\overline{R7} {Rd7}$
+
+Set if there was carry from the MSB of the result; cleared otherwise.
+
+R (Result) equals Rd after the operation.
+
+Example:
+
+``` programlisting
+add r1,r2 ; Add r2 to r1 (r1=r1+r2)
+add r28, r28 ; Add r28 to itself (r28=r28+r28)
+```
+
+Words: 1 (2 bytes)
+
+Cycles: 1

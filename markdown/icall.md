@@ -1,0 +1,57 @@
+AVR Assembler Instructions
+==========================
+
+ICALL - Indirect Call to Subroutine
+-----------------------------------
+
+### <a href="" id="N15DC3"></a> Description:
+
+Indirect call of a subroutine pointed to by the Z (16 bits) pointer register in the register file. The Z pointer register is 16 bits wide and allows call to a subroutine within the lowest 64K words (128K bytes) section in the program memory space. The stack pointer uses a post-decrement scheme during ICALL.
+
+This instruction is not available in all devices. Refer to the device specific instruction set summary.
+
+Operation:
+
+(i) PC(15:0) ← Z(15:0)Devices with 16 bits PC, 128K bytes program memory maximum.
+
+(ii) PC(15:0) ← Z(15:0)Devices with 22 bits PC, 8M bytes program memory maximum.
+
+PC(21:16) ← 0
+
+Syntax: Operands: Program Counter: Stack:
+
+(i) ICALL None See Operation STACK ← PC + 1
+
+SP ← SP - 2 (2 bytes, 16 bits)
+
+(ii)ICALL None See Operation STACK ← PC + 1
+
+SP ← SP - 3 (3 bytes, 22 bits)
+
+16-bit Opcode:
+
+|      |      |      |      |
+|------|------|------|------|
+| 1001 | 0101 | 0000 | 1001 |
+
+### <a href="" id="N15E02"></a> Status Register (SREG) and Boolean Formula:
+
+| I   | T   | H   | S   | V   | N   | Z   | C   |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| -   | -   | -   | -   | -   | -   | -   | -   |
+
+Example:
+
+``` programlisting
+mov r30,r0 ; Set offset to call table
+icall ; Call routine pointed to by r31:r30
+```
+
+Words:1 (2 bytes)
+
+Cycles:
+
+|                        | Cycles | Cycles xmega |
+|------------------------|--------|--------------|
+| Devices with 16-bit PC | 3      | 2            |
+| Devices with 22-bit PC | 4      | 3            |
