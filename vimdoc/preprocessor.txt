@@ -1,0 +1,47 @@
+*preprocessor.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                    |preprocessor-introduction|
+ 2. References                                        |preprocessor-references|
+
+===============================================================================
+                                                    *preprocessor-introduction*
+Introduction ~
+
+**Table of Contents**
+
+Introduction [1] Preprocessor directives [2] #define [3] #undef [4] #ifdef [5]
+#ifndef [6] #if and #elif [7] #else [8] #endif [9] #error, #warning and
+#message [10] #include [11] #pragma, general purpose [12] #pragma , AVR part
+related [13] # (empty directive) [14] Operators [15] Pre-defined macros [16]
+
+``` | | |----------------------------------------------------------------------
+-------------------------------------------------------------------------------
+--------------| | the section called “Introduction” [1] | | the section called
+“Preprocessor directives” [2] | | the section called “Operators” [15] | | the
+section called “Pre-defined macros” [16] |
+
+===============================================================================
+                                                      *preprocessor-references*
+References ~
+
+[1] avrassembler.wb_preprocessor.Introduction.html
+[2] avrassembler.wb_preprocessor.Preprocessor_directives.html
+[3] avrassembler.wb_preprocessor.define.html
+[4] avrassembler.wb_preprocessor.undef.html
+[5] avrassembler.wb_preprocessor.ifdef.html
+[6] avrassembler.wb_preprocessor.ifndef.html
+[7] avrassembler.wb_preprocessor.if.html
+[8] avrassembler.wb_preprocessor.else.html
+[9] avrassembler.wb_preprocessor.endif.html
+[10] avrassembler.wb_preprocessor.error.html
+[11] avrassembler.wb_preprocessor.include.html
+[12] avrassembler.wb_preprocessor.pragma.html
+[13] avrassembler.wb_preprocessor.pragma_part.html
+[14] avrassembler.wb_preprocessor.empty.html
+[15] avrassembler.wb_preprocessor.Operators.html
+[16] avrassembler.wb_preprocessor.Pre-defined_macros.html
+
+vim: ft=help

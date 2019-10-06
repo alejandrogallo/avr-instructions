@@ -1,0 +1,44 @@
+*preprocessor.ifdef.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                              |preprocessor.ifdef-introduction|
+ 2. #ifdef                                           |preprocessor.ifdef-ifdef|
+  1. Syntax                                         |preprocessor.ifdef-syntax|
+  2. Description                               |preprocessor.ifdef-description|
+  3. Example                                       |preprocessor.ifdef-example|
+
+===============================================================================
+                                              *preprocessor.ifdef-introduction*
+Introduction ~
+
+===============================================================================
+                                                     *preprocessor.ifdef-ifdef*
+#ifdef ~
+
+-------------------------------------------------------------------------------
+                                                    *preprocessor.ifdef-syntax*
+Syntax ~
+
+'#ifdef name'
+
+-------------------------------------------------------------------------------
+                                               *preprocessor.ifdef-description*
+Description ~
+
+All following lines until the corresponding '#endif' , '#else' , or '#elif' are
+conditionally assembled if name is previously #defined. Shorthand for #if
+defined(name)
+
+-------------------------------------------------------------------------------
+                                                   *preprocessor.ifdef-example*
+Example ~
+>
+  #ifdef FOO
+  // do something
+  #endif
+<
+
+
+vim: ft=help

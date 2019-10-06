@@ -1,0 +1,59 @@
+*nop.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |nop-introduction|
+ 2. NOP - No Operation                                       |nop-no-operation|
+  1. Description:                                             |nop-description|
+  2. Status Register (SREG) and Boolean Formula: |nop-status-register-boolean-formula|
+
+===============================================================================
+                                                             *nop-introduction*
+Introduction ~
+
+===============================================================================
+                                                             *nop-no-operation*
+NOP - No Operation ~
+
+-------------------------------------------------------------------------------
+                                                              *nop-description*
+Description: ~
+
+This instruction performs a single cycle No Operation.
+
+Operation:
+
+(i)No
+
+Syntax: Operands: Program Counter:
+
+(i) NOP None PC â†? PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 0000 | 0000 | 0000 | 0000 |
+<
+-------------------------------------------------------------------------------
+                                          *nop-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  clr r16 ; Clear r16
+  ser r17 ; Set r17
+  out$18,r16 ; Write zeros to Port B
+  nop ; Wait (do nothing)
+  out$18,r17 ; Write ones to Port B
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

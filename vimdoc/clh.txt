@@ -1,0 +1,59 @@
+*clh.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |clh-introduction|
+ 2. CLH - Clear Half Carry Flag                     |clh-clear-half-carry-flag|
+  1. Description:                                             |clh-description|
+  2. Status Register (SREG) and Boolean Formula: |clh-status-register-boolean-formula|
+
+===============================================================================
+                                                             *clh-introduction*
+Introduction ~
+
+===============================================================================
+                                                    *clh-clear-half-carry-flag*
+CLH - Clear Half Carry Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *clh-description*
+Description: ~
+
+Clears the Half Carry flag (H) in SREG (status register).
+
+Operation:
+
+(i) H ← 0
+
+Syntax: Operands: Program Counter:
+
+(i) CLH None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1101 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *clh-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | 0   | -   | -   | -   | -   | -   |
+<
+H: 0
+
+Half Carry flag cleared
+
+Example:
+>
+  clh; Clear the Half Carry flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

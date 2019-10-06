@@ -1,0 +1,58 @@
+*clz.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |clz-introduction|
+ 2. CLZ - Clear Zero Flag                                 |clz-clear-zero-flag|
+  1. Description:                                             |clz-description|
+  2. Status Register (SREG) and Boolean Formula: |clz-status-register-boolean-formula|
+
+===============================================================================
+                                                             *clz-introduction*
+Introduction ~
+
+===============================================================================
+                                                          *clz-clear-zero-flag*
+CLZ - Clear Zero Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *clz-description*
+Description: ~
+
+Clears the Zero flag (Z) in SREG (status register).
+
+Operation:
+
+Z ← 0
+
+Syntax: Operands: Program Counter:
+
+CLZ None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1001 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *clz-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | 0   | -   |
+<
+Z: 0 Zero flag cleared
+
+Example:
+>
+  add r2,r3 ; Add r3 to r2
+  clz; Clear zero
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

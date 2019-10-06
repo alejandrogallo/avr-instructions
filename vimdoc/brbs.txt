@@ -1,0 +1,65 @@
+*brbs.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brbs-introduction|
+ 2. BRBS - Branch if Bit in SREG is Set     |brbs-branch-if-bit-in-sreg-is-set|
+  1. Description:                                            |brbs-description|
+  2. Status Register (SREG) and Boolean Formulae: |brbs-status-register-boolean-formulae|
+
+===============================================================================
+                                                            *brbs-introduction*
+Introduction ~
+
+===============================================================================
+                                            *brbs-branch-if-bit-in-sreg-is-set*
+BRBS - Branch if Bit in SREG is Set ~
+
+-------------------------------------------------------------------------------
+                                                             *brbs-description*
+Description: ~
+
+Conditional relative branch. Tests a single bit in SREG and branches relatively
+to PC if the bit is set. This instruction branches relatively to PC in either
+direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the offset from
+PC and is represented in two’s complement form.
+
+Operation:
+
+If SREG(s) = 1 then PC ← PC + k + 1, else PC ← PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRBS s,k 0 ≤ s ≤ 7, -64 ≤ k ≤ +63 PC <- PC + k + 1
+
+PC <- PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | ksss |
+<
+-------------------------------------------------------------------------------
+                                        *brbs-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  bstr 0,3 ; Load T bit with bit 3 of r0
+  brbs 6, bitset ; Branch T bit was set
+  ...
+  bitset: nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+vim: ft=help

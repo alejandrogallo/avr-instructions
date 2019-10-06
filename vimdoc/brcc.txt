@@ -1,0 +1,73 @@
+*brcc.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brcc-introduction|
+ 2. BRCC - Branch if Carry Cleared               |brcc-branch-if-carry-cleared|
+  1. Description:                                            |brcc-description|
+  2. Status Register (SREG) and Boolean Formulae: |brcc-status-register-boolean-formulae|
+ 3. References                                                |brcc-references|
+
+===============================================================================
+                                                            *brcc-introduction*
+Introduction ~
+
+===============================================================================
+                                                 *brcc-branch-if-carry-cleared*
+BRCC - Branch if Carry Cleared ~
+
+-------------------------------------------------------------------------------
+                                                             *brcc-description*
+Description: ~
+
+Conditional relative branch. Tests the Carry flag (C) and branches relatively
+to PC if C is cleared. This instruction branches relatively to PC in either
+direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the offset from
+PC and is represented in two’s complement form. (Equivalent to instruction BRBC
+[1] 0,k).
+
+Operation:
+
+If C = 0 then PC <- PC + k + 1, else PC <- PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRCC k -64 ≤ k ≤ +63 PC <- PC + k + 1
+
+PC <- PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 01kk | kkkk | k000 |
+<
+-------------------------------------------------------------------------------
+                                        *brcc-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  add r22,r23 ; Add r23 to r22
+  brcc nocarry ; Branch if carry cleared
+   ...
+  nocarry: nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *brcc-references*
+References ~
+
+[1] avrassembler.wb_BRBC.html
+
+vim: ft=help

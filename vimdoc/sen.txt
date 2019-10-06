@@ -1,0 +1,67 @@
+*sen.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |sen-introduction|
+ 2. SEN - Set Negative Flag                             |sen-set-negative-flag|
+  1. Description:                                             |sen-description|
+  2. Status Register (SREG) and Boolean Formula: |sen-status-register-boolean-formula|
+ 3. References                                                 |sen-references|
+
+===============================================================================
+                                                             *sen-introduction*
+Introduction ~
+
+===============================================================================
+                                                        *sen-set-negative-flag*
+SEN - Set Negative Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *sen-description*
+Description: ~
+
+Sets the Negative flag (N) in SREG [1] (status register).
+
+Operation:
+
+(i) N â†? 1
+
+Syntax: Operands: Program Counter:
+
+(i) SEN None PC â†? PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0010 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *sen-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | 1   | -   | -   |
+<
+N: 1
+
+Negative flag set
+
+Example:
+>
+  add r2,r19 ; Add r19 to r2
+  sen ; Set negative flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *sen-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

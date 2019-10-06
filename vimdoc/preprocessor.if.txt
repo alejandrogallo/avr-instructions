@@ -1,0 +1,74 @@
+*preprocessor.if.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                 |preprocessor.if-introduction|
+  1. #if and #elif                                    |preprocessor.if-if-elif|
+   1. Syntax                                           |preprocessor.if-syntax|
+   2. Description                                 |preprocessor.if-description|
+   3. Examples                                       |preprocessor.if-examples|
+ 2. if defined(**ATmega48**) || defined(**ATmega88**) |preprocessor.if-if-defined-defined|
+ 3. elif defined (**ATmega169**)                 |preprocessor.if-elif-defined|
+ 4. endif // device specific code  |preprocessor.if-endif-device-specific-code|
+
+===============================================================================
+                                                 *preprocessor.if-introduction*
+Introduction ~
+
+-------------------------------------------------------------------------------
+                                                      *preprocessor.if-if-elif*
+#if and #elif ~
+
+-------------------------------------------------------------------------------
+                                                       *preprocessor.if-syntax*
+Syntax ~
+
+'#if condition'
+
+'#elif condition'
+
+-------------------------------------------------------------------------------
+                                                  *preprocessor.if-description*
+Description ~
+
+All following lines until the corresponding '#endif' , '#else' , or '#elif' are
+conditionally assembled if condition is true (not equal to 0). condition may be
+any integer expression, including preprocessor macros which are expanded. _The
+preprocessor recognizes the special operator defined(name)that returns 1 if
+name is '#define' d and 0 otherwise. Any un '#define' d symbols used in
+condition are silently evaluated to 0._
+
+Conditionals may be nested to arbitrary depth.
+
+'#elif' evaluates condition in the same manner as '#if' , except that it is
+only evaluated if no previous branch of a compound '#if â&#x20AC;Ś #elif'
+sequence has been evaluated to true.
+
+-------------------------------------------------------------------------------
+                                                     *preprocessor.if-examples*
+Examples ~
+>
+  #if 0 
+  // code here is never included 
+  #endif
+<
+===============================================================================
+                                           *preprocessor.if-if-defined-defined*
+if defined(**ATmega48**) || defined(**ATmega88**) ~
+
+// code specific for these devices
+
+===============================================================================
+                                                 *preprocessor.if-elif-defined*
+elif defined (**ATmega169**) ~
+
+// code specific for ATmega169
+
+===============================================================================
+                                   *preprocessor.if-endif-device-specific-code*
+endif // device specific code ~
+
+```
+
+vim: ft=help

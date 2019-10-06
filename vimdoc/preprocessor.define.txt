@@ -1,0 +1,65 @@
+*preprocessor.define.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                             |preprocessor.define-introduction|
+ 2. #define                                        |preprocessor.define-define|
+  1. Syntax:                                       |preprocessor.define-syntax|
+  2. Description:                             |preprocessor.define-description|
+  3. Examples                                    |preprocessor.define-examples|
+ 3. References                                 |preprocessor.define-references|
+
+===============================================================================
+                                             *preprocessor.define-introduction*
+Introduction ~
+
+===============================================================================
+                                                   *preprocessor.define-define*
+#define ~
+
+-------------------------------------------------------------------------------
+                                                   *preprocessor.define-syntax*
+Syntax: ~
+
+1. '#define name [value]'
+
+2. '#define name(arg, ...) [value]'
+
+-------------------------------------------------------------------------------
+                                              *preprocessor.define-description*
+Description: ~
+
+Define a preprocessor macro. There are two forms of macros, (1) object-like
+macros that basically define a constant, and (2) function-like macros that do
+parameter substitution.
+
+value may be any string, it is not evaluated until the macro is expanded
+(used). If value is not specified, it is set to 1.
+
+Form (1) macros may be defined from the command line, using the -D [1] .
+
+When form (2) is used, the macro must be called with the same number of
+arguments it is defined with. Any occurrences of arg in value will be replaced
+with the corresponding arg when the macro is called. Note that the left
+parenthesis must appear immediately after name (no spaces between), otherwise
+it will be interpreted as part of the value of a form (1) macro.
+
+-------------------------------------------------------------------------------
+                                                 *preprocessor.define-examples*
+Examples ~
+
+Note that the placement of the first â€˜(â€™ is very significant in the
+examples below.
+
+1. #define EIGHT (1 << 3)
+
+2. #define SQR(X) ((X)*(X))
+
+===============================================================================
+                                               *preprocessor.define-references*
+References ~
+
+[1] avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.D
+
+vim: ft=help

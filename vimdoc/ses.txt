@@ -1,0 +1,67 @@
+*ses.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |ses-introduction|
+ 2. SES - Set Signed Flag                                 |ses-set-signed-flag|
+  1. Description:                                             |ses-description|
+  2. Status Register (SREG) and Boolean Formula: |ses-status-register-boolean-formula|
+ 3. References                                                 |ses-references|
+
+===============================================================================
+                                                             *ses-introduction*
+Introduction ~
+
+===============================================================================
+                                                          *ses-set-signed-flag*
+SES - Set Signed Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *ses-description*
+Description: ~
+
+Sets the Signed flag (S) in SREG [1] (status register).
+
+Operation:
+
+(i) S ← 1
+
+Syntax: Operands: Program Counter:
+
+(i) SES None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0100 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *ses-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | 1   | -   | -   | -   | -   |
+<
+S: 1
+
+Signed flag set
+
+Example:
+>
+  add r2,r19 ; Add r19 to r2
+  ses ; Set negative flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *ses-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

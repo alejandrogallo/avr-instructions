@@ -1,0 +1,67 @@
+*sez.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |sez-introduction|
+ 2. SEZ - Set Zero Flag                                     |sez-set-zero-flag|
+  1. Description:                                             |sez-description|
+  2. Status Register (SREG) and Boolean Formula: |sez-status-register-boolean-formula|
+ 3. References                                                 |sez-references|
+
+===============================================================================
+                                                             *sez-introduction*
+Introduction ~
+
+===============================================================================
+                                                            *sez-set-zero-flag*
+SEZ - Set Zero Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *sez-description*
+Description: ~
+
+Sets the Zero flag (Z) in SREG [1] (status register).
+
+Operation:
+
+(i) Z ← 1
+
+Syntax: Operands: Program Counter:
+
+(i) SEZ None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0001 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *sez-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | 1   | -   |
+<
+Z: 1
+
+Zero flag set
+
+Example:
+>
+  add r2,r19 ; Add r19 to r2
+  sez ; Set zero flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *sez-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

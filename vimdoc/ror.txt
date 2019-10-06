@@ -1,0 +1,100 @@
+*ror.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |ror-introduction|
+ 2. ROR - Rotate Right through Carry           |ror-rotate-right-through-carry|
+  1. Description:                                             |ror-description|
+  2. Status Register (SREG) and Boolean Formula: |ror-status-register-boolean-formula|
+ 3. References                                                 |ror-references|
+
+===============================================================================
+                                                             *ror-introduction*
+Introduction ~
+
+===============================================================================
+                                               *ror-rotate-right-through-carry*
+ROR - Rotate Right through Carry ~
+
+-------------------------------------------------------------------------------
+                                                              *ror-description*
+Description: ~
+
+Shifts all bits in Rd one place to the right. The C flag is shifted into bit 7
+of Rd. Bit 0 is shifted into the C flag. This operation, combined with ASR [1]
+, effectively divides multi-byte signed values by two. Combined with LSR [2] it
+effectively divides multi-byte unsigned values by two. The carry flag can be
+used to round the result.
+
+Operation:
+>
+  |     |     |            |     |     |
+  |-----|-----|------------|-----|-----|
+  | C   | →   | b7——————b0 | →   | C   |
+<
+Syntax: Operands: Program Counter:
+
+(i) ROR Rd 0 ≤ d ≤ 31 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 010d | dddd | 0111 |
+<
+-------------------------------------------------------------------------------
+                                          *ror-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
+<
+S: N ⊕ V, For signed tests.
+
+V :N ⊕ C (For N and C after the shift)
+
+N: R7
+
+Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\overline{R7} \overline{R6} \overline{R5} \overline{R4}$
+
+$\overline{R3} \overline{R2} \overline{R1} \overline{R0}$
+
+Set if the result is $00; cleared otherwise.
+
+C: Rd0
+
+Set if, before the shift, the LSB of Rd was set; cleared otherwise.
+
+R (Result) equals Rd after the operation.
+
+Example:
+>
+  lsr r19 ; Divide r19:r18 by two
+  ror r18 ; r19:r18 is an unsigned two-byte integer
+  brcc zeroenc1 ; Branch if carry cleared
+  asr r17 ; Divide r17:r16 by two
+  ror r16 ; r17:r16 is a signed two-byte integer
+  brcc zeroenc2 ; Branch if carry cleared
+  ...
+  zeroenc1:nop ; Branch destination (do nothing)
+  ...
+  zeroenc2:nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *ror-references*
+References ~
+
+[1] avrassembler.wb_ASR.html
+[2] avrassembler.wb_LSR.html
+
+vim: ft=help

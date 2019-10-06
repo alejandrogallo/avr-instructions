@@ -1,0 +1,91 @@
+*lsl.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |lsl-introduction|
+ 2. LSL - Logical Shift Left                           |lsl-logical-shift-left|
+  1. Description:                                             |lsl-description|
+  2. Status Register (SREG) and Boolean Formula: |lsl-status-register-boolean-formula|
+ 3. References                                                 |lsl-references|
+
+===============================================================================
+                                                             *lsl-introduction*
+Introduction ~
+
+===============================================================================
+                                                       *lsl-logical-shift-left*
+LSL - Logical Shift Left ~
+
+-------------------------------------------------------------------------------
+                                                              *lsl-description*
+Description: ~
+
+Shifts all bits in Rd one place to the left. Bit 0 is cleared. Bit 7 is loaded
+into the C flag of the SREG [1] . This operation effectively multiplies signed
+and unsigned values by two.
+
+Operation:
+>
+  |     |     |            |     |     |
+  |-----|-----|------------|-----|-----|
+  | C   | ←   | b7——————b0 | ←   | 0   |
+<
+Syntax: Operands: Program Counter:
+
+(i) LSL Rd 0 ≤ d ≤ 31 PC ← PC + 1
+
+16-bit Opcode: (see ADD Rd,Rd)
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 0000 | 11dd | dddd | dddd |
+<
+-------------------------------------------------------------------------------
+                                          *lsl-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
+<
+H: Rd3
+
+S: N ⊕ V, For signed tests.
+
+V: N ⊕ C (For N and C after the shift)
+
+N: R7
+
+Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\overline{R7} \overline{R6} \overline{R5} \overline{R4}$
+
+$\overline{R3} \overline{R2} \overline{R1} \overline{R0}$
+
+Set if the result is $00; cleared otherwise.
+
+C: Rd7
+
+Set if, before the shift, the MSB of Rd was set; cleared otherwise.
+
+R (Result) equals Rd after the operation.
+
+Example:
+>
+  add r0, r4 ; Add r4 to r0
+  lsl r0 ; Multiply r0 by 2
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *lsl-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

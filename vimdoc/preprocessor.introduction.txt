@@ -1,0 +1,40 @@
+*preprocessor.introduction.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                       |preprocessor.introduction-introduction|
+ 2. Introduction
+
+===============================================================================
+                                       *preprocessor.introduction-introduction*
+Introduction ~
+
+===============================================================================
+Introduction ~
+
+The AVRASM2 preprocessor is modeled after the C preprocessor, with some
+exceptions:
+
+- It recognizes all integer formats used by AVRASM2, i.e., '$abcd' and
+  '0b011001' are recognized as valid integers by the preprocessor and can be
+  used in expressions in '#if' directives.
+
+- "'.'" and "'@'" are allowed in identifiers. "'.'" is required to allow
+  preprocessor directives like "'.dw'" to be used in preprocessor macros,
+  "'@'" is required to handle assembler macro arguments correctly.
+
+- It recognizes assembler-style comment delimiters ( "';'" ) as well as
+  C-style comments. Using "';'" as a comment delimiter is in conflict with
+  the C use of "';'" , and it is therefore not recommended to use assembler-
+  style comments in conjunction with preprocessor directives.
+
+- The '#line' directive is not implemented
+
+- Variadic macros (i.e., macros with variable number of arguments) are not
+  implemented.
+
+- The '#warning' and '#message' directives are not specified in the ANSI C
+  standard.
+
+vim: ft=help

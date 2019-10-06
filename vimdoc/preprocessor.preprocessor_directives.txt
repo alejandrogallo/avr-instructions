@@ -1,0 +1,59 @@
+*preprocessor.preprocessor_directives.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction            |preprocessor.preprocessor_directives-introduction|
+ 2. Preprocessor directives |preprocessor.preprocessor_directives-preprocessor-directives|
+ 3. References                |preprocessor.preprocessor_directives-references|
+
+===============================================================================
+                            *preprocessor.preprocessor_directives-introduction*
+Introduction ~
+
+===============================================================================
+                 *preprocessor.preprocessor_directives-preprocessor-directives*
+Preprocessor directives ~
+
+``` | | | | | |----------------------------------------------------------------
+-------------------------------------------------------------------------------
+------------------|------------------------------------------------------------
+------------------------------------------------------------------|------------
+-------------------------------------------------------------------------------
+--------------------------------------------------|----------------------------
+-------------------------------------------------------------------------------
+--------------------------------------------| | | | |--------------------------
+-------------------------------------------------------------------------------
+----------------------------------------------------| | #define [1] | | the
+section called “#if and #elif” [2] | | #endif [3] | | the section called
+“#error, #warning and #message” [4] | | | | |----------------------------------
+-------------------------------------------------------------------------------
+---------| | the section called “#if and #elif” [2] | | the section called
+“#ifdef” [5] | | #ifndef [6] | | the section called “#include” [7] | | | | |---
+-------------------------------------------------------------------------------
+-------------------------------------------------------| | #pragma [8] | |
+#pragma [8] | | #undef [9] | | the section called “# (empty directive)” [10] |
+| | | |------------------------------------------------------------------------
+---------------------------------------------------------------------------| |
+the section called “Operators” [11] | | the section called “Stringification
+(#)” [12] | | the section called “Concatenation (##)” [13] | |
+
+===============================================================================
+                              *preprocessor.preprocessor_directives-references*
+References ~
+
+[1] avrassembler.wb_preprocessor.define.html
+[2] avrassembler.wb_preprocessor.if.html
+[3] avrassembler.wb_preprocessor.endif.html
+[4] avrassembler.wb_preprocessor.error.html
+[5] avrassembler.wb_preprocessor.ifdef.html
+[6] avrassembler.wb_preprocessor.ifndef.html
+[7] avrassembler.wb_preprocessor.include.html
+[8] avrassembler.wb_preprocessor.pragma.html
+[9] avrassembler.wb_preprocessor.undef.html
+[10] avrassembler.wb_preprocessor.empty.html
+[11] avrassembler.wb_preprocessor.Operators.html
+[12] avrassembler.wb_preprocessor.Stringification.html
+[13] avrassembler.wb_preprocessor.Concatenation.html
+
+vim: ft=help

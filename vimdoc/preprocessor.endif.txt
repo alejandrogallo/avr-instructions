@@ -1,0 +1,32 @@
+*preprocessor.endif.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                              |preprocessor.endif-introduction|
+ 2. #endif                                           |preprocessor.endif-endif|
+  1. Syntax                                         |preprocessor.endif-syntax|
+  2. Description                               |preprocessor.endif-description|
+
+===============================================================================
+                                              *preprocessor.endif-introduction*
+Introduction ~
+
+===============================================================================
+                                                     *preprocessor.endif-endif*
+#endif ~
+
+-------------------------------------------------------------------------------
+                                                    *preprocessor.endif-syntax*
+Syntax ~
+
+'#endif'
+
+-------------------------------------------------------------------------------
+                                               *preprocessor.endif-description*
+Description ~
+
+Terminates a conditional block initiated with an '#if' , '#ifdef' , or
+'#ifndef' directive.
+
+vim: ft=help

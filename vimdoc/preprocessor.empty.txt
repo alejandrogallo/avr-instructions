@@ -1,0 +1,32 @@
+*preprocessor.empty.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                              |preprocessor.empty-introduction|
+ 2. # (empty directive)                                    |preprocessor.empty|
+  1. Syntax                                         |preprocessor.empty-syntax|
+  2. Description                               |preprocessor.empty-description|
+
+===============================================================================
+                                              *preprocessor.empty-introduction*
+Introduction ~
+
+===============================================================================
+                                                           *preprocessor.empty*
+# (empty directive) ~
+
+-------------------------------------------------------------------------------
+                                                    *preprocessor.empty-syntax*
+Syntax ~
+
+#
+
+-------------------------------------------------------------------------------
+                                               *preprocessor.empty-description*
+Description ~
+
+Unsurprisingly, this directive does exactly nothing. The only reason it exists
+is that it is required by the ANSI C standard.
+
+vim: ft=help

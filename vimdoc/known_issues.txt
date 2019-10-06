@@ -1,0 +1,222 @@
+*known_issues.txt*  AVR Assembler AVR Assembler Known Issues
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                    |known_issues-introduction|
+  1. Issue #4146: Line continuation doesn’t work in macro calls |known_issues-issue-4146-line-continuation-doesn-t-work-in-macro-calls|
+  2. Missing newline at end of file |known_issues-missing-newline-at-end-of-file|
+  3. Increment/decrement operators |known_issues-increment-decrement-operators|
+  4. Forward references in conditionals |known_issues-forward-references-in-conditionals|
+  5. Error messages                               |known_issues-error-messages|
+  6. defined incorrectly treated as an assembler keyword |known_issues-defined-incorrectly-treated-as-an-assembler-keyword|
+  7. Preprocessor issues                     |known_issues-preprocessor-issues|
+ 2. if **ATmega8**                                    |known_issues-if-atmega8|
+ 3. elseif **ATmega16** //WRONG, the correct directive is #elif |known_issues-elseif-atmega16-wrong-correct-directive-is-elif|
+ 4. else                                                    |known_issues-else|
+ 5. endif                                                  |known_issues-endif|
+ 6. References                                        |known_issues-references|
+
+===============================================================================
+                                                    *known_issues-introduction*
+Introduction ~
+
+- Line continuation doesn’t work in macro calls [1]
+
+- Missing newline at end of file [2]
+
+- Increment/decrement operators [3]
+
+- Forward references in conditionals [4]
+
+- Error messages [5]
+
+- defined [6]
+
+- Preprocessor issues [7]
+
+-------------------------------------------------------------------------------
+        *known_issues-issue-4146-line-continuation-doesn-t-work-in-macro-calls*
+Issue #4146: Line continuation doesn’t work in macro calls ~
+
+The following program illustrates this issue.
+>
+  .macro m 
+  ldi @0, @1 
+  .endm m r16,\ 0
+<
+This is not a problem with preprocessor macros ( '#define' ).
+
+-------------------------------------------------------------------------------
+                                  *known_issues-missing-newline-at-end-of-file*
+Missing newline at end of file ~
+
+AVRASM2 has some issues if the last line in a source file is missing a newline:
+Error messages may refer to wrong filename/line number if the error is in the
+last line of a included files, and in some cases syntax errors may result.
+Beware that the Atmel Studio editor will not append a missing newline at the
+end of a source file automatically.
+
+-------------------------------------------------------------------------------
+                                   *known_issues-increment-decrement-operators*
+Increment/decrement operators ~
+
+Increment/decrement operators (++/–) are recognized by the assembler and may
+cause surprises, e.g. symbol–1 will cause a syntax error, writesymbol - -1 if
+that is what is intended. This behaviour is consistent with C compilers. The
+++/– operators are not useful in the current assembler, but are reserved for
+future use.
+
+-------------------------------------------------------------------------------
+                              *known_issues-forward-references-in-conditionals*
+Forward references in conditionals ~
+
+Using a forward reference in an assembler conditional may cause surprises, and
+in some cases is not allowed. Example:
+>
+  .org LARGEBOOTSTART
+  ; the following sets up RAMPZ:Z to point to a FLASH data object, typically
+  ; for use with ELPM.
+  
+  ldi ZL, low (cmdtable * 2)
+  
+  ldi ZH, high (cmdtable * 2)
+  .if ((cmdtable * 2) > 65535)
+  
+  ldi r16, 1
+  
+  sts RAMPZ, r16
+  .endif
+  
+  ; more code follows here
+  cmdtable: .db "foo", 0x0
+<
+The reason for this is that the outcome of the conditional will influence the
+value of the forward referenced label, which in turn may affect the outcome of
+the conditional, and so on.
+
+The following is allowed:
+>
+  .ifdef FOO 
+  nop ; some code here 
+  .endif 
+  rjmp label ; more code here 
+  .equ FOO = 100 
+  label: nop
+<
+In this example FOO is not defined at the point it is used in a conditional.
+The use of .ifdef in this situation is allowed, and the conditional is false.
+However, the pattern shown above is not recommended because the programmer’s
+intention is not clear. The form is intended to allow common constructs like
+this:
+>
+  ; Define FOO if it is not already defined. 
+  .ifndef FOO 
+  .equ FOO = 0x100 
+  .endif
+<
+Up to and including AVRASM 2.0.30, these situations were not always properly
+detected, causing incomprehensible error messages. Starting with 2.0.31,
+explicit error messages are given.
+
+Note that with preprocessor conditionals ( '#if/#ifdef' ), the situation is
+always well-defined, preprocessor symbols are always undefined until the
+definition is seen. and this kind of error will never occur.
+
+-------------------------------------------------------------------------------
+                                                  *known_issues-error-messages*
+Error messages ~
+
+Sometimes error messages may be hard to understand. Typically, a simple typo in
+some instances may produce error messages like this:
+
+'myfile.asm(30): error: syntax error, unexpected FOO'
+
+where FOO represents some incomprehensible gibberish. The referenced
+filename/line number is correct, however.
+
+-------------------------------------------------------------------------------
+             *known_issues-defined-incorrectly-treated-as-an-assembler-keyword*
+defined incorrectly treated as an assembler keyword ~
+
+The keyword DEFINED(symbol) [8] is recognized in all contexts, it should only
+be recognized in conditionals. This prevents DEFINED(symbol) [8] to be used as
+a user symbol like a label, etc. On the other hand, it allows for constructs
+like ‘.dw foo = defined(bar)’ which it shouldn’t. Note that the preprocessor
+and assembler have separate implementations of DEFINED(symbol) [8] . The exact
+behaviour of DEFINED(symbol) [8] currently (from 2.1.5) is:
+
+- The preprocessor ‘defined’ keyword only relates to symbols defined with
+  '#define' , and correctly does this only in preprocessor conditionals (
+  '#if/#elif' ).
+
+- In all remaining code, the assembler’s notion of DEFINED(symbol) [8] is
+  used, the correct behaviour would be to only recognize it in assembler
+  conditionals ( '.if/.elif' ).
+
+-------------------------------------------------------------------------------
+                                             *known_issues-preprocessor-issues*
+Preprocessor issues ~
+
+- The preprocessor will not detect invalid preprocessor directives inside a
+  false conditional. This may lead to surprises with typos like this:
+
+  ``` programlisting
+
+===============================================================================
+                                                      *known_issues-if-atmega8*
+    if **ATmega8** ~
+
+  //...
+
+===============================================================================
+                 *known_issues-elseif-atmega16-wrong-correct-directive-is-elif*
+    elseif **ATmega16** //WRONG, the correct directive is #elif ~
+
+  // This will go undetected if **ATmega8** is false //...
+
+===============================================================================
+                                                            *known_issues-else*
+    else ~
+
+  // when **ATmega8** is false this section will be assembled even if //
+  **ATmega16** is true.
+
+===============================================================================
+                                                           *known_issues-endif*
+    endif ~
+
+  ```
+
+  It is debatable if this is a bug, the behaviour is consistent with the C
+  preprocessor.
+
+- Issue #3361: The preprocessor incorrectly allows additional text after
+  directives, which may cause surprises, e.g., #endif #endif will be
+  interpreted as a single #endif directive, without any error or warning
+  message.
+
+- Issue #4741: Assembler conditionals in preprocessor macros don’t work Use
+  of the macro defined below will result in different syntax error messages,
+  depending on the value of the conditional val (true or false)
+
+  'programlisting #define TEST \ .IF val \ .DW 0 \ .ELSE \ .DW 1 \ .ENDIF'
+
+  The reason for this is that assembler conditionals must appear on a
+  separate line, and a preprocessor macro like the above is concatenated into
+  a single line.
+
+===============================================================================
+                                                      *known_issues-references*
+References ~
+
+[1] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.Issue_4146
+[2] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.Missing_newline_at_end_of_file
+[3] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.decrement
+[4] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.Forward_references
+[5] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.Error_messages
+[6] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.defined
+[7] avrassembler.wb_Known_Issues.html#avrassembler.wb_Known_Issues.Preprocessor_issues
+[8] avrassembler.wb_expressions.html#avrassembler.wb_expressions.DEFINED_symbol
+
+vim: ft=help

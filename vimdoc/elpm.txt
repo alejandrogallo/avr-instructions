@@ -1,0 +1,103 @@
+*elpm.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |elpm-introduction|
+ 2. ELPM - Extended Load Program Memory     |elpm-extended-load-program-memory|
+  1. Description:                                            |elpm-description|
+  2. Status Register (SREG) and Boolean Formula: |elpm-status-register-boolean-formula|
+ 3. References                                                |elpm-references|
+
+===============================================================================
+                                                            *elpm-introduction*
+Introduction ~
+
+===============================================================================
+                                            *elpm-extended-load-program-memory*
+ELPM - Extended Load Program Memory ~
+
+-------------------------------------------------------------------------------
+                                                             *elpm-description*
+Description: ~
+
+Loads one byte pointed to by the Z register and the RAMPX, RAMPY, RAMPZ [1]
+register in the I/O space, and places this byte in the destination register Rd.
+This instruction features a 100% space effective constant initialization or
+constant data fetch. The program memory is organized in 16 bit words while the
+Z pointer is a byte address. Thus, the least significant bit of the Z pointer
+selects either low byte (ZLSB = 0) or high byte (ZLSB = 1). This instruction
+can address the entire program memory space. The Z pointer register can either
+be left unchanged by the operation, or it can be incremented. The
+incrementation applies to the entire 24-bit concatenation of the RAMPX, RAMPY,
+RAMPZ [1] and Z pointer registers.
+
+Devices with Self-Programming capability can use the ELPM instruction to read
+the fuse and lock bit value. Refer to the device documentation for a detailed
+description.
+
+This instruction is not available in all devices. Refer to the device specific
+instruction set summary.
+
+The result of these combinations is undefined:
+
+ELPM r30, Z+
+
+ELPM r31, Z+
+
+Operation: Comment:
+
+(1)R0 ← (RAMPZ:Z) RAMPZ:Z: Unchanged, R0 implied destination register
+
+(2)Rd ← (RAMPZ:Z) RAMPZ:Z: Unchanged
+
+(3)Rd ← (RAMPZ:Z) (RAMPZ:Z) ← (RAMPZ:Z) + 1 RAMPZ:Z: Post incremented
+
+Syntax: Operands: Program Counter:
+
+(1) ELPM None, R0 implied PC ← PC + 1
+
+(2) ELPM Rd, Z 0 ≤ d ≤ 31 PC ← PC + 1
+
+(3) ELPM Rd, Z+ 0 ≤ d ≤ 31 PC ← PC + 1
+
+16 bit Opcode:
+>
+  | (1) | 1001 | 0101 | 1101 | 1000 |
+  |-----|------|------|------|------|
+  | (2) | 1001 | 000d | dddd | 0110 |
+  | (3) | 1001 | 000d | dddd | 0111 |
+<
+-------------------------------------------------------------------------------
+                                         *elpm-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  ldi ZL, byte3(Table_1<<1) ; Initialize Z pointer
+  out RAMP Z, ZL
+  ldi ZH, byte2(Table_1<<1)
+  ldiZL, byte1(Table_1<<1)
+  elpm r16, Z+ ; Load constant from program
+  ; memory pointed to by RAMPZ:Z (Z is r31:r30)
+  ...
+  Table_1:
+  .dw 0x3738; 0x38 is addressed when ZLSB = 0
+  ; 0x37 is addressed when ZLSB = 1
+  ...
+<
+Words: 1 (2 bytes)
+
+Cycles: 3
+
+===============================================================================
+                                                              *elpm-references*
+References ~
+
+[1] avrassembler.wb_registers.html#avrassembler.RAMPX__RAMPY__RAMPZ
+
+vim: ft=help

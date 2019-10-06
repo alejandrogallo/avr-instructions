@@ -1,0 +1,66 @@
+*set.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |set-introduction|
+ 2. SET - Set T Flag                                           |set-set-t-flag|
+  1. Description:                                             |set-description|
+  2. Status Register (SREG) and Boolean Formula: |set-status-register-boolean-formula|
+ 3. References                                                 |set-references|
+
+===============================================================================
+                                                             *set-introduction*
+Introduction ~
+
+===============================================================================
+                                                               *set-set-t-flag*
+SET - Set T Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *set-description*
+Description: ~
+
+Sets the T flag in SREG [1] (status register).
+
+Operation:
+
+(i) T ← 1
+
+Syntax: Operands: Program Counter:
+
+(i) SET None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0110 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *set-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | 1   | -   | -   | -   | -   | -   | -   |
+<
+T: 1
+
+T flag set
+
+Example:
+>
+  set ; Set T flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *set-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

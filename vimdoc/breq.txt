@@ -1,0 +1,80 @@
+*breq.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |breq-introduction|
+ 2. BREQ - Branch if Equal                               |breq-branch-if-equal|
+  1. Description:                                            |breq-description|
+  2. Status Register (SREG) and Boolean Formulae: |breq-status-register-boolean-formulae|
+ 3. References                                                |breq-references|
+
+===============================================================================
+                                                            *breq-introduction*
+Introduction ~
+
+===============================================================================
+                                                         *breq-branch-if-equal*
+BREQ - Branch if Equal ~
+
+-------------------------------------------------------------------------------
+                                                             *breq-description*
+Description: ~
+
+Conditional relative branch. Tests the Zero flag (Z) and branches relatively to
+PC if Z is set. If the instruction is executed immediately after any of the
+instructions CP [1] , CPI [2] , SUB [3] or SUBI [4] , the branch will occur if
+and only if the unsigned or signed binary number represented in Rd was equal to
+the unsigned or signed binary number represented in Rr. This instruction
+branches relatively to PC in either direction (PC - 63 ≤ destination ≤ PC +
+64). The parameter k is the offset from PC and is represented in two’s
+complement form. (Equivalent to instruction BRBS [5] 1,k).
+
+Operation:
+
+If Rd = Rr (Z = 1) then PC <- PC + k + 1, else PC <- PC + 1
+
+Syntax: Operands: Program Counter:
+
+BREQ k -64 ≤ k ≤ +63 PC <- PC + k + 1
+
+PC <- PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k001 |
+<
+-------------------------------------------------------------------------------
+                                        *breq-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  cp r1, r0 ; Compare registers r1 and r0
+  breq equal ; Branch if registers equal
+  ...
+  equal: nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *breq-references*
+References ~
+
+[1] avrassembler.wb_CP.html
+[2] avrassembler.wb_CPI.html
+[3] avrassembler.wb_SUB.html
+[4] avrassembler.wb_SUBI.html
+[5] avrassembler.wb_BRBS.html
+
+vim: ft=help

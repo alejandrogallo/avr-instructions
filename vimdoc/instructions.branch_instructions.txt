@@ -1,0 +1,123 @@
+*instructions.branch_instructions.txt*  AVR Assembler Instruction mnemonics
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                |instructions.branch_instructions-introduction|
+ 2. Branch Instructions  |instructions.branch_instructions-branch-instructions|
+ 3. References                    |instructions.branch_instructions-references|
+
+===============================================================================
+                                *instructions.branch_instructions-introduction*
+Introduction ~
+
+===============================================================================
+                         *instructions.branch_instructions-branch-instructions*
+Branch Instructions ~
+
+``` | **Mnemonic** | **Operands** | **Description** | **Operation** | **Flags**
+| **Cycles** | |---------------------------------------------------------------
+------------------------------------------------------|------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-----------------------------------------------|-------------------------------
+-------------------------------------------------------------------------------
+----------------------------------------|--------------------------------------
+--------|---------------------------------------|------------------------------
+----------| | RJMP [1] | k [2] | Relative Jump | PC = PC + k +1 | None | 2 | |
+IJMP [3] | None | Indirect Jump to ( X,Y,Z [4] ) | PC = Z | None | 2 | | EIJMP
+[5] | None | Extended Indirect Jump ( X,Y,Z [4] ) | STACK = PC+1, PC(15:0) = Z,
+PC(21:16) = EIND | None | 2 | | JMP [6] | k [2] | Jump | PC = k | None | 3 | |
+RCALL [7] | k [2] | Relative Call Subroutine | STACK = PC+1, PC = PC + k + 1 |
+None | 3/4* | | ICALL [8] | None | Indirect Call to ( X,Y,Z [4] ) | STACK =
+PC+1, PC = Z | None | 3/4* | | EICALL [9] | None | Extended Indirect Call to (
+X,Y,Z [4] ) | STACK = PC+1, PC(15:0) = Z, PC(21:16) =EIND | None | 4* | | CALL
+[10] | k [2] | Call Subroutine | STACK = PC+2, PC = k | None | 4/5* | | RET
+[11] | None | Subroutine Return | PC = STACK | None | 4/5* | | RETI [12] | None
+| Interrupt Return | PC = STACK | I | 4/5* | | CPSE [13] | Rd [14] , Rr [15] |
+Compare, Skip if equal | if (Rd ==Rr) PC = PC 2 or 3 | None | 1/2/3 | | CP [16]
+| Rd [14] , Rr [15] | Compare | Rd -Rr | Z,C,N,V,H,S | 1 | | CPC [17] | Rd [14]
+, Rr [15] | Compare with Carry | Rd - Rr - C | Z,C,N,V,H,S | 1 | | CPI [18] |
+Rd [14] , K8 [19] | Compare with Immediate | Rd - K | Z,C,N,V,H,S | 1 | | SBRC
+[20] | Rr [15] , b [21] | Skip if bit in register cleared | if(Rr(b)==0) PC =
+PC + 2 or 3 | None | 1/2/3 | | SBRS [22] | Rr [15] , b [21] | Skip if bit in
+register set | if(Rr(b)==1) PC = PC + 2 or 3 | None | 1/2/3 | | SBIC [23] | P
+[24] , b [21] | Skip if bit in I/O register cleared | if(I/O(P,b)==0) PC = PC +
+2 or 3 | None | 1/2/3 | | SBIS [25] | P [24] , b [21] | Skip if bit in I/O
+register set | if(I/O(P,b)==1) PC = PC + 2 or 3 | None | 1/2/3 | | BRBC [26] |
+s [27] , k [2] | Branch if Status flag cleared | if(SREG(s)==0) PC = PC + k + 1
+| None | 1/2 | | BRBS [28] | s [27] , k [2] | Branch if Status flag set |
+if(SREG(s)==1) PC = PC + k + 1 | None | 1/2 | | BREQ [29] | k [2] | Branch if
+equal | if(Z==1) PC = PC + k + 1 | None | 1/2 | | BRNE [30] | k [2] | Branch if
+not equal | if(Z==0) PC = PC + k + 1 | None | 1/2 | | BRCS [31] | k [2] |
+Branch if carry set | if(C==1) PC = PC + k + 1 | None | 1/2 | | BRCC [32] | k
+[2] | Branch if carry cleared | if(C==0) PC = PC + k + 1 | None | 1/2 | | BRSH
+[33] | k [2] | Branch if same or higher | if(C==0) PC = PC + k + 1 | None | 1/2
+| | BRLO [34] | k [2] | Branch if lower | if(C==1) PC = PC + k + 1 | None | 1/2
+| | BRMI [35] | k [2] | Branch if minus | if(N==1) PC = PC + k + 1 | None | 1/2
+| | BRPL [36] | k [2] | Branch if plus | if(N==0) PC = PC + k + 1 | None | 1/2
+| | BRGE [37] | k [2] | Branch if greater than or equal (signed) | if(S==0) PC
+= PC + k + 1 | None | 1/2 | | BRLT [38] | k [2] | Branch if less than (signed)
+| if(S==1) PC = PC + k + 1 | None | 1/2 | | BRHS [39] | k [2] | Branch if half
+carry flag set | if(H==1) PC = PC + k + 1 | None | 1/2 | | BRHC [40] | k [2] |
+Branch if half carry flag cleared | if(H==0) PC = PC + k + 1 | None | 1/2 | |
+BRTS [41] | k [2] | Branch if T flag set | if(T==1) PC = PC + k + 1 | None |
+1/2 | | BRTC [42] | k [2] | Branch if T flag cleared | if(T==0) PC = PC + k + 1
+| None | 1/2 | | BRVS [43] | k [2] | Branch if overflow flag set | if(V==1) PC
+= PC + k + 1 | None | 1/2 | | BRVC [44] | k [2] | Branch if overflow flag
+cleared | if(V==0) PC = PC + k + 1 | None | 1/2 | | BRIE [45] | k [2] | Branch
+if interrupt enabled | if(I==1) PC = PC + k + 1 | None | 1/2 | | BRID [46] | k
+[2] | Branch if interrupt disabled | if(I==0) PC = PC + k + 1 | None | 1/2 |
+
+===============================================================================
+                                  *instructions.branch_instructions-references*
+References ~
+
+[1] avrassembler.wb_RJMP.html
+[2] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k
+[3] avrassembler.wb_IJMP.html
+[4] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_X_Y_Z
+[5] avrassembler.wb_EIJMP.html
+[6] avrassembler.wb_JMP.html
+[7] avrassembler.wb_RCALL.html
+[8] avrassembler.wb_ICALL.html
+[9] avrassembler.wb_EICALL.html
+[10] avrassembler.wb_CALL.html
+[11] avrassembler.wb_RET.html
+[12] avrassembler.wb_RETI.html
+[13] avrassembler.wb_CPSE.html
+[14] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd
+[15] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr
+[16] avrassembler.wb_CP.html
+[17] avrassembler.wb_CPC.html
+[18] avrassembler.wb_CPI.html
+[19] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8
+[20] avrassembler.wb_SBRC.html
+[21] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b
+[22] avrassembler.wb_SBRS.html
+[23] avrassembler.wb_SBIC.html
+[24] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_P
+[25] avrassembler.wb_SBIS.html
+[26] avrassembler.wb_BRBC.html
+[27] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_s
+[28] avrassembler.wb_BRBS.html
+[29] avrassembler.wb_BREQ.html
+[30] avrassembler.wb_BRNE.html
+[31] avrassembler.wb_BRCS.html
+[32] avrassembler.wb_BRCC.html
+[33] avrassembler.wb_BRSH.html
+[34] avrassembler.wb_BRLO.html
+[35] avrassembler.wb_BRMI.html
+[36] avrassembler.wb_BRPL.html
+[37] avrassembler.wb_BRGE.html
+[38] avrassembler.wb_BRLT.html
+[39] avrassembler.wb_BRHS.html
+[40] avrassembler.wb_BRHC.html
+[41] avrassembler.wb_BRTS.html
+[42] avrassembler.wb_BRTC.html
+[43] avrassembler.wb_BRVS.html
+[44] avrassembler.wb_BRVC.html
+[45] avrassembler.wb_BRIE.html
+[46] avrassembler.wb_BRID.html
+
+vim: ft=help

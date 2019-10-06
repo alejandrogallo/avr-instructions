@@ -1,0 +1,68 @@
+*cpse.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |cpse-introduction|
+ 2. CPSE - Compare Skip if Equal                   |cpse-compare-skip-if-equal|
+  1. Description:                                            |cpse-description|
+  2. Status Register (SREG) and Boolean Formula: |cpse-status-register-boolean-formula|
+
+===============================================================================
+                                                            *cpse-introduction*
+Introduction ~
+
+===============================================================================
+                                                   *cpse-compare-skip-if-equal*
+CPSE - Compare Skip if Equal ~
+
+-------------------------------------------------------------------------------
+                                                             *cpse-description*
+Description: ~
+
+This instruction performs a compare between two registers Rd and Rr, and skips
+the next instruction if Rd = Rr.
+
+Operation:
+
+If Rd = Rr then PC ← PC + 2 (or 3) else PC ← PC + 1
+
+Syntax: Operands: Program Counter:
+
+CPSE Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31 PC ← PC + 1, Condition false - no skip
+
+PC ← PC + 2, Skip a one word instruction
+
+PC ← PC + 3, Skip a two word instruction
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 0001 | 00rd | dddd | rrrr |
+<
+-------------------------------------------------------------------------------
+                                         *cpse-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  inc r4 ; Increase r4
+  cpse r4,r0 ; Compare r4 to r0
+  neg r4 ; Only executed if r4⇔r0
+  nop ; Continue (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false (no skip)
+
+2 if condition is true (skip is executed) and the instruction skipped is 1 word
+
+3 if condition is true (skip is executed) and the instruction skipped is 2
+words
+
+vim: ft=help

@@ -1,0 +1,72 @@
+*brhs.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brhs-introduction|
+ 2. BRHS - Branch if Half Carry Flag is Set |brhs-branch-if-half-carry-flag-is-set|
+  1. Description:                                            |brhs-description|
+  2. Status Register (SREG) and Boolean Formula: |brhs-status-register-boolean-formula|
+ 3. References                                                |brhs-references|
+
+===============================================================================
+                                                            *brhs-introduction*
+Introduction ~
+
+===============================================================================
+                                        *brhs-branch-if-half-carry-flag-is-set*
+BRHS - Branch if Half Carry Flag is Set ~
+
+-------------------------------------------------------------------------------
+                                                             *brhs-description*
+Description: ~
+
+Conditional relative branch. Tests the Half Carry flag (H) and branches
+relatively to PC if H is set. This instruction branches relatively to PC in
+either direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the
+offset from PC and is represented in two’s complement form. (Equivalent to
+instruction BRBS [1] 5,k).
+
+Operation:
+
+If H = 1 then PC ← PC + k + 1, else PC ← PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRHS k -64 ≤ k ≤ +63 PC ← PC + k + 1
+
+PC ← PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k101 |
+<
+-------------------------------------------------------------------------------
+                                         *brhs-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  brhs hset ; Branch if half carry flag set
+  ...
+  hset: nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *brhs-references*
+References ~
+
+[1] avrassembler.wb_BRBS.html
+
+vim: ft=help

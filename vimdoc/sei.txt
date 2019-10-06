@@ -1,0 +1,69 @@
+*sei.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |sei-introduction|
+ 2. SEI - Set Global Interrupt Flag             |sei-set-global-interrupt-flag|
+  1. Description:                                             |sei-description|
+  2. Status Register (SREG) and Boolean Formula: |sei-status-register-boolean-formula|
+ 3. References                                                 |sei-references|
+
+===============================================================================
+                                                             *sei-introduction*
+Introduction ~
+
+===============================================================================
+                                                *sei-set-global-interrupt-flag*
+SEI - Set Global Interrupt Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *sei-description*
+Description: ~
+
+Sets the Global Interrupt flag (I) in SREG [1] (status register). The
+instruction following SEI will be executed before any pending interrupts.
+
+Operation:
+
+(i) I â†? 1
+
+Syntax: Operands: Program Counter:
+
+(i) SEI None PC â†? PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0111 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *sei-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | 1   | -   | -   | -   | -   | -   | -   | -   |
+<
+I: 1
+
+Global Interrupt flag set
+
+Example:
+>
+  sei ; set global interrupt enable
+  sleep ; enter sleep, waiting for interrupt
+  ; note: will enter sleep before any pending interrupt(s)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *sei-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

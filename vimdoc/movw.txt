@@ -1,0 +1,67 @@
+*movw.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |movw-introduction|
+ 2. MOVW - Copy Register Word                         |movw-copy-register-word|
+  1. Description:                                            |movw-description|
+  2. Status Register (SREG) and Boolean Formula: |movw-status-register-boolean-formula|
+
+===============================================================================
+                                                            *movw-introduction*
+Introduction ~
+
+===============================================================================
+                                                      *movw-copy-register-word*
+MOVW - Copy Register Word ~
+
+-------------------------------------------------------------------------------
+                                                             *movw-description*
+Description: ~
+
+This instruction makes a copy of one register pair into another register pair.
+The source register pair Rr+1:Rr is left unchanged, while the destination
+register pair Rd+1:Rd is loaded with a copy of Rr + 1:Rr.
+
+This instruction is not available in all devices. Refer to the device specific
+instruction set summary.
+
+Operation:
+
+(i) Rd+1:Rd ← Rr+1:Rr
+
+Syntax: Operands: Program Counter:
+
+(i) MOVW Rd+1:Rd,Rr+1Rr d E {0,2,…,30}, r E {0,2,…,30} PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 0000 | 0001 | dddd | rrrr |
+<
+-------------------------------------------------------------------------------
+                                         *movw-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  movw r17:16,r1:r0 ; Copy r1:r0 to r17:r16
+  call check ; Call subroutine
+  ...
+  check: cpi r16,$11 ; Compare r16 to $11
+  ...
+  cpi r17,$32 ; Compare r17 to $32
+  ...
+  ret ; Return from subroutine
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

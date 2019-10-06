@@ -1,0 +1,170 @@
+*syntax.txt*  AVR Assembler AVR Assembler Syntax
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                          |syntax-introduction|
+ 2. Keywords                                                  |syntax-keywords|
+ 3. Preprocessor directives                    |syntax-preprocessor-directives|
+ 4. Comments                                                  |syntax-comments|
+ 5. Line continuation                                |syntax-line-continuation|
+ 6. Integer constants                                |syntax-integer-constants|
+ 7. Strings and character constants        |syntax-strings-character-constants|
+ 8. Examples                                                  |syntax-examples|
+ 9. Multiple instructions per line      |syntax-multiple-instructions-per-line|
+ 10. Operands                                                 |syntax-operands|
+ 11. References                                             |syntax-references|
+
+===============================================================================
+                                                          *syntax-introduction*
+Introduction ~
+
+- Keywords [1]
+
+- Preprocessor [2]
+
+- Comments [3]
+
+- Line [4]
+
+- Strings and character constants [5]
+
+- Multiple [6]
+
+- Operands [7]
+
+===============================================================================
+                                                              *syntax-keywords*
+Keywords ~
+
+Predefined identifiers (keywords) are reserved and cannot be redefined. The
+keywords include all Instruction mnemonics [8] , Functions [9] .
+
+Assembler keywords are recognized regardless of case, unless the -c [10] option
+is used, in which case the keywords are lower case (i.e., “add” is reserved,
+“ADD” is not).
+
+===============================================================================
+                                               *syntax-preprocessor-directives*
+Preprocessor directives ~
+
+AVRASM2 considers all lines starting with a ‘#’ as the first non-space
+character a preprocessor directive [11] .
+
+===============================================================================
+                                                              *syntax-comments*
+Comments ~
+
+In addition to the classic assembler comments starting with ‘;’, AVRASM2
+recognizes C-style comments. The following comment styles are recognized:
+>
+  ; The rest of the line is a comment (classic assembler comment)
+  // Like ';', the rest of the line is a comment
+  /* Block comment; the enclosed text is a comment, may span 
+  multiple lines.This style of comments cannot be nested. */
+<
+===============================================================================
+                                                     *syntax-line-continuation*
+Line continuation ~
+
+Like in C, source lines can be continued by means of having a backslash (\) as
+the last character of a line. This is particularly useful when defining long
+preprocessor macros, and for long '.db' directives. ****
+
+**Example:**
+>
+  .db 0, 1, "This is a long string", '\n', 0, 2, \ 
+  "Here is another one", '\n', 0, 3, 0
+<
+===============================================================================
+                                                     *syntax-integer-constants*
+Integer constants ~
+
+AVRASM2 allows underscores (_) to be used as separators for increased
+readability. Underscores may be located anywhere in the number except as the
+first character or inside the radix specifier.
+
+**Example:** '0b1100_1010' and '0b_11_00_10_10_' are both legal, while
+'_0b11001010' and '0_b11001010' are not.
+
+===============================================================================
+                                           *syntax-strings-character-constants*
+Strings and character constants ~
+
+A string enclosed in double quotes (") can only be used in conjunction with the
+DB [12] directive and the MESSAGE [13] /. WARNING [14] / ERROR [15] directives.
+The string is taken literally, no escape sequences are recognized, and it is
+not NULL-terminated.
+
+Quoted strings may be concatenated according to the ANSI C convention, i.e.,
+'"This is a " "long string"' is equivalent to '"This is a long string"' .This
+may be combined with Line [4] to form long strings spanning multiple source
+lines.
+
+Character constants are enclosed in single quotes (’), and can be used anywhere
+an integer expression is allowed. The following C-style escape sequences are
+recognized, with the same meaning as in C:
+>
+  | Escape sequence | Meaning                         |
+  |-----------------|---------------------------------|
+  | \\n             | Newline (ASCII LF 0x0a)         |
+  | \\r             | Carriage return (ASCII CR 0x0d) |
+  | \\a             | Alert bell (ASCII BEL 0x07)     |
+  | \\b             | Backspace (ASCII BS 0x08)       |
+  | \\f             | Form feed (ASCII FF 0x0c)       |
+  | \\t             | Horizontal tab (ASCII HT 0x09)  |
+  | \\v             | Vertical tab (ASCII VT 0x0b)    |
+  | \\\\            | Backslash                       |
+  | \\0             | Null character (ASCII NUL)      |
+<
+\ooo (ooo = octal number) and \xhh (hh = hex number) are also recognized.
+
+===============================================================================
+                                                              *syntax-examples*
+Examples ~
+>
+  .db "Hello\n" // is equivalent to:
+  .db 'H', 'e', 'l', 'l', 'o', '\\', 'n'
+  .db '\0', '\177', '\xff'
+<
+To create the equivalent to the C-string “Hello, world\n”, do as follows:
+>
+  .db "Hello, world", '\n', 0
+<
+===============================================================================
+                                        *syntax-multiple-instructions-per-line*
+Multiple instructions per line ~
+
+AVRASM2 allows multiple instructions and directives per line, but its use is
+not recommended. It is needed to support expansion of multiline preprocessor
+macros.
+
+===============================================================================
+                                                              *syntax-operands*
+Operands ~
+
+AVRASM2 has support for integer operands [16] and limited support for floating
+point constant expressions. All operands are described Operands [16] .
+
+===============================================================================
+                                                            *syntax-references*
+References ~
+
+[1] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Keywords
+[2] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Preprocessor_directives
+[3] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Comments
+[4] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Line_continuation
+[5] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Strings_and_character_constants
+[6] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Multiple_instructions_per_line
+[7] avrassembler.wb_Syntax.html#avrassembler.wb_Syntax.Operands
+[8] avrassembler.wb_instructions.html
+[9] avrassembler.wb_expressions.html#avrassembler.wb_expressions.Functions
+[10] avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.c
+[11] avrassembler.wb_directives.html
+[12] avrassembler.wb_directives.html#avrassembler.wb_directives.DB
+[13] avrassembler.wb_directives.html#avrassembler.wb_directives.MESSAGE
+[14] avrassembler.wb_directives.html#avrassembler.wb_directives.WARNING
+[15] avrassembler.wb_directives.html#avrassembler.wb_directives.ERROR
+[16] avrassembler.wb_expressions.html#avrassembler.wb_expressions.Operands
+
+vim: ft=help

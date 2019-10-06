@@ -1,0 +1,59 @@
+*preprocessor.include.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                            |preprocessor.include-introduction|
+ 2. #include                                     |preprocessor.include-include|
+  1. Syntax                                       |preprocessor.include-syntax|
+  2. Description                             |preprocessor.include-description|
+  3. Examples                                   |preprocessor.include-examples|
+ 3. References                                |preprocessor.include-references|
+
+===============================================================================
+                                            *preprocessor.include-introduction*
+Introduction ~
+
+===============================================================================
+                                                 *preprocessor.include-include*
+#include ~
+
+-------------------------------------------------------------------------------
+                                                  *preprocessor.include-syntax*
+Syntax ~
+
+1. '#include "file"'
+
+2. '#include <file>'
+
+-------------------------------------------------------------------------------
+                                             *preprocessor.include-description*
+Description ~
+
+Include a file. The two forms differ in that (1) searches the current working
+directory first, and is functionally equivalent with the assembler INCLUDE [1]
+directive. (2) does not search the current working directory unless explicitly
+specifying it with an â€œ.â€? entry in the include path. Both forms will search
+a built-in known place after any explicitly specified path, this is the
+location for the partdef.inc include files supplied with the assembler.
+
+It is strongly discouraged to use absolute pathnames in '#include' directives,
+as this makes it difficult to move projects between different
+directories/computers. Use the -I [2] to specify the include path, or set ut up
+in Atmel Studio - Project - Assembler Options .
+
+-------------------------------------------------------------------------------
+                                                *preprocessor.include-examples*
+Examples ~
+>
+  #include <m48def.inc>
+  #include "mydefs.inc"
+<
+===============================================================================
+                                              *preprocessor.include-references*
+References ~
+
+[1] avrassembler.wb_directives.html#avrassembler.wb_directives.INCLUDE
+[2] avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.I
+
+vim: ft=help

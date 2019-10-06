@@ -1,0 +1,33 @@
+*preprocessor.ifndef.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                             |preprocessor.ifndef-introduction|
+ 2. #ifndef                                        |preprocessor.ifndef-ifndef|
+  1. Syntax                                        |preprocessor.ifndef-syntax|
+  2. Description                              |preprocessor.ifndef-description|
+
+===============================================================================
+                                             *preprocessor.ifndef-introduction*
+Introduction ~
+
+===============================================================================
+                                                   *preprocessor.ifndef-ifndef*
+#ifndef ~
+
+-------------------------------------------------------------------------------
+                                                   *preprocessor.ifndef-syntax*
+Syntax ~
+
+'#ifndef name'
+
+-------------------------------------------------------------------------------
+                                              *preprocessor.ifndef-description*
+Description ~
+
+The opposite of '#ifdef' : All following lines until the corresponding '#endif'
+, '#else' , or '#elif' are conditionally assembled if name is not '#defined' .
+Shorthand for '#if' !defined(name)
+
+vim: ft=help

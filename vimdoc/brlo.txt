@@ -1,0 +1,82 @@
+*brlo.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brlo-introduction|
+ 2. BRLO - Branch if Lower (Unsigned)                    |brlo-branch-if-lower|
+  1. Description:                                            |brlo-description|
+  2. Status Register (SREG) and Boolean Formulae: |brlo-status-register-boolean-formulae|
+ 3. References                                                |brlo-references|
+
+===============================================================================
+                                                            *brlo-introduction*
+Introduction ~
+
+===============================================================================
+                                                         *brlo-branch-if-lower*
+BRLO - Branch if Lower (Unsigned) ~
+
+-------------------------------------------------------------------------------
+                                                             *brlo-description*
+Description: ~
+
+Conditional relative branch. Tests the Carry flag (C) and branches relatively
+to PC if C is set. If the instruction is executed immediately after any of the
+instructions CP [1] , CPI [2] , SUB [3] or SUBI [4] , the branch will occur if
+and only if the unsigned binary number represented in Rd was smaller than the
+unsigned binary number represented in Rr. This instruction branches relatively
+to PC in either direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is
+the offset from PC and is represented in two’s complement form. (Equivalent to
+instruction BRBS [5] 0,k).
+
+Operation:
+
+If Rd < Rr (C = 1) then PC ← PC + k + 1, else PC ← PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRLO k -64 ≤ k ≤ +63 PC ← PC + k + 1
+
+PC ← PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k000 |
+<
+-------------------------------------------------------------------------------
+                                        *brlo-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  eor r19,r19 ; Clear r19
+  loop:incr19 ; Increase r19
+  ...
+  cpi r19,$10 ; Compare r19 with $10
+  brlo loop ; Branch if r19 < $10 (unsigned)
+  nop ; Exit from loop (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *brlo-references*
+References ~
+
+[1] avrassembler.wb_CP.html
+[2] avrassembler.wb_CPI.html
+[3] avrassembler.wb_SUB.html
+[4] avrassembler.wb_SUBI.html
+[5] avrassembler.wb_BRBS.html
+
+vim: ft=help

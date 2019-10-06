@@ -1,0 +1,87 @@
+*call.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |call-introduction|
+ 2. CALL - Long Call to a Subroutine             |call-long-call-to-subroutine|
+  1. Description:                                            |call-description|
+  2. Status Register (SREG) and Boolean Formula: |call-status-register-boolean-formula|
+ 3. References                                                |call-references|
+
+===============================================================================
+                                                            *call-introduction*
+Introduction ~
+
+===============================================================================
+                                                 *call-long-call-to-subroutine*
+CALL - Long Call to a Subroutine ~
+
+-------------------------------------------------------------------------------
+                                                             *call-description*
+Description: ~
+
+Calls to a subroutine within the entire program memory. The return address (to
+the instruction after the CALL) will be stored onto the stack. (See also RCALL
+[1] ). The stack pointer uses a post-decrement scheme during CALL.
+
+This instruction is not available in all devices. Refer to the device specific
+instruction set summary.
+
+Operation:
+
+PC ←k Devices with 16 bits PC, 128K bytes program memory maximum.
+
+PC ←k Devices with 22 bits PC, 8M bytes program memory maximum.
+
+Syntax: Operands: Program Counter Stack:
+
+CALL k 0 ≤ k < 64K PC ← k STACK ← PC+2
+
+SP ← SP-2, (2 bytes, 16 bits)
+
+CALL k 0 ≤ k < 4M PC ← k STACK ← PC+2
+
+SP ← SP-3 (3 bytes, 22 bits)
+
+32-bit Opcode:
+>
+  | 1001 | 010k | kkkk | 111k |
+  |------|------|------|------|
+  | kkkk | kkkk | kkkk | kkkk |
+<
+-------------------------------------------------------------------------------
+                                         *call-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  mov r16,r0 ; Copy r0 to r16
+  call check ; Call subroutine
+  nop ; Continue (do nothing)
+  ...
+  check: cpi r16, $42 ; Check if r16 has a special value
+  breq error ; Branch if equal
+  ret ; Return from subroutine
+  ...
+  error: rjmp error ; Infinite loop
+<
+Words:2 (4 bytes)
+
+Cycles:
+
+``` | | Cycles | Cycles xmega |
+|------------------------|--------|--------------| | Devices with 16-bit PC | 4
+| 3 | | Devices with 22-bit PC | 5 | 4 |
+
+===============================================================================
+                                                              *call-references*
+References ~
+
+[1] avrassembler.wb_RCALL.html
+
+vim: ft=help

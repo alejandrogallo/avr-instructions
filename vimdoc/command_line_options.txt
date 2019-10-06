@@ -1,0 +1,318 @@
+*command_line_options.txt*  AVR Assembler AVR Assembler Command Line Options
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                            |command_line_options-introduction|
+ 2. -f output-file-format           |command_line_options-f-output-file-format|
+ 3. -w                                                 |command_line_options-w|
+ 4. -C core-version                       |command_line_options-c-core-version|
+ 5. -c                                                 |command_line_options-c|
+ 6. -1 -2 [Deprecated]                    |command_line_options-1-2-deprecated|
+ 7. -I directory                             |command_line_options-i-directory|
+ 8. -i file                                       |command_line_options-i-file|
+ 9. -D name[=value] -U name          |command_line_options-d-name-value-u-name|
+ 10. -S                                                |command_line_options-s|
+ 11. -vs                                              |command_line_options-vs|
+ 12. -vl                                              |command_line_options-vl|
+ 13. -v0                                              |command_line_options-v0|
+ 14. -v1                                              |command_line_options-v1|
+ 15. -v2                                              |command_line_options-v2|
+ 16. -v3 … -v9                                     |command_line_options-v3-v9|
+ 17. -V                                                |command_line_options-v|
+ 18. -FDformat -FTformat               |command_line_options-fdformat-ftformat|
+  1. Note                                           |command_line_options-note|
+ 19. References                               |command_line_options-references|
+
+===============================================================================
+                                            *command_line_options-introduction*
+Introduction ~
+
+AVRASM2 may be used as a stand-alone program from the command line. The AVRASM2
+command-line invocation syntax is shown below.
+>
+  usage: avrasm2.exe [options] file.asm
+  
+         Options: 
+  -f [O|M|I|G|-] output file format: 
+  -fO Debug info for simulation in Atmel Studio (default) 
+  -fO1 | -fO2 - force format version 1 or 2 (default: auto) 
+  -fM Motorola hex -fI Intel hex -fG Generic hex format 
+  -f- No output file -o ofile Put output in 'ofile'. 
+  -d dfile Generate debug info for simulation in Atmel Studio in 'dfile'. Can only be used with the -f [M|I|G] option. 
+  -l lfile Generate listing in 'lfile' 
+  -m mfile Generate map in 'mfile' 
+  -e efile Place EEPROM contents in 'efile' 
+  -w Relative jumps are allowed to wrap for program ROM up to 4k words in size [ignored] 
+  -C ver Specify AVR core version 
+  -c Case sensitive 
+  -1/-2 Turn on/off AVR Assembler version 1 compatibility. [Deprecated] 
+  -p1|0 Set/unset AVRASM1 implicit .device include (also set by -1) [Deprecated]
+  -I dir Preprocessor: Add 'dir' to include search path 
+  -i file Preprocessor: Explicitly pre-include file 
+  -D name[=value] Preprocessor: Define symbol. If =value is omitted, it is set to 1. 
+  -U name Preprocessor: Undefine symbol. 
+  -S file Produce include/label info file for Atmel Studio 
+  -v verbosity [0-9][s]: 
+  -vs Include target resource usage statistics 
+  -vl Output low-level assembly code to stdout 
+  -v0 Silent, only error messages printed 
+  -v1 Error and warning messages printed 
+  -v2 Error, warning, and info messages printed (default) 
+  -v3-v9 Unspecified, increasing amounts of assembler internal dumps. 
+  -V  Format map and list files for Verilog.
+  -O i|w|e Overlap report: ignore|warning|error [error] 
+  -W-b|+bo|+bi Byte operand out of range warning disable|overflow|integer 
+  -W+ie|+iw Unsupported instruction error | warning 
+  -W+fw  Label slip caused by forward ref accepted (DANGEROUS)
+  -FD|Tfmt __DATE__ | __TIME__ format, using strftime(3) format string
+<
+===============================================================================
+                                    *command_line_options-f-output-file-format*
+-f output-file-format ~
+
+Supported formats are generic/Intel/Motorola hex, and AVR Object files. There
+are two subvariants of the AVR Object file format:
+
+- Standard (V1) format, with 16-bit line number fields, supporting source
+  files with up to 65534 lines.
+
+- Extended (V2) format, with 24-bit line number fields, supporting source
+  files with up to ~16M lines.
+
+By default, when output format is unspecified or specified with -fO, the
+assembler will select the appropriate format automatically, V1 if the file has
+less than 65533 lines, V2 if it has more. The -fO1 and -fO2 options may be used
+to force V1 or V2 output file format regardless of number of lines.
+
+If V1 file format is used with source files with more than 65534 lines, the
+assembler will issue a warning, and the lines above 65534 cannot be debugged
+with Atmel Studio.
+
+For all normal assembler projects, the default option should be safe. The
+extended format is primarily intended for machine-generated assembly files.
+
+===============================================================================
+                                                       *command_line_options-w*
+-w ~
+
+Wrap relative jumps. This option is obsoleted, because AVRASM2 automatically
+determines when to wrap relative jumps, based on program memory size. The
+option is recognized but ignored.
+
+===============================================================================
+                                          *command_line_options-c-core-version*
+-C core-version ~
+
+Specify AVR Core version. The core version is normally specified in part
+definition files (partdef.inc), this option is intended for testing of the
+assembler, and generally not useful for end-users.
+
+===============================================================================
+                                                       *command_line_options-c*
+-c ~
+
+Causes the assembler to become entirely case sensitive. Preprocessor directives
+and macros are always case sensitive. Warning: Setting this option will break
+many existing projects.
+
+===============================================================================
+                                          *command_line_options-1-2-deprecated*
+-1 -2 [Deprecated] ~
+
+Enable and disable AVRASM1 compatibility mode. This mode is disabled (-2) by
+default. The compatibility mode will permit certain constructs otherwise
+considered errors, reducing the risk of breaking existing projects. It also
+affects the built-in include path, causing the assembler to look for device
+definition include files (devicedef.inc) for Assembler 1 in 'C:\Atmel\AVR
+Tools\AvrAssembler\Appnotes' instead of the new Assembler 2 files in
+'C:\Atmel\AVR Tools\AvrAssembler2\Appnotes' . _Note: -1 option is deprecated
+and will not work in Atmel Studio 6 because the AVRASM1 include files are no
+longer distributed._
+
+===============================================================================
+                                             *command_line_options-i-directory*
+-I directory ~
+
+Add directory to the include file search path. This affects both the
+preprocessor the section called “#include” [1] directive and the assembler
+INCLUDE [2] directive.
+
+Multiple -I directives may be given. directories are searched in the order
+specified.
+
+===============================================================================
+                                                  *command_line_options-i-file*
+-i file ~
+
+Include a file. #include file directive is processed before the first source
+code line is processed. Multiple i directives may be used and will be processed
+in order.
+
+===============================================================================
+                                     *command_line_options-d-name-value-u-name*
+-D name[=value] -U name ~
+
+Define and undefine a preprocessor macro, respectively. Note that function-type
+preprocessor macros may not be defined from the command line. If -D is given no
+value, it is set to 1.
+
+===============================================================================
+                                                       *command_line_options-s*
+-S ~
+
+Produces information about the include files, ouput files and label information
+Contained in the source file.
+
+===============================================================================
+                                                      *command_line_options-vs*
+-vs ~
+
+Print use statistics for register, instruction and memory on standard output.
+By default, only the memory statistic is printed. Note: The full statistics
+will always be printed to the list file, if one is specified.
+
+===============================================================================
+                                                      *command_line_options-vl*
+-vl ~
+
+This will print the raw instructions emitted to standard output, after all
+symbolic info is replaced. Mainly for assembler debugging purposes.
+
+===============================================================================
+                                                      *command_line_options-v0*
+-v0 ~
+
+Print error messages only, warning and info messages are suppressed.
+
+===============================================================================
+                                                      *command_line_options-v1*
+-v1 ~
+
+Print error and warning messages only, info messages are suppressed.
+
+===============================================================================
+                                                      *command_line_options-v2*
+-v2 ~
+
+Print error, warning, and info messages. This is the default behaviour.
+
+===============================================================================
+                                                   *command_line_options-v3-v9*
+-v3 … -v9 ~
+
+Print increasing amounts of assembler internal status dump. Mostly used for
+assembler debugging.
+
+===============================================================================
+                                                       *command_line_options-v*
+-V ~
+
+Formats the List and Map File for Verilog.It sets the Verilog Option.
+>
+  -O i|w|e
+  --------
+<
+If different sections of code are mapped to overlapping memory locations using
+the ORG [3] directive, an error message is normally issued.
+
+This option allows setting this condition to cause an error (-Oe, default), a
+warning (-Ow) or be completely ignored (-Oi). Not recommended for normal
+programs.
+
+This may also be set by #pragma overlap directive.
+>
+  -W-b |-W+bo | -W+bi
+  -------------------
+<
+-b, +bo, and +bi correspond to no no warning, warning when overflow, and
+warning when integer value out of range, respectively. This may also be set by
+#pragma warning range.
+>
+  -W+ie|+iw
+  ---------
+<
++ie and +iw selects if use of unsupported instructions gives error or warning,
+respectively. The default is to give an error. Corresponds to #pragma error
+instruction / pragma warning instruction, respectively.
+
+===============================================================================
+                                       *command_line_options-fdformat-ftformat*
+-FDformat -FTformat ~
+
+Specify the format of the __DATE__ and __TIME__ the section called “Pre-defined
+macros” [4] , respectively. The format string is passed directly to the
+strftime(3) C library function. The __DATE__ and __TIME__ preprocessor macros
+will always be string tokens, i.e., their values will appear in double quotes.
+
+The default formats are “%b %d %Y” and “%H:%M:%S”, respectively.
+
+Example: To specify ISO format for __DATE__, specify **-FD“%Y-%m-%d”**
+
+These formats may only be specified at the command line, there are no
+corresponding #pragma directives.
+
+-------------------------------------------------------------------------------
+                                                    *command_line_options-note*
+Note ~
+
+The Windows command interpreter (cmd.exe or command.com) may interpret a
+character sequence starting and ending with a ‘%’ character as an environment
+variable to be expanded even when it is quoted. This may cause the date/time
+format strings to be changed by the command interpreter and not work as
+expected. A workaround that will work in many cases is to use double ‘%’
+characters to specify the format directives, e.g., **-FD“%%Y-%%m-%%d”** for the
+example above. The exact behaviour of the command interpreter seems to be
+inconsistent and vary depending on a number of circumstances, for one, it is
+different in batch and interactive mode. The effect of the format directives
+should be tested. It is recommended to put the following line in the source
+file for testing this:
+>
+  #message "__DATE__ =" __DATE__ "__TIME__ =" __TIME__
+<
+t This will print the value of the date and time macros when the program is
+assembled, making verification easy (see the section called “#error, #warning
+and #message” [5] directive documentation). An alternative syntax for the
+format specification may be considered in future AVRASM2 versions to avoid this
+problem.
+
+Some relevant strftime() format specifiers (see strftime(3) manual page for
+full details):
+
+- %Y - Year, 4 digits
+
+- %y - Year, 2 digits
+
+- %m - Month number (01-12)
+
+- %b - Abbreviated month name
+
+- %B - Full month name
+
+- %d - Day number in month (01-31)
+
+- %a - Abbreviated weekday name
+
+- %A - Full weekday name
+
+- %H - Hour, 24-hour clock (00-23)
+
+- %I - Hour, 12-hour clock (01-12)
+
+- %p - “AM” or “PM” for 12-hour clock
+
+- %M - Minute (00-59)
+
+- %S - Second (00-59)
+
+===============================================================================
+                                              *command_line_options-references*
+References ~
+
+[1] avrassembler.wb_preprocessor.include.html
+[2] avrassembler.wb_directives.html#avrassembler.wb_directives.INCLUDE
+[3] avrassembler.wb_directives.html#avrassembler.wb_directives.ORG
+[4] avrassembler.wb_preprocessor.Pre-defined_macros.html
+[5] avrassembler.wb_preprocessor.error.html
+
+vim: ft=help

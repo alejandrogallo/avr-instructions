@@ -1,0 +1,67 @@
+*sev.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |sev-introduction|
+ 2. SEV - Overflow Flag                                     |sev-overflow-flag|
+  1. Description:                                             |sev-description|
+  2. Status Register (SREG) and Boolean Formula: |sev-status-register-boolean-formula|
+ 3. References                                                 |sev-references|
+
+===============================================================================
+                                                             *sev-introduction*
+Introduction ~
+
+===============================================================================
+                                                            *sev-overflow-flag*
+SEV - Overflow Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *sev-description*
+Description: ~
+
+Sets the Overflow flag (V) in SREG [1] (status register).
+
+Operation:
+
+(i) V ← 1
+
+Syntax: Operands: Program Counter:
+
+(i)SEV None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0011 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *sev-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | 1   | -   | -   | -   |
+<
+V: 1
+
+Overflow flag set
+
+Example:
+>
+  add r2,r19; Add r19 to r2
+  sev ; Set overflow flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *sev-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

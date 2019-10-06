@@ -1,0 +1,59 @@
+*sleep.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                           |sleep-introduction|
+ 2. SLEEP - Sleep mode                                       |sleep-sleep-mode|
+  1. Description:                                           |sleep-description|
+  2. Status Register (SREG) and Boolean Formula: |sleep-status-register-boolean-formula|
+
+===============================================================================
+                                                           *sleep-introduction*
+Introduction ~
+
+===============================================================================
+                                                             *sleep-sleep-mode*
+SLEEP - Sleep mode ~
+
+-------------------------------------------------------------------------------
+                                                            *sleep-description*
+Description: ~
+
+This instruction sets the circuit in sleep mode defined by the MCU control
+register.
+
+Operation:
+
+Refer to the device documentation for detailed description of SLEEP usage.
+
+Syntax: Operands: Program Counter:
+
+SLEEP None PC â†? PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0101 | 1000 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                        *sleep-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  mov r0,r11 ; Copy r11 to r0
+  ldi r16,(1<<SE) ; Enable sleep mode
+  out MCUCR, r16
+  sleep ; Put MCU in sleep mode
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

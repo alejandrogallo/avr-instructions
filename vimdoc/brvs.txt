@@ -1,0 +1,73 @@
+*brvs.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brvs-introduction|
+ 2. BRVS - Branch if Overflow Set                 |brvs-branch-if-overflow-set|
+  1. Description:                                            |brvs-description|
+  2. Status Register (SREG) and Boolean Formula: |brvs-status-register-boolean-formula|
+ 3. References                                                |brvs-references|
+
+===============================================================================
+                                                            *brvs-introduction*
+Introduction ~
+
+===============================================================================
+                                                  *brvs-branch-if-overflow-set*
+BRVS - Branch if Overflow Set ~
+
+-------------------------------------------------------------------------------
+                                                             *brvs-description*
+Description: ~
+
+Conditional relative branch. Tests the Overflow flag (V) and branches
+relatively to PC if V is set. This instruction branches relatively to PC in
+either direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the
+offset from PC and is represented in two’s complement form. (Equivalent to
+instruction BRBS [1] 3,k).
+
+Operation:
+
+If V = 1 then PC ← PC + k + 1, else PC ← PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRVS k -64 ≤ k ≤ +63 PC ← PC + k + 1
+
+PC ← PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k011 |
+<
+-------------------------------------------------------------------------------
+                                         *brvs-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  add r3,r4 ; Add r4 to r3
+  brvs overfl ; Branch if overflow
+  ...
+  overfl:nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *brvs-references*
+References ~
+
+[1] avrassembler.wb_BRBS.html
+
+vim: ft=help

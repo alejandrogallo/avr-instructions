@@ -1,0 +1,48 @@
+*preprocessor.else.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                               |preprocessor.else-introduction|
+ 2. #else                                              |preprocessor.else-else|
+  1. Syntax                                          |preprocessor.else-syntax|
+  2. Description                                |preprocessor.else-description|
+  3. Example                                        |preprocessor.else-example|
+
+===============================================================================
+                                               *preprocessor.else-introduction*
+Introduction ~
+
+===============================================================================
+                                                       *preprocessor.else-else*
+#else ~
+
+-------------------------------------------------------------------------------
+                                                     *preprocessor.else-syntax*
+Syntax ~
+
+'#else'
+
+-------------------------------------------------------------------------------
+                                                *preprocessor.else-description*
+Description ~
+
+All following lines until the corresponding '#endif' are conditionally
+assembled if no previous branch in a compound '#if â&#x20AC;Ś #elif â&#x20AC;Ś'
+sequence has been evaluated to true.
+
+-------------------------------------------------------------------------------
+                                                    *preprocessor.else-example*
+Example ~
+>
+  #if defined(__ATmega48__) || defined(__ATmega88__) 
+  // code specific for these parts 
+  #elif defined (__ATmega169__) 
+  // code specific for ATmega169 
+  #else 
+  #error "Unsupported part:" __PART_NAME__ 
+  #endif // part specific code
+<
+
+
+vim: ft=help

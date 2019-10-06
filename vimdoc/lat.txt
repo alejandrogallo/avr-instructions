@@ -1,0 +1,60 @@
+*lat.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |lat-introduction|
+ 2. LAT - Load and Toggle                                     |lat-load-toggle|
+  1. Description:                                             |lat-description|
+  2. Status Register (SREG) and Boolean Formula: |lat-status-register-boolean-formula|
+
+===============================================================================
+                                                             *lat-introduction*
+Introduction ~
+
+===============================================================================
+                                                              *lat-load-toggle*
+LAT - Load and Toggle ~
+
+-------------------------------------------------------------------------------
+                                                              *lat-description*
+Description: ~
+
+Load one byte indirect from data space to register and toggles bits in the data
+space specified by the register. The instruction can only be used towards SRAM.
+
+The data location is pointed to by the Z (16 bits) Pointer Register in the
+Register File. Memory access is limited to the current data segment of 64K
+bytes. To access another data segment in devices with more than 64K bytes data
+space, the RAMPZ in register in the I/O area has to be changed.
+
+The Z-pointer Register is left unchanged by the operation. This instruction is
+especially suited for changing status bits stored in SRAM.
+
+Operation:
+
+(Z) ← Rd ⊕ (Z), Rd ← (Z)
+
+Syntax: Operands: Program Counter:
+
+LAT Z, Rd 0 ≤ d ≤ 31 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 000r | rrrr | 0111 |
+<
+-------------------------------------------------------------------------------
+                                          *lat-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Words:1 (2 bytes)
+
+Cycles: 2
+
+vim: ft=help

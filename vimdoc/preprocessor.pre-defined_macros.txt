@@ -1,0 +1,55 @@
+*preprocessor.pre-defined_macros.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                 |preprocessor.pre-defined_macros-introduction|
+ 2. Pre-defined macros     |preprocessor.pre-defined_macros-pre-defined-macros|
+ 3. References                     |preprocessor.pre-defined_macros-references|
+
+===============================================================================
+                                 *preprocessor.pre-defined_macros-introduction*
+Introduction ~
+
+===============================================================================
+                           *preprocessor.pre-defined_macros-pre-defined-macros*
+Pre-defined macros ~
+
+The preprocessor has a number of pre-defined macros. All have names starting
+and ending with two underscores (__). To avoid conflicts, user-defined macros
+should not use this naming convention.
+
+Pre-defined macros are either built-in, or they are set by the #pragma [1]
+directive, as indicated in the table.
+
+``` | Name | type | Set by | Description | |---------------------------|-------
+--|----------------------------------------------------------------------------
+----------------------------------|--------------------------------------------
+-------------------------------------------------------------------------------
+------------------------------------------------------------------------| |
+__AVRASM_VERSION__ | Integer | Built-in | Assembler version, encoded as
+(1000*major + minor) | | __CORE_VERSION__ | String | #pragma [1] | AVR core
+version. | | __DATE__ | String | built-in | Build date. Format: “Jun 28 2004”,
+see -FDformat [2] . | | __TIME__ | String | built-in | Build time. Format:
+“HH:MM:SS”. see -FDformat [2] | | __CENTURY__ | Integer | built-in | Build time
+century (typically 20) | | __YEAR__ | Integer | built-in | Build time year,
+less century (0-99) | | __MONTH__ | Integer | built-in | Build time month
+(1-12) | | __DAY__ | Integer | built-in | Build time day (1-31) | | __HOUR__ |
+Integer | built-in | Build time hour (0-23) | | __MINUTE__ | Integer | built-in
+| Build time minute (0-59) | | __SECOND__ | Integer | built-in | Build time
+second (0-59) | | __FILE__ | String | built-in | Source file name. | | __LINE__
+| Integer | built-in | Current line number in source file. | | __PART_NAME__ |
+String | #pragma [1] | AVR part name. | | __partname__ | Integer | #pragma [1]
+| partnamecorresponds to the value of __PART_NAME__. Example: #ifdef
+__ATmega8__ | | __CORE_coreversion__ | Integer | #pragma [1] |
+coreversioncorresponds to the value of __CORE_VERSION__. Example: #ifdef
+__CORE_V2__ |
+
+===============================================================================
+                                   *preprocessor.pre-defined_macros-references*
+References ~
+
+[1] avrassembler.wb_preprocessor.pragma.html
+[2] avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.FDformat
+
+vim: ft=help

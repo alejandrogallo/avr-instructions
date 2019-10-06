@@ -1,0 +1,76 @@
+*com.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |com-introduction|
+ 2. COM - One’s Complement                               |com-one-s-complement|
+  1. Description:                                             |com-description|
+  2. Status Register (SREG) and Boolean Formulae: |com-status-register-boolean-formulae|
+
+===============================================================================
+                                                             *com-introduction*
+Introduction ~
+
+===============================================================================
+                                                         *com-one-s-complement*
+COM - One’s Complement ~
+
+-------------------------------------------------------------------------------
+                                                              *com-description*
+Description: ~
+
+This instruction performs a one’s complement of register Rd.
+
+Operation:
+
+Rd ← $FF - Rd
+
+Syntax: Operands: Program Counter:
+
+COM Rd 0 ≤ d ≤ 31 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 010d | dddd | 0000 |
+<
+-------------------------------------------------------------------------------
+                                         *com-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | 1   |
+<
+S:N ⊕ V For signed tests.
+
+V:0 Cleared.
+
+N:R7 Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\overline{R7} \overline{R6} \overline{R5} \overline{R4}$
+
+$\overline{R3} \overline{R2} \overline{R1} \overline{R0}$
+
+Set if the result is $00; Cleared otherwise.
+
+C:1 Set.
+
+R (Result) equals Rd after the operation.
+
+Example:
+>
+  com r4 ; Take one's complement of r4
+  breq zero ; Branch if zero
+  ...
+  zero: nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

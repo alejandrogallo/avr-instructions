@@ -1,0 +1,62 @@
+*mov.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |mov-introduction|
+ 2. MOV - Copy Register                                     |mov-copy-register|
+  1. Description:                                             |mov-description|
+  2. Status Register (SREG) and Boolean Formula: |mov-status-register-boolean-formula|
+
+===============================================================================
+                                                             *mov-introduction*
+Introduction ~
+
+===============================================================================
+                                                            *mov-copy-register*
+MOV - Copy Register ~
+
+-------------------------------------------------------------------------------
+                                                              *mov-description*
+Description: ~
+
+This instruction makes a copy of one register into another. The source register
+Rr is left unchanged, while the destination register Rd is loaded with a copy
+of Rr.
+
+Operation:
+
+(i) Rd ← Rr
+
+Syntax: Operands: Program Counter:
+
+(i) MOV Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 0010 | 11rd | dddd | rrrr |
+<
+-------------------------------------------------------------------------------
+                                          *mov-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  mov r16,r0 ; Copy r0 to r16
+  call check ; Call subroutine
+  ...
+  check: cpi r16,$11 ; Compare r16 to $11
+  ...
+  ret ; Return from subroutine
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

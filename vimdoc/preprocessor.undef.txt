@@ -1,0 +1,41 @@
+*preprocessor.undef.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                              |preprocessor.undef-introduction|
+ 2. #undef                                           |preprocessor.undef-undef|
+  1. Syntax                                         |preprocessor.undef-syntax|
+  2. Description                               |preprocessor.undef-description|
+ 3. References                                  |preprocessor.undef-references|
+
+===============================================================================
+                                              *preprocessor.undef-introduction*
+Introduction ~
+
+===============================================================================
+                                                     *preprocessor.undef-undef*
+#undef ~
+
+-------------------------------------------------------------------------------
+                                                    *preprocessor.undef-syntax*
+Syntax ~
+
+'#undef name'
+
+-------------------------------------------------------------------------------
+                                               *preprocessor.undef-description*
+Description ~
+
+Undefine macro name previously defined with a '#define' directive. If name is
+not previously defined, the '.undef' directive is silently ignored, this
+behaviour is in accordance with the ANSI C standard. Macros may also be
+undefined from the command line using the -D [1] .
+
+===============================================================================
+                                                *preprocessor.undef-references*
+References ~
+
+[1] avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.D
+
+vim: ft=help

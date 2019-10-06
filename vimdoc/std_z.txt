@@ -1,0 +1,130 @@
+*std_z.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                           |std_z-introduction|
+ 2. ST (STD) - Store Indirect From Register to data space using Index Z |std_z-st-store-indirect-from-register-to-data-space-using-index-z|
+  1. Description:                                           |std_z-description|
+  2. Status Register (SREG) and Boolean Formula: |std_z-status-register-boolean-formula|
+ 3. References                                               |std_z-references|
+
+===============================================================================
+                                                           *std_z-introduction*
+Introduction ~
+
+===============================================================================
+            *std_z-st-store-indirect-from-register-to-data-space-using-index-z*
+ST (STD) - Store Indirect From Register to data space using Index Z ~
+
+-------------------------------------------------------------------------------
+                                                            *std_z-description*
+Description: ~
+
+Stores one byte indirect with or without displacement from a register to data
+space. For parts with SRAM, the data space consists of the register file, I/O
+memory and internal SRAM (and external SRAM if applicable). For parts without
+SRAM, the data space consists of the register file only. The EEPROM has a
+separate address space.
+
+The data location is pointed to by the Z (16 bits) pointer register in the
+register file. Memory access is limited to the current data segment of 64K
+bytes. To access another data segment in devices with more than 64K bytes data
+space, the RAMPX, RAMPY, RAMPZ [1] in register in the I/O area has to be
+changed.
+
+The Z pointer register can either be left unchanged by the operation, or it can
+be post-incremented or pre-decremented. These features are especially suited
+for stack pointer usage of the Z pointer register, however because the Z
+pointer register can be used for indirect subroutine calls, indirect jumps and
+table lookup, it is often more convenient to use the X or Y pointer as a
+dedicated stack pointer. Note that only the low byte of the Z pointer is
+updated in devices with no more than 256 bytes data space. For such devices,
+the high byte of the pointer is not used by this instruction and can be used
+for other purposes. The RAMPZ register in the I/O area is updated in parts with
+more than 64K bytes data space or more than 64K bytes program memory, and the
+increment/decrement/displacement is added to the entire 24-bit address on such
+devices.
+
+Not all variants of this instruction is available in all devices. Refer to the
+device specific instruction set summary.
+
+The result of these combinations is undefined:
+
+ST Z+, r30
+
+ST Z+, r31
+
+ST -Z, r30
+
+ST -Z, r31
+
+Using the Z pointer:
+
+Operation: Comment:
+
+(i) (Z) ←Rr Z: Unchanged
+
+(ii) (Z) ← Rr Z ← Z+1 Z: Post incremented
+
+(iii) Z ← Z - 1 (Z) ← Rr Z: Pre decremented
+
+(iiii)* (Z+q) ← Rr Z: Unchanged, q: Displacement
+
+Syntax: Operands: Program Counter:
+
+(i) ST Z, Rr 0 ≤ r ≤ 31 PC ← PC + 1
+
+(ii) ST Z+, Rr 0 ≤ r ≤ 31 PC ← PC + 1
+
+(iii) ST -Z, Rr 0 ≤ r ≤ 31 PC ← PC + 1
+
+(iiii)* STD Z+q, Rr 0 ≤ r ≤ 31, 0 ≤ q ≤ 63 PC ← PC + 1
+
+Notes:
+
+*)The displacement form of this instruction (LDD) is not available on AVR8L
+based devices.
+
+16-bit Opcode :
+>
+  | (i)    | 1000 | 001r | rrrr | 0000 |
+  |--------|------|------|------|------|
+  | (ii)   | 1001 | 001r | rrrr | 0001 |
+  | (iii)  | 1001 | 001r | rrrr | 0010 |
+  | (iiii) | 10q0 | qq1r | rrrr | 0qqq |
+<
+-------------------------------------------------------------------------------
+                                        *std_z-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  clr r31 ; Clear Z high byte
+  ldi r30,$60 ; Set Z low byte to $60
+  st Z+,r0 ; Store r0 in data space loc. $60(Z post inc)
+  st Z,r1 ; Store r1 in data space loc. $61
+  ldi r30,$63 ; Set Z low byte to $63
+  st Z,r2 ; Store r2 in data space loc. $63
+  st -Z,r3 ; Store r3 in data space loc. $62(Z pre dec)
+  std Z+2,r4 ; Store r4 in data space loc. $64
+<
+Words:1 (2 bytes)
+
+Cycles:
+
+``` | | Cycles | Cycles xmega | Cycles AVR8L |
+|--------|--------|--------------|--------------| | (i) | 2 | 1 | 1 | | (ii) |
+2 | 1 | 1 | | (iii) | 2 | 2 | 2 | | (iiii) | 2 | 2 | N/A |
+
+===============================================================================
+                                                             *std_z-references*
+References ~
+
+[1] avrassembler.wb_registers.html#avrassembler.RAMPX__RAMPY__RAMPZ
+
+vim: ft=help

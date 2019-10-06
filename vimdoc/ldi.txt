@@ -1,0 +1,58 @@
+*ldi.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |ldi-introduction|
+ 2. LDI - Load Immediate                                   |ldi-load-immediate|
+  1. Description:                                             |ldi-description|
+  2. Status Register (SREG) and Boolean Formula: |ldi-status-register-boolean-formula|
+
+===============================================================================
+                                                             *ldi-introduction*
+Introduction ~
+
+===============================================================================
+                                                           *ldi-load-immediate*
+LDI - Load Immediate ~
+
+-------------------------------------------------------------------------------
+                                                              *ldi-description*
+Description: ~
+
+Loads an 8 bit constant directly to register 16 to 31.
+
+Operation:
+
+(i)Rd ← K
+
+Syntax: Operands: Program Counter:
+
+(i) LDI Rd,K 16 ≤ d ≤ 31, 0 ≤ K ≤ 255 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1110 | KKKK | dddd | KKKK |
+<
+-------------------------------------------------------------------------------
+                                          *ldi-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  clrr31 ; Clear Z high byte
+  ldi r30, $F0 ; Set Z low byte to $F0
+  lpm ; Load constant from program
+  ; memory pointed to by Z
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

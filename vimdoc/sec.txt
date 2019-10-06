@@ -1,0 +1,67 @@
+*sec.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |sec-introduction|
+ 2. SEC - Set Carry Flag                                   |sec-set-carry-flag|
+  1. Description:                                             |sec-description|
+  2. Status Register (SREG) and Boolean Formula: |sec-status-register-boolean-formula|
+ 3. References                                                 |sec-references|
+
+===============================================================================
+                                                             *sec-introduction*
+Introduction ~
+
+===============================================================================
+                                                           *sec-set-carry-flag*
+SEC - Set Carry Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *sec-description*
+Description: ~
+
+Sets the Carry flag (C) in SREG [1] (status register).
+
+Operation:
+
+(i)C ← 1
+
+Syntax: Operands: Program Counter:
+
+(i)SEC None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0000 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *sec-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | 1   |
+<
+C: 1
+
+Carry flag set
+
+Example:
+>
+  sec ; Set carry flag
+  adc r0,r1 ; r0=r0+r1+1
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *sec-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

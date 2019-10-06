@@ -1,0 +1,29 @@
+*preprocessor.operators.txt*  AVR Assembler AVR Assembler Preprocessor
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                          |preprocessor.operators-introduction|
+ 2. Operators                                |preprocessor.operators-operators|
+ 3. References                              |preprocessor.operators-references|
+
+===============================================================================
+                                          *preprocessor.operators-introduction*
+Introduction ~
+
+===============================================================================
+                                             *preprocessor.operators-operators*
+Operators ~
+
+**Table of Contents**
+
+Stringification (#) [1] Concatenation (##) [2]
+
+===============================================================================
+                                            *preprocessor.operators-references*
+References ~
+
+[1] avrassembler.wb_preprocessor.Stringification.html
+[2] avrassembler.wb_preprocessor.Concatenation.html
+
+vim: ft=help

@@ -1,0 +1,57 @@
+*bld.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |bld-introduction|
+ 2. BLD - Bit Load from the T Flag in SREG to a Bit in Register. |bld-bit-load-from-t-flag-in-sreg-to-bit-in-register.|
+  1. Description:                                             |bld-description|
+  2. Status Register (SREG) and Boolean Formulae: |bld-status-register-boolean-formulae|
+
+===============================================================================
+                                                             *bld-introduction*
+Introduction ~
+
+===============================================================================
+                         *bld-bit-load-from-t-flag-in-sreg-to-bit-in-register.*
+BLD - Bit Load from the T Flag in SREG to a Bit in Register. ~
+
+-------------------------------------------------------------------------------
+                                                              *bld-description*
+Description: ~
+
+Copies the T flag in the SREG (status register) to bit b in register Rd.
+
+Operation:
+
+Rd(b) <- T
+
+Syntax: Operands: Program Counter:
+
+BLD Rd,b 0 ≤ d ≤ 31, 0 ≤ b ≤ 7 PC <- PC + 1
+
+16 bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 100d | dddd | 0bbb |
+<
+-------------------------------------------------------------------------------
+                                         *bld-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  ; Copy bit
+  bst r1,2 ; Store bit 2 of r1 in T flag
+  bld r0,4 ; Load T flag into bit 4 of r0
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

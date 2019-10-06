@@ -1,0 +1,56 @@
+*cbi.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |cbi-introduction|
+ 2. CBI - Clear Bit in I/O Register             |cbi-clear-bit-in-i-o-register|
+  1. Description:                                             |cbi-description|
+  2. Status Register (SREG) and Boolean Formula: |cbi-status-register-boolean-formula|
+
+===============================================================================
+                                                             *cbi-introduction*
+Introduction ~
+
+===============================================================================
+                                                *cbi-clear-bit-in-i-o-register*
+CBI - Clear Bit in I/O Register ~
+
+-------------------------------------------------------------------------------
+                                                              *cbi-description*
+Description: ~
+
+Clears a specified bit in an I/O register. This instruction operates on the
+lower 32 I/O registers - addresses 0-31.
+
+Operation:
+
+I/O(A,b) ← 0
+
+Syntax: Operands: Program Counter:
+
+CBI A, b 0 ≤ A ≤ 31, 0 ≤ b ≤ 7 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 1000 | AAAA | Abbb |
+<
+-------------------------------------------------------------------------------
+                                          *cbi-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  cbi $12, 7 ; Clear bit 7 in Port D
+<
+Words: 1 (2 bytes)
+
+Cycles: 2 Cycles xmega/AVR8L: 1
+
+vim: ft=help

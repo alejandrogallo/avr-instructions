@@ -1,0 +1,84 @@
+*rcall.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                           |rcall-introduction|
+ 2. RCALL - Relative Call to Subroutine     |rcall-relative-call-to-subroutine|
+  1. Description:                                           |rcall-description|
+  2. Status Register (SREG) and Boolean Formula: |rcall-status-register-boolean-formula|
+ 3. References                                               |rcall-references|
+
+===============================================================================
+                                                           *rcall-introduction*
+Introduction ~
+
+===============================================================================
+                                            *rcall-relative-call-to-subroutine*
+RCALL - Relative Call to Subroutine ~
+
+-------------------------------------------------------------------------------
+                                                            *rcall-description*
+Description: ~
+
+Relative call to an address within PC - 2K + 1 and PC + 2K (words). The return
+address (the instruction after the RCALL) is stored onto the stack. (See also
+CALL [1] ). In the assembler, labels are used instead of relative operands. For
+AVR microcontrollers with program memory not exceeding 4K words (8K bytes) this
+instruction can address the entire memory from every address location. The
+stack pointer uses a post-decrement scheme during RCALL.
+
+Operation:
+
+(i)PC ← PC + k + 1 Devices with 16 bits PC, 128K bytes program memory maximum.
+
+(ii)PC ← PC + k + 1 Devices with 22 bits PC, 8M bytes program memory maximum.
+
+Syntax: Operands: Program Counter: Stack:
+
+(i) RCALL k -2K ≤ k < 2K PC ← PC + k + 1 STACK ← PC + 1
+
+SP ← SP - 2 (2 bytes, 16 bits)
+
+(ii)RCALL k -2K ≤ k < 2K PC ← PC + k + 1 STACK ← PC + 1
+
+SP ← SP - 3 (3 bytes, 22 bits)
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1101 | kkkk | kkkk | kkkk |
+<
+-------------------------------------------------------------------------------
+                                        *rcall-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  rcall routine ; Call subroutine
+  ...
+   routine: push r14 ; Save r14 on the stack
+  ...
+  pop r14 ; Restore r14
+  ret ; Return from subroutine
+<
+Words:1 (2 bytes)
+
+Cycles:
+
+``` | | Cycles | Cycles xmega | Cycles AVR8L |
+|------------------------|--------|--------------|--------------| | Devices
+with 16-bit PC | 3 | 2 | 4 | | Devices with 22-bit PC | 4 | 3 | N/A |
+
+===============================================================================
+                                                             *rcall-references*
+References ~
+
+[1] avrassembler.wb_CALL.html
+
+vim: ft=help

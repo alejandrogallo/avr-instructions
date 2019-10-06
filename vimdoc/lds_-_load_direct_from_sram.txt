@@ -1,0 +1,74 @@
+*lds_-_load_direct_from_sram.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                     |lds_-_load_direct_from_sram-introduction|
+ 2. LDS - Load Direct from SRAM |lds_-_load_direct_from_sram-lds-load-direct-from-sram|
+  1. Description:                     |lds_-_load_direct_from_sram-description|
+  2. Status Register (SREG) and Boolean Formula: |lds_-_load_direct_from_sram-status-register-boolean-formula|
+ 3. References                         |lds_-_load_direct_from_sram-references|
+
+===============================================================================
+                                     *lds_-_load_direct_from_sram-introduction*
+Introduction ~
+
+===============================================================================
+                        *lds_-_load_direct_from_sram-lds-load-direct-from-sram*
+LDS - Load Direct from SRAM ~
+
+This 1-word form of the LDS instruction is only used on ATtiny10-based devices.
+Other AVR devices use the LDS [1] .
+
+-------------------------------------------------------------------------------
+                                      *lds_-_load_direct_from_sram-description*
+Description: ~
+
+Loads one byte from the SRAM section of the data space to a register.
+
+An 8-bit address in the range 0x40 <= k <= 0xBF must be supplied. The assembler
+will calculate an 7-bit offset into the SRAM memory from this address, hence
+this instruction is capable of addressing up to 128 bytes of SRAM. This
+instruction cannot be used to load I/O addresses, use the IN [2] instruction
+for this purpose.
+
+Operation:
+
+(i)Rd ← (k)
+
+Syntax: Operands: Program Counter:
+
+(i)LDS Rd,k 16 ≤ d ≤ 31, 0x40 ≤ k ≤ 0xBF PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1010 | 0kkk | dddd | kkkk |
+<
+-------------------------------------------------------------------------------
+                  *lds_-_load_direct_from_sram-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  lds r2,$40 ; Load r2 with the contents of data space location $FF00
+  add r2,r1 ; add r1 to r2
+  sts $40,r2 ; Write back
+<
+Words:1 (2 bytes)
+
+Cycles:1
+
+===============================================================================
+                                       *lds_-_load_direct_from_sram-references*
+References ~
+
+[1] avrassembler.wb_LDS.html
+[2] avrassembler.wb_IN.html
+
+vim: ft=help

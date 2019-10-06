@@ -1,0 +1,72 @@
+*brie.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brie-introduction|
+ 2. BRIE - Branch if Global Interrupt is Enabled |brie-branch-if-global-interrupt-is-enabled|
+  1. Description:                                            |brie-description|
+  2. Status Register (SREG) and Boolean Formula: |brie-status-register-boolean-formula|
+ 3. References                                                |brie-references|
+
+===============================================================================
+                                                            *brie-introduction*
+Introduction ~
+
+===============================================================================
+                                   *brie-branch-if-global-interrupt-is-enabled*
+BRIE - Branch if Global Interrupt is Enabled ~
+
+-------------------------------------------------------------------------------
+                                                             *brie-description*
+Description: ~
+
+Conditional relative branch. Tests the Global Interrupt flag (I) and branches
+relatively to PC if I is set. This instruction branches relatively to PC in
+either direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the
+offset from PC and is represented in two’s complement form. (Equivalent to
+instruction BRBS [1] 7,k).
+
+Operation:
+
+If I = 1 then PC <- PC + k + 1, else PC <- PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRIE k -64 ≤ k ≤ +63 PC ← PC + k + 1
+
+PC <- PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k111 |
+<
+-------------------------------------------------------------------------------
+                                         *brie-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  brie inten ; Branch if interrupt enabled
+  ...
+  inten:nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *brie-references*
+References ~
+
+[1] avrassembler.wb_BRBS.html
+
+vim: ft=help

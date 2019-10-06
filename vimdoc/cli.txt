@@ -1,0 +1,65 @@
+*cli.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |cli-introduction|
+ 2. CLI - Clear Global Interrupt Flag         |cli-clear-global-interrupt-flag|
+  1. Description:                                             |cli-description|
+  2. Status Register (SREG) and Boolean Formula: |cli-status-register-boolean-formula|
+
+===============================================================================
+                                                             *cli-introduction*
+Introduction ~
+
+===============================================================================
+                                              *cli-clear-global-interrupt-flag*
+CLI - Clear Global Interrupt Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *cli-description*
+Description: ~
+
+Clears the Global Interrupt flag (I) in SREG (status register). The interrupts
+will be immediately disabled. No interrupt will be executed after the CLI
+instruction, even if it occurs simultaneously with the CLI instruction.
+
+Operation:
+
+I ← 0
+
+Syntax: Operands: Program Counter:
+
+CLI None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1111 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *cli-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | 0   | -   | -   | -   | -   | -   | -   | -   |
+<
+I: 0
+
+Global Interrupt flag cleared
+
+Example:
+>
+  in temp, SREG ; Store SREG value (temp must be defined by user)
+  cli ; Disable interrupts during timed sequence
+  sbi EECR, EEMWE ; Start EEPROM write
+  sbi EECR, EEWE
+  out SREG, temp ; Restore SREG value (I-flag)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

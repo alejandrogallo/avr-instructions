@@ -1,0 +1,58 @@
+*cln.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |cln-introduction|
+ 2. CLN - Clear Negative Flag                         |cln-clear-negative-flag|
+  1. Description:                                             |cln-description|
+  2. Status Register (SREG) and Boolean Formula: |cln-status-register-boolean-formula|
+
+===============================================================================
+                                                             *cln-introduction*
+Introduction ~
+
+===============================================================================
+                                                      *cln-clear-negative-flag*
+CLN - Clear Negative Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *cln-description*
+Description: ~
+
+Clears the Negative flag (N) in SREG (status register).
+
+Operation:
+
+N ← 0
+
+Syntax: Operands: Program Counter:
+
+CLN None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1010 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *cln-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | 0   | -   | -   |
+<
+N: 0 Negative flag cleared
+
+Example:
+>
+  add r2,r3 ; Add r3 to r2
+  cln ; Clear negative flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

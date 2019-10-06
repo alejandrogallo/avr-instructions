@@ -1,0 +1,69 @@
+*jmp.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |jmp-introduction|
+ 2. JMP - Jump                                                       |jmp-jump|
+  1. Description:                                             |jmp-description|
+  2. Status Register (SREG) and Boolean Formula: |jmp-status-register-boolean-formula|
+ 3. References                                                 |jmp-references|
+
+===============================================================================
+                                                             *jmp-introduction*
+Introduction ~
+
+===============================================================================
+                                                                     *jmp-jump*
+JMP - Jump ~
+
+-------------------------------------------------------------------------------
+                                                              *jmp-description*
+Description: ~
+
+Jump to an address within the entire 4M (words) program memory. See also RJMP
+[1] .
+
+This instruction is not available in all devices. Refer to the device specific
+instruction set summary.
+
+Operation:
+
+(i)PC ← k
+
+Syntax: Operands: Program Counter: Stack:
+
+(i)JMP k 0 ≤ k < 4M PC ← k Unchanged
+
+32-bit Opcode:
+>
+  | 1001 | 010k | kkkk | 110k |
+  |------|------|------|------|
+  | kkkk | kkkk | kkkk | kkkk |
+<
+-------------------------------------------------------------------------------
+                                          *jmp-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  mov r1,r0 ; Copy r0 to r1
+  jmp farplc ; Unconditional jump
+  ...
+  farplc:nop ; Jump destination (do nothing)
+<
+Words: 2 (4 bytes)
+
+Cycles: 3
+
+===============================================================================
+                                                               *jmp-references*
+References ~
+
+[1] avrassembler.wb_RJMP.html
+
+vim: ft=help

@@ -1,0 +1,58 @@
+*cls.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |cls-introduction|
+ 2. CLS - Clear Signed Flag                             |cls-clear-signed-flag|
+  1. Description:                                             |cls-description|
+  2. Status Register (SREG) and Boolean Formula: |cls-status-register-boolean-formula|
+
+===============================================================================
+                                                             *cls-introduction*
+Introduction ~
+
+===============================================================================
+                                                        *cls-clear-signed-flag*
+CLS - Clear Signed Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *cls-description*
+Description: ~
+
+Clears the Signed flag (S) in SREG (status register).
+
+Operation:
+
+S ← 0
+
+Syntax: Operands: Program Counter:
+
+CLS None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1100 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *cls-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | 0   | -   | -   | -   | -   |
+<
+S: 0 Signed flag cleared
+
+Example:
+>
+  add r2,r3 ; Add r3 to r2
+  cls ; Clear signed flag
+<
+Words: 1 (2 bytes)
+
+Cycles:
+
+vim: ft=help

@@ -1,0 +1,66 @@
+*seh.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |seh-introduction|
+ 2. SEH - Set Half Carry Flag                         |seh-set-half-carry-flag|
+  1. Description:                                             |seh-description|
+  2. Status Register (SREG) and Boolean Formula: |seh-status-register-boolean-formula|
+ 3. References                                                 |seh-references|
+
+===============================================================================
+                                                             *seh-introduction*
+Introduction ~
+
+===============================================================================
+                                                      *seh-set-half-carry-flag*
+SEH - Set Half Carry Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *seh-description*
+Description: ~
+
+Sets the Half Carry (H) in SREG [1] (status register).
+
+Operation:
+
+(i)H ← 1
+
+Syntax: Operands: Program Counter:
+
+(i) SEH None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 0101 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *seh-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | 1   | -   | -   | -   | -   | -   |
+<
+H: 1
+
+Half Carry flag set
+
+Example:
+>
+  seh ; Set Half Carry flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *seh-references*
+References ~
+
+[1] avrassembler.wb_nomenclature.html#avrassembler.Status_Register
+
+vim: ft=help

@@ -1,0 +1,59 @@
+*bst.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |bst-introduction|
+ 2. BST - Bit Store from Bit in Register to T Flag in SREG |bst-bit-store-from-bit-in-register-to-t-flag-in-sreg|
+  1. Description:                                             |bst-description|
+  2. Status Register (SREG) and Boolean Formula: |bst-status-register-boolean-formula|
+
+===============================================================================
+                                                             *bst-introduction*
+Introduction ~
+
+===============================================================================
+                         *bst-bit-store-from-bit-in-register-to-t-flag-in-sreg*
+BST - Bit Store from Bit in Register to T Flag in SREG ~
+
+-------------------------------------------------------------------------------
+                                                              *bst-description*
+Description: ~
+
+Stores bit b from Rd to the T flag in SREG (status register).
+
+Operation:
+
+T <- Rd(b)
+
+Syntax: Operands: Program Counter:
+
+BST Rd,b 0 ≤ d ≤ 31, 0 ≤ b ≤ 7 PC <- PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 101d | dddd | 0bbb |
+<
+-------------------------------------------------------------------------------
+                                          *bst-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | ⇔   | -   | -   | -   | -   | -   | -   |
+<
+T:0 if bit b in Rd is cleared. Set to 1 otherwise.
+
+Example:
+>
+  ; Copy bit
+  bst r1,2 ; Store bit 2 of r1 in T flag
+  bld r0,4 ; Load T into bit 4 of r0
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

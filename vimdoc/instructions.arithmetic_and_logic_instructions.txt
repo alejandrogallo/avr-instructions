@@ -1,0 +1,96 @@
+*instructions.arithmetic_and_logic_instructions.txt*  AVR Assembler Instruction mnemonics
+
+===============================================================================
+Contents ~
+
+ 1. Introduction  |instructions.arithmetic_and_logic_instructions-introduction|
+ 2. Arithmetic and logic instructions |instructions.arithmetic_and_logic_instructions-arithmetic-logic-instructions|
+ 3. References      |instructions.arithmetic_and_logic_instructions-references|
+
+===============================================================================
+                  *instructions.arithmetic_and_logic_instructions-introduction*
+Introduction ~
+
+===============================================================================
+ *instructions.arithmetic_and_logic_instructions-arithmetic-logic-instructions*
+Arithmetic and logic instructions ~
+
+``` | **Mnemonic** | **Operands** | **Description** | **Operation** | **Flags**
+| **Cycles** | |---------------------------------------------------------------
+----------------------------------------------------------|--------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-----------------------------------------------------|-------------------------
+--------------------|-------------------------------------------|--------------
+-------------------------|----------------------------------------| | ADD [1] |
+Rd [2] , Rr [3] | Add without Carry | Rd = Rd + Rr | Z,C,N,V,H,S | 1 | | ADC
+[4] | Rd [2] , Rr [3] | Add with Carry | Rd = Rd + Rr + C | Z,C,N,V,H,S | 1 | |
+ADIW [5] | Rd [2] , k [6] | Add Immediate To Word | Rd+1:Rd,K | Z,C,N,V,S | 2 |
+| SUB [7] | Rd [2] , Rr [3] | Subtract without Carry | Rd = Rd - Rr |
+Z,C,N,V,H,S | 1 | | SUBI [8] | Rd [2] , K8 [9] | Subtract Immediate | Rd = Rd -
+K8 | Z,C,N,V,H,S | 1 | | SBC [10] | Rd [2] , Rr [3] | Subtract with Carry | Rd
+= Rd - Rr - C | Z,C,N,V,H,S | 1 | | SBCI [11] | Rd [2] , K8 [9] | Subtract with
+Carry Immedtiate | Rd = Rd - K8 - C | Z,C,N,V,H,S | 1 | | AND [12] | Rd [2] ,
+Rr [3] | Logical AND | Rd = Rd · Rr | Z,N,V,S | 1 | | ANDI [13] | Rd [2] , K8
+[9] | Logical AND with Immediate | Rd = Rd · K8 | Z,N,V,S | 1 | | OR [14] | Rd
+[2] , Rr [3] | Logical OR | Rd = Rd V Rr | Z,N,V,S | 1 | | ORI [15] | Rd [2] ,
+K8 [9] | Logical OR with Immediate | Rd = Rd V K8 | Z,N,V,S | 1 | | EOR [16] |
+Rd [2] , Rr [3] | Logical Exclusive OR | Rd = Rd EOR Rr | Z,N,V,S | 1 | | COM
+[17] | Rd [2] | One’s Complement | Rd = $FF - Rd | Z,C,N,V,S | 1 | | NEG [18] |
+Rd [2] | Two’s Complement | Rd = $00 - Rd | Z,C,N,V,H,S | 1 | | CBR [19] | Rd
+[2] , K8 [9] | Set Bit(s) in Register | Rd = Rd V K8 | Z,C,N,V,S | 1 | | CBR
+[19] | Rd [2] , K8 [9] | Clear Bit(s) in Register | Rd = Rd · ($FF - K8) |
+Z,C,N,V,S | 1 | | INC [20] | Rd [2] | Increment Register | Rd = Rd + 1 |
+Z,N,V,S | 1 | | DEC [21] | Rd [2] | Decrement Register | Rd = Rd -1 | Z,N,V,S |
+1 | | TST [22] | Rd [2] | Test for Zero or Negative | Rd = Rd · Rd | Z,C,N,V,S
+| 1 | | CLR [23] | Rd [2] | Clear Register | Rd = 0 | Z,N,V,S | 1 | | SER [24]
+| Rd [2] | Set Register | Rd = $FF | None | 1 | | SBIW [25] | Rdl [26] , K6
+[27] | Subtract Immediate from Word | Rdh:Rdl = Rdh:Rdl - K 6 | Z,C,N,V,S | 2 |
+| MUL [28] | Rd [2] , Rr [3] | Multiply Unsigned | R1:R0 = Rd * Rr | Z,C | 2 |
+| MULS [29] | Rd [2] , Rr [3] | Multiply Signed | R1:R0 = Rd * Rr | Z,C | 2 | |
+MULSU [30] | Rd [2] , Rr [3] | Multiply Signed with Unsigned | R1:R0 = Rd * Rr
+| Z,C | 2 | | FMUL [31] | Rd [2] , Rr [3] | Fractional Multiply Unsigned |
+R1:R0 = (Rd * Rr) << 1 | Z,C | 2 | | FMULS [32] | Rd [2] , Rr [3] | Fractional
+Multiply Signed | R1:R0 = (Rd *Rr) << 1 | Z,C | 2 | | FMULSU [33] | Rd [2] , Rr
+[3] | Fractional Multiply Signed with Unsigned | R1:R0 = (Rd * Rr) << 1 | Z,C |
+2 |
+
+===============================================================================
+                    *instructions.arithmetic_and_logic_instructions-references*
+References ~
+
+[1] avrassembler.wb_ADD.html
+[2] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd
+[3] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr
+[4] avrassembler.wb_ADC.html
+[5] avrassembler.wb_ADIW.html
+[6] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k
+[7] avrassembler.wb_SUB.html
+[8] avrassembler.wb_SUBI.html
+[9] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8
+[10] avrassembler.wb_SBC.html
+[11] avrassembler.wb_SBCI.html
+[12] avrassembler.wb_AND.html
+[13] avrassembler.wb_ANDI.html
+[14] avrassembler.wb_OR.html
+[15] avrassembler.wb_ORI.html
+[16] avrassembler.wb_EOR.html
+[17] avrassembler.wb_COM.html
+[18] avrassembler.wb_NEG.html
+[19] avrassembler.wb_CBR.html
+[20] avrassembler.wb_INC.html
+[21] avrassembler.wb_DEC.html
+[22] avrassembler.wb_TST.html
+[23] avrassembler.wb_CLR.html
+[24] avrassembler.wb_SER.html
+[25] avrassembler.wb_SBIW.html
+[26] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rdl
+[27] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K6
+[28] avrassembler.wb_MUL.html
+[29] avrassembler.wb_MULS.html
+[30] avrassembler.wb_MULSU.html
+[31] avrassembler.wb_FMUL.html
+[32] avrassembler.wb_FMULS.html
+[33] avrassembler.wb_FMULSU.html
+
+vim: ft=help

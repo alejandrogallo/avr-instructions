@@ -1,0 +1,67 @@
+*brlt.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brlt-introduction|
+ 2. BRLT - Branch if Less Than (Signed)              |brlt-branch-if-less-than|
+  1. Description:                                            |brlt-description|
+  2. Status Register (SREG) and Boolean Formulae: |brlt-status-register-boolean-formulae|
+ 3. References                                                |brlt-references|
+
+===============================================================================
+                                                            *brlt-introduction*
+Introduction ~
+
+===============================================================================
+                                                     *brlt-branch-if-less-than*
+BRLT - Branch if Less Than (Signed) ~
+
+-------------------------------------------------------------------------------
+                                                             *brlt-description*
+Description: ~
+
+Conditional relative branch. Tests the Signed flag (S) and branches relatively
+to PC if S is set. If the instruction is executed immediately after any of the
+instructions CP [1] , CPI [2] , SUB [3] or SUBI [4] , the branch will occur if
+and only if the signed binary number represented in Rd was less than the signed
+binary number represented in Rr. This instruction branches relatively to PC in
+either direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the
+offset from PC and is represented in two’s complement form. (Equivalent to
+instruction BRBS [5] 4,k).
+
+Operation:
+
+If Rd < Rr (N ⊕ V = 1) then PC ← PC + k + 1, else PC ← PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRLT k -64 ≤ k ≤ +63 PC ← PC + k + 1
+
+PC ← PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k100 |
+<
+-------------------------------------------------------------------------------
+                                        *brlt-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+
+``` | I | T | H | S | V | N | Z | C |
+|-----|-----|-----|-----|-----|-----|-----|-----| | - | - | - | - | - | - | - |
+- |
+
+===============================================================================
+                                                              *brlt-references*
+References ~
+
+[1] avrassembler.wb_CP.html
+[2] avrassembler.wb_CPI.html
+[3] avrassembler.wb_SUB.html
+[4] avrassembler.wb_SUBI.html
+[5] avrassembler.wb_BRBS.html
+
+vim: ft=help

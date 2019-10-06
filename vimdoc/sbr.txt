@@ -1,0 +1,83 @@
+*sbr.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |sbr-introduction|
+ 2. SBR - Set Bits in Register                       |sbr-set-bits-in-register|
+  1. Description:                                             |sbr-description|
+  2. Status Register (SREG) and Boolean Formula: |sbr-status-register-boolean-formula|
+ 3. References                                                 |sbr-references|
+
+===============================================================================
+                                                             *sbr-introduction*
+Introduction ~
+
+===============================================================================
+                                                     *sbr-set-bits-in-register*
+SBR - Set Bits in Register ~
+
+-------------------------------------------------------------------------------
+                                                              *sbr-description*
+Description: ~
+
+Sets specified bits in register Rd. Performs the logical ORI [1] between the
+contents of register Rd and constant mask K and places the result in the
+destination register Rd.
+
+Operation:
+
+(i)Rd ← Rd v K
+
+Syntax: Operands: Program Counter:
+
+(i)SBR Rd,K 16<=d<=31, 0<=K<=255 PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 0110 | KKKK | dddd | KKKK |
+<
+-------------------------------------------------------------------------------
+                                          *sbr-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | -   |
+<
+S: N ⊕ V, For signed tests.
+
+V:0
+
+Cleared
+
+N:R7
+
+Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\overline{R7} \overline{R6} \overline{R5} \overline{R4}$
+
+$\overline{R3} \overline{R2} \overline{R1} \overline{R0}$
+
+R (Result) equals Rd after the operation.
+
+Example:
+>
+  sbr r16,3 ; Set bits 0 and 1 in r16
+  sbr r17,$F0 ; Set 4 MSB in r17
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *sbr-references*
+References ~
+
+[1] avrassembler.wb_ORI.html
+
+vim: ft=help

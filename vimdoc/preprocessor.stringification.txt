@@ -1,0 +1,45 @@
+*preprocessor.stringification.txt*  AVR Assembler Operators
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                    |preprocessor.stringification-introduction|
+ 2. Stringification (#)          |preprocessor.stringification-stringification|
+  1. Example                             |preprocessor.stringification-example|
+  2. Notes                                 |preprocessor.stringification-notes|
+
+===============================================================================
+                                    *preprocessor.stringification-introduction*
+Introduction ~
+
+===============================================================================
+                                 *preprocessor.stringification-stringification*
+Stringification (#) ~
+
+The stringification operators makes a quoted string token of a parameter to a
+function-type macro
+
+-------------------------------------------------------------------------------
+                                         *preprocessor.stringification-example*
+Example ~
+
+"#define MY_IDENT(X) .db #X, '\n', 0"
+
+When called like this
+
+'MY_IDENT(FooFirmwareRev1)'
+
+will expand to
+
+".db "FooFirmwareRev1", '\n', 0"
+
+-------------------------------------------------------------------------------
+                                           *preprocessor.stringification-notes*
+Notes ~
+
+1. Stringification can only be used with parameters to function-type macros
+
+2. The parameterâ€™s value will be used literally, i.e. it will not be
+   expanded before stringification.
+
+vim: ft=help

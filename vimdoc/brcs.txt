@@ -1,0 +1,73 @@
+*brcs.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                            |brcs-introduction|
+ 2. BRCS - Branch if Carry Set                       |brcs-branch-if-carry-set|
+  1. Description:                                            |brcs-description|
+  2. Status Register (SREG) and Boolean Formulae: |brcs-status-register-boolean-formulae|
+ 3. References                                                |brcs-references|
+
+===============================================================================
+                                                            *brcs-introduction*
+Introduction ~
+
+===============================================================================
+                                                     *brcs-branch-if-carry-set*
+BRCS - Branch if Carry Set ~
+
+-------------------------------------------------------------------------------
+                                                             *brcs-description*
+Description: ~
+
+Conditional relative branch. Tests the Carry flag (C) and branches relatively
+to PC if C is set. This instruction branches relatively to PC in either
+direction (PC - 63 ≤ destination ≤ PC + 64). The parameter k is the offset from
+PC and is represented in two’s complement form. (Equivalent to instruction the
+section called “ BRBS - Branch if Bit in SREG is Set” [1] 0,k).
+
+Operation:
+
+If C = 1 then PC <- PC + k + 1, else PC <- PC + 1
+
+Syntax: Operands: Program Counter:
+
+BRCS k -64 ≤ k ≤ +63 PC <- PC + k + 1
+
+PC <- PC + 1, if condition is false
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1111 | 00kk | kkkk | k000 |
+<
+-------------------------------------------------------------------------------
+                                        *brcs-status-register-boolean-formulae*
+Status Register (SREG) and Boolean Formulae: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | -   | -   | -   | -   |
+<
+Example:
+>
+  cpi r26, $56 ; Compare r26 with $56
+  brcs carry ; Branch if carry set
+  ...
+  carry: nop ; Branch destination (do nothing)
+<
+Words: 1 (2 bytes)
+
+Cycles: 1 if condition is false
+
+2 if condition is true
+
+===============================================================================
+                                                              *brcs-references*
+References ~
+
+[1] avrassembler.wb_BRBS.html
+
+vim: ft=help

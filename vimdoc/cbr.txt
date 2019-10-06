@@ -1,0 +1,77 @@
+*cbr.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |cbr-introduction|
+ 2. CBR - Clear Bits in Register                   |cbr-clear-bits-in-register|
+  1. Description:                                             |cbr-description|
+  2. Status Register (SREG) and Boolean Formula: |cbr-status-register-boolean-formula|
+ 3. References                                                 |cbr-references|
+
+===============================================================================
+                                                             *cbr-introduction*
+Introduction ~
+
+===============================================================================
+                                                   *cbr-clear-bits-in-register*
+CBR - Clear Bits in Register ~
+
+-------------------------------------------------------------------------------
+                                                              *cbr-description*
+Description: ~
+
+Clears the specified bits in register Rd. Performs the logical AND between the
+contents of register Rd and the complement of the constant mask K. The result
+will be placed in register Rd.
+
+Operation:
+
+Rd <- Rd • ($FF - K)
+
+Syntax: Operands: Program Counter:
+
+CBR Rd,K 16 ≤ d ≤ 31, 0 ≤ K ≤ 255 PC <- PC + 1
+
+16-bit Opcode: (see ANDI [1] with K complemented)
+
+-------------------------------------------------------------------------------
+                                          *cbr-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | -   |
+<
+S: N ⊕ V, For signed tests.
+
+V:0 Cleared
+
+N:R7 Set if MSB of the result is set; cleared otherwise.
+
+Z:
+
+$\overline{R7} \overline{R6} \overline{R5} \overline{R4}$
+
+$\overline{R3} \overline{R2} \overline{R1} \overline{R0}$
+
+Set if the result is $00; cleared otherwise.
+
+R (Result) equals Rd after the operation.
+
+Example:
+>
+  cbr r16, $F0 ; Clear upper nibble of r16
+  cbr r18, 1 ; Clear bit 0 in r18
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+===============================================================================
+                                                               *cbr-references*
+References ~
+
+[1] avrassembler.wb_ANDI.html
+
+vim: ft=help

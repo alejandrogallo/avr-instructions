@@ -1,0 +1,57 @@
+*clt.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |clt-introduction|
+ 2. CLT - Clear T Flag                                       |clt-clear-t-flag|
+  1. Description:                                             |clt-description|
+  2. Status Register (SREG) and Boolean Formula: |clt-status-register-boolean-formula|
+
+===============================================================================
+                                                             *clt-introduction*
+Introduction ~
+
+===============================================================================
+                                                             *clt-clear-t-flag*
+CLT - Clear T Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *clt-description*
+Description: ~
+
+Clears the T flag in SREG (status register).
+
+Operation:
+
+T ← 0
+
+Syntax: Operands: Program Counter:
+
+CLT None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1110 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *clt-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | 0   | -   | -   | -   | -   | -   | -   |
+<
+T: 0 T flag cleared
+
+Example:
+>
+  clt ; Clear T flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help

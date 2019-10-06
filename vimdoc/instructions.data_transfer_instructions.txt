@@ -1,0 +1,109 @@
+*instructions.data_transfer_instructions.txt*  AVR Assembler Instruction mnemonics
+
+===============================================================================
+Contents ~
+
+ 1. Introduction         |instructions.data_transfer_instructions-introduction|
+ 2. Data Transfer Instructions |instructions.data_transfer_instructions-data-transfer-instructions|
+ 3. References             |instructions.data_transfer_instructions-references|
+
+===============================================================================
+                         *instructions.data_transfer_instructions-introduction*
+Introduction ~
+
+===============================================================================
+           *instructions.data_transfer_instructions-data-transfer-instructions*
+Data Transfer Instructions ~
+
+``` | **Mnemonic** | **Operands** | **Description** | **Operation** | **Flags**
+| **Cycles** | |---------------------------------------------------------------
+-------------------------------------------------------------------|-----------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+---------------------|-------------------------------------------------|-------
+-------------------------------------------------------------------------------
+----------------------------------------------------------|--------------------
+-------------------|----------------------------------------| | MOV [1] | Rd
+[2] , Rr [3] | Copy register | Rd = Rr | None | 1 | | MOVW [4] | Rd [2] , Rr
+[3] | Copy register pair | Rd+1:Rd = Rr+1:Rr, r,d even | None | 1 | | LDI [5] |
+Rd [2] , K8 [6] | Load Immediate | Rd = K | None | 1 | | LDS [7] | Rd [2] , k
+[8] | Load Direct | Rd = (k) | None | 2* | | LD [9] | Rd [2] , X,Y,Z [10] |
+Load Indirect | Rd = (X) | None | 2* | | LD [9] | Rd [2] , X,Y,Z [10] | Load
+Indirect and Post-Increment | Rd = (X), X=X+1 | None | 2* | | LD [9] | Rd [2] ,
+X,Y,Z [10] | Load Indirect and Pre-Decrement | X=X-1, Rd = (X) | None | 2* | |
+LD [9] | Rd [2] , X,Y,Z [10] | Load Indirect | Rd = (Y) | None | 2* | | LD [9]
+| Rd [2] , X,Y,Z [10] | Load Indirect and Post-Increment | Rd = (Y), Y=Y+1 |
+None | 2* | | LD [9] | Rd [2] , X,Y,Z [10] | Load Indirect and Pre-Decrement |
+Y=Y-1, Rd = (Y) | None | 2* | | LD [11] | Rd [2] , X,Y,Z [10] + q [12] | Load
+Indirect with displacement | Rd = (Y+q) | None | 2* | | LD [9] | Rd [2] , X,Y,Z
+[10] | Load Indirect | Rd = (Z) | None | 2* | | LD [9] | Rd [2] , X,Y,Z [10] |
+Load Indirect and Post-Increment | Rd = (Z), Z=Z+1 | None | 2* | | LD [9] | Rd
+[2] , X,Y,Z [10] | Load Indirect and Pre-Decrement | Z=Z-1, Rd = (Z) | None |
+2* | | LAC [13] | Rd [2] , X,Y,Z [10] | Load and Clear | Z = Rd •($FF-Z) | None
+| 2 | | LAT [14] | Rd [2] , X,Y,Z [10] | Load and Toggle | Z = Rd ⊕ (Z) | None
+| 2 | | LAS [15] | Rd [2] , X,Y,Z [10] | Load and Set | Z = Rd v (Z) | None | 2
+| | XCH [16] | Rd [2] , X,Y,Z [10] | Exchange | Z = Rd, Rd = Z | None | 2 | |
+LD [11] | Rd [2] , X,Y,Z [10] + q [12] | Load Indirect with displacement | Rd =
+(Z+q) | None | 2* | | STS [17] | >k, Rr [3] | Store Direct | (k) = Rr | None |
+2* | | ST [18] | X,Y,Z [10] , Rr [3] | Store Indirect | (X) = Rr | None | 2* |
+| ST [18] | X,Y,Z [10] , Rr [3] | Store Indirect and Post-Increment | (X) = Rr,
+X=X+1 | None | 2* | | ST [18] | X,Y,Z [10] , Rr [3] | Store Indirect and Pre-
+Decrement | X=X-1, (X)=Rr | None | 2* | | ST [18] | X,Y,Z [10] , Rr [3] | Store
+Indirect | (Y) = Rr | None | 2* | | ST [18] | X,Y,Z [10] , Rr [3] | Store
+Indirect and Post-Increment | (Y) = Rr, Y=Y+1 | None | 2 | | ST [18] | X,Y,Z
+[10] , Rr [3] | Store Indirect and Pre-Decrement | Y=Y-1, (Y) = Rr | None | 2 |
+| ST [18] | X,Y,Z [10] + q [12] , Rr [3] | Store Indirect with displacement |
+(Y+q) = Rr | None | 2 | | ST [18] | X,Y,Z [10] , Rr [3] | Store Indirect | (Z)
+= Rr | None | 2 | | ST [18] | X,Y,Z [10] , Rr [3] | Store Indirect and Post-
+Increment | (Z) = Rr, Z=Z+1 | None | 2 | | ST [18] | X,Y,Z [10] , Rr [3] |
+Store Indirect and Pre-Decrement | Z=Z-1, (Z) = Rr | None | 2 | | ST [18] |
+X,Y,Z [10] + q [12] , Rr [3] | Store Indirect with displacement | (Z+q) = Rr |
+None | 2 | | LPM [19] | None | Load Program Memory | R0 = ( X,Y,Z [10] ) | None
+| 3 | | LPM [19] | Rd [2] , X,Y,Z [10] | Load Program Memory | Rd = ( X,Y,Z
+[10] ) | None | 3 | | LPM [19] | Rd [2] , X,Y,Z [10] | Load Program Memory and
+Post-Increment | Rd = ( X,Y,Z [10] ), Z=Z+1 | None | 3 | | ELPM [20] | None |
+Extended Load Program Memory | R0 = (RAMPZ: X,Y,Z [10] ) | None | 3 | | ELPM
+[20] | Rd [2] , X,Y,Z [10] | Extended Load Program Memory | Rd = (RAMPZ: X,Y,Z
+[10] ) | None | 3 | | ELPM [20] | Rd [2] , X,Y,Z [10] | Extended Load Program
+Memory and Post Increment | Rd = (RAMPZ: X,Y,Z [10] ), Z = Z+1 | None | 3 | |
+SPM [21] | None | Store Program Memory | ( X,Y,Z [10] ) = R1:R0 | None | - | |
+ESPM | None | Extended Store Program Memory | (RAMPZ: X,Y,Z [10] ) = R1:R0 |
+None | - | | IN [22] | Rd [2] , P [23] | In Port | Rd = P | None | 1 | | OUT
+[24] | P [23] , Rr [3] | Out Port | P = Rr | None | 1 | | PUSH [25] | Rr [3] |
+Push register on Stack | STACK = Rr | None | 2 | | POP [26] | Rd [2] | Pop
+register from Stack | Rd = STACK | None | 2 |
+
+===============================================================================
+                           *instructions.data_transfer_instructions-references*
+References ~
+
+[1] avrassembler.wb_MOV.html
+[2] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd
+[3] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr
+[4] avrassembler.wb_MOVW.html
+[5] avrassembler.wb_LDI.html
+[6] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8
+[7] avrassembler.wb_LDS.html
+[8] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k
+[9] avrassembler.wb_LD.html
+[10] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_X_Y_Z
+[11] avrassembler.wb_LDD.html
+[12] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_q
+[13] avrassembler.wb_LAC.html
+[14] avrassembler.wb_LAT.html
+[15] avrassembler.wb_LAS.html
+[16] avrassembler.wb_XCH.html
+[17] avrassembler.wb_STS.html
+[18] avrassembler.wb_ST.html
+[19] avrassembler.wb_LPM.html
+[20] avrassembler.wb_ELPM.html
+[21] avrassembler.wb_SPM.html
+[22] avrassembler.wb_IN.html
+[23] avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_P
+[24] avrassembler.wb_OUT.html
+[25] avrassembler.wb_PUSH.html
+[26] avrassembler.wb_POP.html
+
+vim: ft=help

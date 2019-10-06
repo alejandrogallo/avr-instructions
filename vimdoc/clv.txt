@@ -1,0 +1,58 @@
+*clv.txt*  AVR Assembler Instructions
+
+===============================================================================
+Contents ~
+
+ 1. Introduction                                             |clv-introduction|
+ 2. CLV - Clear Overflow Flag                         |clv-clear-overflow-flag|
+  1. Description:                                             |clv-description|
+  2. Status Register (SREG) and Boolean Formula: |clv-status-register-boolean-formula|
+
+===============================================================================
+                                                             *clv-introduction*
+Introduction ~
+
+===============================================================================
+                                                      *clv-clear-overflow-flag*
+CLV - Clear Overflow Flag ~
+
+-------------------------------------------------------------------------------
+                                                              *clv-description*
+Description: ~
+
+Clears the Overflow flag (V) in SREG (status register).
+
+Operation:
+
+V ← 0
+
+Syntax: Operands: Program Counter:
+
+CLV None PC ← PC + 1
+
+16-bit Opcode:
+>
+  |      |      |      |      |
+  |------|------|------|------|
+  | 1001 | 0100 | 1011 | 1000 |
+<
+-------------------------------------------------------------------------------
+                                          *clv-status-register-boolean-formula*
+Status Register (SREG) and Boolean Formula: ~
+>
+  | I   | T   | H   | S   | V   | N   | Z   | C   |
+  |-----|-----|-----|-----|-----|-----|-----|-----|
+  | -   | -   | -   | -   | 0   | -   | -   | -   |
+<
+V: 0 Overflow flag cleared
+
+Example:
+>
+  add r2,r3 ; Add r3 to r2
+  clv ; Clear overflow flag
+<
+Words: 1 (2 bytes)
+
+Cycles: 1
+
+vim: ft=help
