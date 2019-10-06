@@ -25,8 +25,9 @@ asciidoc/%.asciidoc: html/%.html
 
 markdown/%.md: html/%.html
 	-@mkdir -p $(dir $@)
-	pandoc -f html -t markdown_github -Ss $< > $@
+	pandoc -f html -t markdown_github -Ss $< | \
+	./tables-to-code.sed > $@
 
 vimdoc/%.txt: markdown/%.md
 	-@mkdir -p $(dir $@)
-	pandoc -f html -t markdown_github -Ss $< > $@
+	./vim-tools/html2vimdoc.py $< > $@
