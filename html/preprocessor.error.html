@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   #error, #warning and #message -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    AVR Assembler Preprocessor
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.error">
+        </a>
+        #error, #warning and #message
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3 xmlns="http://www.w3.org/1999/xhtml">
+     <a id="N10B3B" xmlns="http://www.w3.org/1999/xhtml">
+     </a>
+     Syntax
+    </h3>
+    <p>
+     <code class="code">
+      #error tokens
+     </code>
+    </p>
+    <p>
+     <code class="code">
+      #warning tokens
+     </code>
+    </p>
+    <p>
+     <code class="code">
+      #message tokens
+     </code>
+    </p>
+    <h3>
+     <a id="N10B4C">
+     </a>
+     Description
+    </h3>
+    <p>
+     <code class="code">
+      #error
+     </code>
+     emits tokens to standard error, and increments the assembler error
+         counter, hereby preventing the program from being successfully assembled.
+     <code class="code">
+      #error
+     </code>
+     is specified in the ANSI C standard.
+    </p>
+    <p>
+     <code class="code">
+      #warning
+     </code>
+     emits tokens to standard error, and increments the assembler warning
+         counter.
+     <code class="code">
+      #warning
+     </code>
+     is not specified in the ANSI C standard, but is commonly
+         implemented in preprocessors such as the GNU C preprocessor.
+    </p>
+    <p>
+     <code class="code">
+      #message
+     </code>
+     emits tokens to standard output, and does not affect assembler error
+         or warning counters.
+     <code class="code">
+      #message
+     </code>
+     is not specified in the ANSI C standard.
+    </p>
+    <p>
+     For all directives, the output will include file name and line number, like normal error
+         and warning messages.
+    </p>
+    <p>
+     tokens is a sequence of preprocessor tokens. Preprocessor macros are expanded except if
+         appearing inside quoted strings
+     <code class="code">
+      (")
+     </code>
+     .
+    </p>
+    <h3>
+     <a id="N10B6D">
+     </a>
+     Example
+    </h3>
+    <p>
+     <code class="code">
+      #error "Unsupported part:" __PART_NAME__
+     </code>
+    </p>
+   </div>

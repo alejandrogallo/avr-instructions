@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Stringification (#) -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Operators
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h3 class="title" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.Stringification">
+        </a>
+        Stringification (#)
+       </h3>
+      </div>
+     </div>
+    </div>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+     The stringification operators makes a quoted string token of a parameter to a
+            function-type macro
+    </p>
+    <h4>
+     <a id="N10CE7">
+     </a>
+     Example
+    </h4>
+    <p>
+     <code class="code">
+      #define MY_IDENT(X) .db #X, '\n', 0
+     </code>
+    </p>
+    <p>
+     When called like this
+    </p>
+    <p>
+     <code class="code">
+      MY_IDENT(FooFirmwareRev1)
+     </code>
+    </p>
+    <p>
+     will expand to
+    </p>
+    <p>
+     <code class="code">
+      .db "FooFirmwareRev1", '\n', 0
+     </code>
+    </p>
+    <h4>
+     <a id="N10CFC">
+     </a>
+     Notes
+    </h4>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        Stringification can only be used with parameters to function-type macros
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        The parameter's value will be used literally, i.e. it will not be expanded
+                  before stringification.
+       </p>
+      </li>
+     </ol>
+    </div>
+   </div>

@@ -1,0 +1,1195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Branch Instructions -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instruction mnemonics
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_instructions.Branch_Instructions">
+        </a>
+        Branch
+    Instructions
+       </h2>
+      </div>
+     </div>
+    </div>
+    <div class="informaltable" xmlns="http://www.w3.org/1999/xhtml">
+     <table border="1" xmlns="http://www.w3.org/1999/xhtml">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <span class="bold">
+          <strong>
+           Mnemonic
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Operands
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Description
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Operation
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Flags
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Cycles
+          </strong>
+         </span>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_RJMP.html" title="RJMP- Relative Jump">
+           RJMP
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Relative Jump
+        </td>
+        <td>
+         PC = PC + k +1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_IJMP.html" title="IJMP - Indirect Jump">
+           IJMP
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         <p>
+          Indirect Jump to (
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_X_Y_Z">
+           X,Y,Z
+          </a>
+          )
+         </p>
+        </td>
+        <td>
+         PC = Z
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_EIJMP.html" title="EIJMP - Extended Indirect Jump">
+           EIJMP
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         <p>
+          Extended Indirect Jump (
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_X_Y_Z">
+           X,Y,Z
+          </a>
+          )
+         </p>
+        </td>
+        <td>
+         STACK = PC+1, PC(15:0) = Z, PC(21:16) = EIND
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_JMP.html" title="JMP - Jump">
+           JMP
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Jump
+        </td>
+        <td>
+         PC = k
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         3
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_RCALL.html" title="RCALL - Relative Call to Subroutine">
+           RCALL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Relative Call Subroutine
+        </td>
+        <td>
+         STACK = PC+1, PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         3/4*
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ICALL.html" title="ICALL - Indirect Call to Subroutine">
+           ICALL
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         <p>
+          Indirect Call to (
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_X_Y_Z">
+           X,Y,Z
+          </a>
+          )
+         </p>
+        </td>
+        <td>
+         STACK = PC+1, PC = Z
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         3/4*
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_EICALL.html" title="EICALL - Extended Indirect Call to Subroutine">
+           EICALL
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Extended Indirect Call to (
+         <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_X_Y_Z">
+          X,Y,Z
+         </a>
+         )
+        </td>
+        <td>
+         STACK = PC+1, PC(15:0) = Z, PC(21:16) =EIND
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         4*
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CALL.html" title="CALL - Long Call to a Subroutine">
+           CALL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Call Subroutine
+        </td>
+        <td>
+         STACK = PC+2, PC = k
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         4/5*
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_RET.html" title="RET - Return from Subroutine">
+           RET
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Subroutine Return
+        </td>
+        <td>
+         PC = STACK
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         4/5*
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_RETI.html" title="RETI - Return from Interrupt">
+           RETI
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Interrupt Return
+        </td>
+        <td>
+         PC = STACK
+        </td>
+        <td>
+         I
+        </td>
+        <td>
+         4/5*
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CPSE.html" title="CPSE- Compare Skip if Equal">
+           CPSE
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Compare, Skip if equal
+        </td>
+        <td>
+         if (Rd ==Rr) PC = PC 2 or 3
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2/3
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CP.html" title="CP- Compare">
+           CP
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Compare
+        </td>
+        <td>
+         Rd -Rr
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CPC.html" title="CPC- Compare with Carry">
+           CPC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Compare with Carry
+        </td>
+        <td>
+         Rd - Rr - C
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CPI.html" title="CPI- Compare with Immediate">
+           CPI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Compare with Immediate
+        </td>
+        <td>
+         Rd - K
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBRC.html" title="SBRC - Skip if Bit in Register is Cleared">
+           SBRC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Skip if bit in register cleared
+        </td>
+        <td>
+         if(Rr(b)==0) PC = PC + 2 or 3
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2/3
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBRS.html" title="SBRS - Skip if Bit in Register is Set">
+           SBRS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Skip if bit in register set
+        </td>
+        <td>
+         if(Rr(b)==1) PC = PC + 2 or 3
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2/3
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBIC.html" title="SBIC - Skip if Bit in I/O Register is Cleared">
+           SBIC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_P">
+           P
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Skip if bit in I/O register cleared
+        </td>
+        <td>
+         if(I/O(P,b)==0) PC = PC + 2 or 3
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2/3
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBIS.html" title="SBIS - Skip if Bit in I/O Register is Set">
+           SBIS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_P">
+           P
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Skip if bit in I/O register set
+        </td>
+        <td>
+         if(I/O(P,b)==1) PC = PC + 2 or 3
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2/3
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRBC.html" title="BRBC - Branch if Bit in SREG is Cleared">
+           BRBC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_s">
+           s
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if Status flag cleared
+        </td>
+        <td>
+         if(SREG(s)==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRBS.html" title="BRBS - Branch if Bit in SREG is Set">
+           BRBS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_s">
+           s
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if Status flag set
+        </td>
+        <td>
+         if(SREG(s)==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BREQ.html" title="BREQ - Branch if Equal">
+           BREQ
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if equal
+        </td>
+        <td>
+         if(Z==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRNE.html" title="BRNE - Branch if Not Equal">
+           BRNE
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if not equal
+        </td>
+        <td>
+         if(Z==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRCS.html" title="BRCS - Branch if Carry Set">
+           BRCS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if carry set
+        </td>
+        <td>
+         if(C==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRCC.html" title="BRCC - Branch if Carry Cleared">
+           BRCC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if carry cleared
+        </td>
+        <td>
+         if(C==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRSH.html" title="BRSH - Branch if Same or Higher (Unsigned)">
+           BRSH
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if same or higher
+        </td>
+        <td>
+         if(C==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRLO.html" title="BRLO - Branch if Lower (Unsigned)">
+           BRLO
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if lower
+        </td>
+        <td>
+         if(C==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRMI.html" title="BRMI - Branch if Minus">
+           BRMI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if minus
+        </td>
+        <td>
+         if(N==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRPL.html" title="BRPL - Branch if Plus">
+           BRPL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if plus
+        </td>
+        <td>
+         if(N==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRGE.html" title="BRGE - Branch if Greater or Equal Signed)">
+           BRGE
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if greater than or equal (signed)
+        </td>
+        <td>
+         if(S==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRLT.html" title="BRLT - Branch if Less Than (Signed)">
+           BRLT
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if less than (signed)
+        </td>
+        <td>
+         if(S==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRHS.html" title="BRHS - Branch if Half Carry Flag is Set">
+           BRHS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if half carry flag set
+        </td>
+        <td>
+         if(H==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRHC.html" title="BRHC - Branch if Half Carry Flag is Cleared">
+           BRHC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if half carry flag cleared
+        </td>
+        <td>
+         if(H==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRTS.html" title="BRTS - Branch if the T Flag is Set">
+           BRTS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if T flag set
+        </td>
+        <td>
+         if(T==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRTC.html" title="BRTC - if the T Flag is Cleared">
+           BRTC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if T flag cleared
+        </td>
+        <td>
+         if(T==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRVS.html" title="BRVS - Branch if Overflow Set">
+           BRVS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if overflow flag set
+        </td>
+        <td>
+         if(V==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRVC.html" title="BRVC - Branch if Overflow Cleared">
+           BRVC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if overflow flag cleared
+        </td>
+        <td>
+         if(V==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRIE.html" title="BRIE - Branch if Global Interrupt is Enabled">
+           BRIE
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if interrupt enabled
+        </td>
+        <td>
+         if(I==1) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BRID.html" title="BRID - Branch if Global Interrupt is Disabled">
+           BRID
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         Branch if interrupt disabled
+        </td>
+        <td>
+         if(I==0) PC = PC + k + 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1/2
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>

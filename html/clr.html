@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   CLR - Clear Register -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_CLR">
+        </a>
+         <a id="avrassembler.wb_CLR1">
+         </a>
+         CLR
+        - Clear Register
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     <a id="N146AC">
+     </a>
+     Description:
+    </h3>
+    <p>
+     Clears a register. This instruction performs an Exclusive OR
+between a register and itself. This will clear all bits in the
+register.
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     Rd ← Rd [+] Rd
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     CLR Rd 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     16-bit Opcode: (see EOR Rd,Rd)
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          0010
+         </p>
+        </td>
+        <td>
+         <p>
+          01dd
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N146DF">
+     </a>
+     Status Register (SREG) and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          0
+         </p>
+        </td>
+        <td>
+         <p>
+          0
+         </p>
+        </td>
+        <td>
+         <p>
+          0
+         </p>
+        </td>
+        <td>
+         <p>
+          1
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     S: 0 Cleared
+    </p>
+    <p>
+     V:0 Cleared
+    </p>
+    <p>
+     N:0 Cleared
+    </p>
+    <p>
+     Z:1 Set
+    </p>
+    <p>
+     R (Result) equals Rd after the operation.
+    </p>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">clr r18 ; clear r18
+loop: inc r18 ; increase r18
+...
+cpi r18, $50 ; Compare r18 to $50
+brne loop</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 1
+    </p>
+   </div>

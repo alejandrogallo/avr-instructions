@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   SBRC - Skip if Bit in Register is Cleared -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_SBRC">
+        </a>
+         <a id="avrassembler.wb_SBRC1">
+         </a>
+         SBRC
+        - Skip if Bit in Register is Cleared
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     <a id="N18FA4">
+     </a>
+     Description:
+    </h3>
+    <p>
+     This instruction tests a single bit in a register and skips the next instruction if the bit is cleared.
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     (i)If Rr(b) = 0 then PC
+← PC + 2 (or 3) else PC ← PC + 1
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     (i)SBRC Rr,b 0 ≤ r ≤ 31, 0 ≤ b ≤ 7 PC ← PC + 1, Condition false - no skip
+    </p>
+    <p>
+     PC ← PC + 2, Skip a one word instruction
+    </p>
+    <p>
+     PC ← PC + 3, Skip a two word instruction
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          1111
+         </p>
+        </td>
+        <td>
+         <p>
+          110r
+         </p>
+        </td>
+        <td>
+         <p>
+          rrrr
+         </p>
+        </td>
+        <td>
+         <p>
+          0bbb
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N18FDB">
+     </a>
+     Status Register (SREG) and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">sub r0,r1 ; Subtract r1 from r0
+sbrc r0,7 ; Skip if bit 7 in r0 cleared
+sub r0,r1 ; Only executed if bit 7 in r0 not cleared
+nop ; Continue (do nothing)</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 1 if condition is false (no skip)
+    </p>
+    <p>
+     2 if condition is true (skip is
+executed) and the instruction skipped is 1 word
+    </p>
+    <p>
+     3 if condition is true (skip is executed) and the instruction skipped is 2 words
+    </p>
+   </div>

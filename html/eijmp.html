@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   EIJMP - Extended Indirect Jump -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_EIJMP">
+        </a>
+         <a id="avrassembler.wb_EIJMP1">
+         </a>
+         EIJMP
+        - Extended Indirect Jump
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     <a id="N1548A">
+     </a>
+     Description:
+    </h3>
+    <p>
+     Indirect jump to the address pointed to by the Z (16 bits) pointer register in the register file and the EIND register in the I/O space. This instruction allows for indirect jumps to the entire program memory space.
+    </p>
+    <p>
+     This instruction is not available in all devices. Refer to the device specific instruction set summary.
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     PC(15:0) ← Z(15:0)
+    </p>
+    <p>
+     PC(21:16) ← EIND
+    </p>
+    <p>
+     Syntax: Operands: Program Counter: Stack:
+    </p>
+    <p>
+     EIJMP None See Operation Not Affected
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          0100
+         </p>
+        </td>
+        <td>
+         <p>
+          0001
+         </p>
+        </td>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N154C1">
+     </a>
+     Status Register (SREG) and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">ldi r16, $05 ; Set up EIND and Z pointer
+out EIND, r16
+ldi r30, $00
+ldi r31, $10
+eijmp ; Jump to $051000</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 2
+    </p>
+   </div>

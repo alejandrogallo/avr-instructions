@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Introduction -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    AVR Assembler Preprocessor
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.Introduction">
+        </a>
+        Introduction
+       </h2>
+      </div>
+     </div>
+    </div>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+     The AVRASM2 preprocessor is modeled after the C preprocessor, with some
+         exceptions:
+    </p>
+    <div class="itemizedlist">
+     <ul class="itemizedlist" style="list-style-type: disc; ">
+      <li class="listitem">
+       <p>
+        It recognizes all integer formats used by AVRASM2, i.e.,
+        <code class="code">
+         $abcd
+        </code>
+        and
+        <code class="code">
+         0b011001
+        </code>
+        are recognized as valid integers by the preprocessor and can
+               be used in expressions in
+        <code class="code">
+         #if
+        </code>
+        directives.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         '.'
+        </code>
+        and
+        <code class="code">
+         '@'
+        </code>
+        are allowed in identifiers.
+        <code class="code">
+         '.'
+        </code>
+        is
+               required to allow preprocessor directives like
+        <code class="code">
+         '.dw'
+        </code>
+        to be used in
+               preprocessor macros,
+        <code class="code">
+         '@'
+        </code>
+        is required to handle assembler macro arguments
+               correctly.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        It recognizes assembler-style comment delimiters (
+        <code class="code">
+         ';'
+        </code>
+        ) as well as
+               C-style comments. Using
+        <code class="code">
+         ';'
+        </code>
+        as a comment delimiter is in conflict with
+               the C use of
+        <code class="code">
+         ';'
+        </code>
+        , and it is therefore not recommended to use
+               assembler-style comments in conjunction with preprocessor directives.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        The
+        <code class="code">
+         #line
+        </code>
+        directive is not implemented
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Variadic macros (i.e., macros with variable number of arguments) are not
+               implemented.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        The
+        <code class="code">
+         #warning
+        </code>
+        and
+        <code class="code">
+         #message
+        </code>
+        directives are not specified
+               in the ANSI C standard.
+       </p>
+      </li>
+     </ul>
+    </div>
+   </div>

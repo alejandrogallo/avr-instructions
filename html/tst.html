@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   TST- Test for Zero or Minus -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_TST">
+        </a>
+         <a id="avrassembler.wb_TST1">
+         </a>
+         TST
+        - Test for Zero or Minus
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     <a id="N1A4B4">
+     </a>
+     Description:
+    </h3>
+    <p>
+     Tests if a register is zero or negative.  Performs a logical AND between a register and itself. The register will remain unchanged.
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     (i)Rd ← Rd • Rd
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     (i)TST Rd 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     16-bit Opcode: (see AND Rd, Rd)
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          0010
+         </p>
+        </td>
+        <td>
+         <p>
+          00dd
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N1A4E7">
+     </a>
+     Status Register and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          ⇔
+         </p>
+        </td>
+        <td>
+         <p>
+          0
+         </p>
+        </td>
+        <td>
+         <p>
+          ⇔
+         </p>
+        </td>
+        <td>
+         <p>
+          ⇔
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     S: N ⊕ V, For signed tests.
+    </p>
+    <p>
+     V:0
+    </p>
+    <p>
+     Cleared
+    </p>
+    <p>
+     N:R7
+    </p>
+    <p>
+     Set if MSB of the result is set; cleared otherwise.
+    </p>
+    <p>
+     Z:
+    </p>
+    <div class="informalequation">
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mover accent="true">
+       <mi>
+        R7
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R6
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R5
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R4
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+     </math>
+    </div>
+    <p>
+    </p>
+    <div class="informalequation">
+     <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R3
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R2
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R1
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+      <mo>
+       •
+      </mo>
+      <mover accent="true">
+       <mi>
+        R0
+       </mi>
+       <mo>
+        ¯
+       </mo>
+      </mover>
+     </math>
+    </div>
+    <p>
+    </p>
+    <p>
+     Set if the result is $00; cleared otherwise.
+    </p>
+    <p>
+     R (Result) equals Rd.
+    </p>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">tst r0 ; Test r0
+breq zero ; Branch if r0=0
+...
+zero: nop ; Branch destination (do nothing)</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 1
+    </p>
+   </div>

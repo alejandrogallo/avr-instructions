@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Concatenation (##) -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Operators
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h3 class="title" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.Concatenation">
+        </a>
+        Concatenation (##)
+       </h3>
+      </div>
+     </div>
+    </div>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+     The concatenation operator concatenates two preprocessor tokens, forming a new token.
+            It is most useful when at least one of the tokens are a parameter to a function-type
+            macro.
+    </p>
+    <h4>
+     <a id="N10D0E">
+     </a>
+     Example
+    </h4>
+    <p>
+     <code class="code">
+      #define FOOBAR subi
+     </code>
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #define IMMED(X) X##i
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #define SUBI(X,Y) X ## Y
+        </code>
+       </p>
+      </li>
+     </ol>
+    </div>
+    <p>
+     When the IMMED and SUBI macros are called like this:
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <code class="code">
+         IMMED(ld) r16,1
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         SUBI(FOO,BAR) r16,1
+        </code>
+       </p>
+      </li>
+     </ol>
+    </div>
+    <p>
+     they will be expanded to
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <code class="code">
+         ldi r16,0x1
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        r
+        <code class="code">
+         subi r16,0x1
+        </code>
+       </p>
+      </li>
+     </ol>
+    </div>
+    <h4>
+     <a id="N10D46">
+     </a>
+     Notes
+    </h4>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        The concatenation operator cannot appear first or last in a macro
+                  expansion
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        When used on a function-type macro argument, the argument will be used
+                  literally, i.e., it will not be expanded before concatenation.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        The token formed by the concatenation willbe subject to further expansion. In
+                  example 2 above, the parameters FOO and BAR are first concatenated to FOOBAR, then
+                  FOOBAR is expanded to subi.
+       </p>
+      </li>
+     </ol>
+    </div>
+   </div>

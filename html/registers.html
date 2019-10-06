@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   I/O Registers -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instruction mnemonics
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_registers">
+        </a>
+        I/O Registers
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3 xmlns="http://www.w3.org/1999/xhtml">
+     <a id="avrassembler.RAMPX__RAMPY__RAMPZ" xmlns="http://www.w3.org/1999/xhtml">
+     </a>
+      <a id="avrassembler.RAMPX__RAMPY__RAMPZ.abbrev">
+      </a>
+      RAMPX, RAMPY, RAMPZ
+    </h3>
+    <p>
+     Registers concatenated with the X, Y and Z registers enabling indirect
+  addressing of the whole data space on MCUs with more than 64K bytes data
+  space, and constant data fetch on MCUs with more than 64K bytes program
+  space.
+    </p>
+    <h3>
+     <a id="avrassembler.RAMPD">
+     </a>
+      <a id="avrassembler.RAMPD.abbrev">
+      </a>
+      RAMPD
+    </h3>
+    <p>
+     Register concatenated with the Z register enabling direct addressing
+  of the whole data space on MCUs with more than 64K bytes data space.
+    </p>
+    <h3>
+     <a id="N12375">
+     </a>
+     EIND
+    </h3>
+    <p>
+     Register concatenated with the instruction word enabling indirect jump
+  and call to the whole program space on MCUs with more than 128K bytes
+  program space.
+    </p>
+    <h3>
+     <a id="avrassembler.Stack">
+     </a>
+      <a id="avrassembler.Stack.abbrev">
+      </a>
+      Stack
+    </h3>
+    <p>
+     STACK:Stack for return address and pushed registers
+    </p>
+    <p>
+     SP:Stack Pointer to STACK
+    </p>
+    <h3>
+     <a id="N12384">
+     </a>
+     Flags
+    </h3>
+    <p>
+     &lt;&gt; :Flag affected by instruction
+    </p>
+    <p>
+     0 :Flag cleared by instruction
+    </p>
+    <p>
+     1 :Flag set by instruction
+    </p>
+    <p>
+     - :Flag not affected by instruction
+    </p>
+   </div>

@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   MOVW - Copy Register Word -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_MOVW">
+        </a>
+         <a id="avrassembler.wb_MOVW1">
+         </a>
+         MOVW
+        - Copy Register Word
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     <a id="N1713B">
+     </a>
+     Description:
+    </h3>
+    <p>
+     This instruction makes a copy of one register pair into another register pair. The source register pair Rr+1:Rr is left unchanged, while the destination register pair Rd+1:Rd is loaded with a copy of Rr + 1:Rr.
+    </p>
+    <p>
+     This instruction is not available in all devices. Refer to the device specific instruction set summary.
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     (i) Rd+1:Rd ← Rr+1:Rr
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     (i) MOVW Rd+1:Rd,Rr+1Rr d E {0,2,...,30}, r E {0,2,...,30} PC ← PC + 1
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          0000
+         </p>
+        </td>
+        <td>
+         <p>
+          0001
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          rrrr
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N17170">
+     </a>
+     Status Register (SREG) and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">movw r17:16,r1:r0 ; Copy r1:r0 to r17:r16
+call check ; Call subroutine
+...
+check: cpi r16,$11 ; Compare r16 to $11
+...
+cpi r17,$32 ; Compare r17 to $32
+...
+ret ; Return from subroutine</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 1
+    </p>
+   </div>

@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   SPM - Store Program Memory -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_SPM">
+        </a>
+         <a id="avrassembler.wb_SPM1">
+         </a>
+         SPM
+        -
+        Store Program Memory
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3 xmlns="http://www.w3.org/1999/xhtml">
+     <a id="N198D0" xmlns="http://www.w3.org/1999/xhtml">
+     </a>
+     Description:
+    </h3>
+    <p>
+     SPM can be used to erase a page in the program memory, to write a page in the program memory (that is already erased), and to set boot loader lock bits. In some devices, the program memory can be written one word at a time, in other devices an entire page can be programmed simultaneously after first filling a temporary page buffer. In all cases, the program memory must be erased one page at a time. When erasing the program memory, the
+     <a class="xref" href="avrassembler.wb_registers.html#avrassembler.RAMPX__RAMPY__RAMPZ" title="RAMPX, RAMPY, RAMPZ">
+      RAMPX, RAMPY, RAMPZ
+     </a>
+     and Z register are used as page address. When writing the program memory, the RAMPZ and Z register are used as page or word address, and the R1:R0 register pair is used as data. R1 determines the instruction high byte, and R0 determines the instruction low byte... When setting the boot loader lock bits, the R1:R0 register pair is used as data. Refer to the device documentation for detailed description of SPM usage. This instruction can address the entire program memory.
+    </p>
+    <p>
+     This instruction is not available in all devices. Refer to the device specific instruction set summary.
+    </p>
+    <p>
+     R1 determines the instruction high byte, and R0 determines the instruction low byte.
+    </p>
+    <p>
+     Operation: Comment:
+    </p>
+    <p>
+     (i)(RAMPZ:Z) ← $ffff Erase program memory pagerns21i
+    </p>
+    <p>
+     (ii)(RAMPZ:Z) ← R1:R0 Write program memory word
+    </p>
+    <p>
+     (iii)(RAMPZ:Z) ← R1:R0 Write temporary page buffer
+    </p>
+    <p>
+     (iv)(RAMPZ:Z) ← TEMP Write temporary page buffer to program memory
+    </p>
+    <p>
+     (v)BLBITS ← R1:R0 Set boot loader lock bits
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     (i)-(v) SPM None PC ← PC + 1
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          0101
+         </p>
+        </td>
+        <td>
+         <p>
+          1110
+         </p>
+        </td>
+        <td>
+         <p>
+          1000
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Status Register (SREG) and Boolean Formula:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting"> ;This example shows SPM write of one page for devices with page write
+ ;- the routine writes one page of data from RAM to Flash
+ ; the first data location in RAM is pointed to by the Y pointer
+ ; the first data location in Flash is pointed to by the Z pointer
+ ;- error handling is not included
+ ;- the routine must be placed inside the boot space
+ ; (at least the do_spm sub routine)
+ ;- registers used: r0, r1, temp1, temp2, looplo, loophi, spmcrval
+ ; (temp1, temp2, looplo, loophi, spmcrval must be defined by the user)
+ ; storing and restoring of registers is not included in the routine
+ ; register usage can be optimized at the expense of code size
+ .equ PAGESIZEB = PAGESIZE*2;PAGESIZEB is page size in BYTES, not words
+ .org SMALLBOOTSTART
+ write_page:
+;page erase
+ldi spmcrval, (1&lt;&lt;PGERS) + (1&lt;&lt;SPMEN)
+call do_spm
+ ;transfer data from RAM to Flash page buffer
+ldi looplo, low(PAGESIZEB) ;init loop variable
+ldi loophi, high(PAGESIZEB) ;not required for PAGESIZEB&lt;=256
+ wrloop:ld r0, Y+
+ld r1, Y+
+ldi spmcrval, (1&lt;&lt;SPMEN)
+call do_spm
+adiw ZH:ZL, 2
+sbiw loophi:looplo, 2;use subi for PAGESIZEB&lt;=256
+brne wrloop
+ ;execute page write
+subi ZL, low(PAGESIZEB) ;restore pointer
+sbci ZH, high(PAGESIZEB) ;not required for PAGESIZEB&lt;=256
+ldi spmcrval, (1&lt;&lt;PGWRT) + (1&lt;&lt;SPMEN)
+call do_spm
+;read back and check, optional
+ldi looplo, low(PAGESIZEB) ;init loop variable
+ldi loophi, high(PAGESIZEB) ;not required for PAGESIZEB&lt;=256
+subi YL, low(PAGESIZEB) ;restore pointer
+sbci YH, high(PAGESIZEB)
+ rdloop:lpmr0, Z+
+ldr 1, Y+
+cp ser0, r1
+jmp error
+sbi wloophi:looplo, 2;use subi for PAGESIZEB&lt;=256
+brne rdloop
+ ;return
+ret
+ do_spm:
+ ;input: spmcrval determines SPM action
+ ;disable interrupts if enabled, store status
+in temp2, SREG
+cli
+;check for previous SPM complete
+ wait:intemp1, SPMCR
+sbr ctemp1, SPMEN
+rjm pwait
+;SPM timed sequence
+out SPMCR, spmcrval
+spm
+ ;restore SREG (to enable interrupts if originally enabled)
+out SREG, temp2
+ret</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: depends on the operation
+    </p>
+   </div>

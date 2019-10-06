@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   #if and #elif -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    AVR Assembler Preprocessor
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.if">
+        </a>
+        #if and #elif
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3 xmlns="http://www.w3.org/1999/xhtml">
+     <a id="N10AC7" xmlns="http://www.w3.org/1999/xhtml">
+     </a>
+     Syntax
+    </h3>
+    <p>
+     <code class="code">
+      #if condition
+     </code>
+    </p>
+    <p>
+     <code class="code">
+      #elif condition
+     </code>
+    </p>
+    <h3>
+     <a id="N10AD3">
+     </a>
+     Description
+    </h3>
+    <p>
+     All following lines until the corresponding
+     <code class="code">
+      #endif
+     </code>
+     ,
+     <code class="code">
+      #else
+     </code>
+     , or
+     <code class="code">
+      #elif
+     </code>
+     are conditionally assembled if condition is true (not equal to 0).
+         condition may be any integer expression, including preprocessor macros which are expanded.
+     <span class="emphasis">
+      <em>
+       The preprocessor recognizes the special operator defined(name)that returns 1
+            if name is
+       <code class="code">
+        #define
+       </code>
+       d and 0 otherwise. Any un
+       <code class="code">
+        #define
+       </code>
+       d symbols
+            used in condition are silently evaluated to 0.
+      </em>
+     </span>
+    </p>
+    <p>
+     Conditionals may be nested to arbitrary depth.
+    </p>
+    <p>
+     <code class="code">
+      #elif
+     </code>
+     evaluates condition in the same manner as
+     <code class="code">
+      #if
+     </code>
+     , except that
+         it is only evaluated if no previous branch of a compound
+     <code class="code">
+      #if … #elif
+     </code>
+     sequence
+         has been evaluated to true.
+    </p>
+    <h3>
+     <a id="N10AF6">
+     </a>
+     Examples
+    </h3>
+    <p>
+    </p>
+    <pre class="programlisting">#<span class="hl-keyword" style="color: #0000FF">if</span> <span class="hl-number">0</span> 
+<em class="hl-comment" style="color: #008000">// code here is never included </em>
+<span class="hl-directive" style="color: maroon">#endif</span>
+
+<span class="hl-directive" style="color: maroon">#if defined(__ATmega48__) || defined(__ATmega88__) </span>
+<em class="hl-comment" style="color: #008000">// code specific for these devices </em>
+<span class="hl-directive" style="color: maroon">#elif defined (__ATmega169__) </span>
+<em class="hl-comment" style="color: #008000">// code specific for ATmega169 </em>
+<span class="hl-directive" style="color: maroon">#endif // device specific code</span></pre>
+    <p>
+    </p>
+   </div>

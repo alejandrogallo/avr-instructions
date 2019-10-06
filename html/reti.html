@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   RETI - Return from Interrupt -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_RETI">
+        </a>
+         <a id="avrassembler.wb_RETI1">
+         </a>
+         RETI
+        - Return from Interrupt
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     <a id="N1813D">
+     </a>
+     Description:
+    </h3>
+    <p>
+     Returns from interrupt. The return address is loaded from the
+     <a class="xref" href="avrassembler.wb_registers.html#avrassembler.Stack" title="Stack">
+      Stack
+     </a>
+     and the global interrupt flag is set.
+    </p>
+    <p>
+     Note that the status register is not automatically stored when entering an interrupt routine, and it is not restored when returning from an interrupt routine. This must be handled by the application program. The stack pointer uses a
+pre-increment scheme during RETI.
+    </p>
+    <p>
+     Operation:
+    </p>
+    <p>
+     (i)PC(15:0) ← STACKDevices with 16 bits PC, 128K bytes program memory
+maximum.
+    </p>
+    <p>
+     (ii)PC(21:0) ← STACKDevices with 22 bits PC, 8M bytes program memory maximum.
+    </p>
+    <p>
+     Syntax: Operands: Program Counter: Stack
+    </p>
+    <p>
+     (i) RETI None See Operation SP ← SP + 2 (2 bytes, 16 bits)
+    </p>
+    <p>
+     (ii) RETI None See Operation SP ← SP + 3 (3 bytes, 22 bits)
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          0101
+         </p>
+        </td>
+        <td>
+         <p>
+          0001
+         </p>
+        </td>
+        <td>
+         <p>
+          1000
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     <a id="N1817A">
+     </a>
+     Status Register (SREG) and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          1
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     I: 1
+    </p>
+    <p>
+     The I flag is set.
+    </p>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">...
+ extint: push r0 ; Save r0 on the stack
+...
+pop r0 ; Restore r0
+reti ; Return and enable interrupts</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 4 devices with 16-bit PC
+    </p>
+    <p>
+     5 devices with 22-bit PC
+    </p>
+   </div>

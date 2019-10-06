@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   LPM - Load Program Memory -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_LPM">
+        </a>
+         <a id="avrassembler.wb_LPM1">
+         </a>
+         LPM
+        - Load Program Memory
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     Description:
+    </h3>
+    <p>
+     Loads one byte pointed to by the Z register into the destination register Rd. This instruction features a 100% space effective constant initialization or constant data fetch. The program memory is organized in 16 bit words while the Z pointer is a byte address. Thus, the least significant bit of the Z pointer selects either low byte (ZLSB = 0) or high byte (ZLSB = 1). This instruction can address the first 64K bytes (32K words) of program memory. The Z pointer register can either be left unchanged by the operation, or it can be incremented. The increment does not apply to the
+     <a class="xref" href="avrassembler.wb_registers.html#avrassembler.RAMPX__RAMPY__RAMPZ" title="RAMPX, RAMPY, RAMPZ">
+      RAMPX, RAMPY, RAMPZ
+     </a>
+     register.
+    </p>
+    <p>
+     Devices with Self-Programming capability can use the LPM instruction to read the fuse and lock bit values.  Refer to the device documentation for a detailed description.
+    </p>
+    <p>
+     Not all variants of the LPM instruction are available in all devices. Refer to the device specific instruction set summary. The LPM instruction is not implemented at all in the AT90S1200 device.
+    </p>
+    <p>
+     The result of these combinations is undefined:
+    </p>
+    <p>
+     LPM r30, Z+
+    </p>
+    <p>
+     LPM r31, Z+
+    </p>
+    <p>
+     Operation: Comment:
+    </p>
+    <p>
+     (i) R0 ← (Z) Z: Unchanged, R0 implied destination register
+    </p>
+    <p>
+     (ii) Rd ← (Z) Z: Unchanged
+    </p>
+    <p>
+     (iii) Rd ← (Z) Z ← Z + 1Z: Post incremented
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     (i) LPM None, R0 implied PC ← PC + 1
+    </p>
+    <p>
+     (ii)LPM Rd, Z 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     (iii)LPM Rd, Z+ 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          (i)
+         </p>
+        </th>
+        <th>
+         <p>
+          1001
+         </p>
+        </th>
+        <th>
+         <p>
+          0101
+         </p>
+        </th>
+        <th>
+         <p>
+          1100
+         </p>
+        </th>
+        <th>
+         <p>
+          1000
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          (ii)
+         </p>
+        </td>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          000d
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          0100
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          (iii)
+         </p>
+        </td>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          000d
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          0101
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Status Register (SREG) and Boolean
+Formula:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">ldi ZH, high(Table_1&lt;&lt;1) ; Initialize Z pointer
+ldi ZL, low(Table_1&lt;&lt;1)
+lpm r16, Z ; Load constant from program
+; memory pointed to by Z (r31:r30)
+...
+Table_1:
+.dw 0x5876; 0x76 is addresses when ZLSB = 0
+; 0x58 is addresses when ZLSB = 1
+...</pre>
+    <p>
+    </p>
+    <p>
+     Words: 1 (2 bytes)
+    </p>
+    <p>
+     Cycles: 3
+    </p>
+   </div>

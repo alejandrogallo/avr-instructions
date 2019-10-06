@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   #pragma , AVR part related -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    AVR Assembler Preprocessor
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.pragma_part">
+        </a>
+        #pragma , AVR part related
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3 xmlns="http://www.w3.org/1999/xhtml">
+     <a id="N10C24" xmlns="http://www.w3.org/1999/xhtml">
+     </a>
+     Syntax
+    </h3>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART ADMIN PART_NAME string
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART CORE CORE_VERSION version-string
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART CORE INSTRUCTIONS_NOT_SUPPORTED mnemonic[ operand[,operand]
+                  ][:...]
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART CORE NEW_INSTRUCTIONS mnemonic[ operand[,operand]][:...]
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY PROG_FLASH size
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY EEPROM size
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY INT_SRAM SIZE size
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY INT_SRAM START_ADDRaddress
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma partinclude num
+        </code>
+       </p>
+      </li>
+     </ol>
+    </div>
+    <h3>
+     <a id="N10C5F">
+     </a>
+     Description
+    </h3>
+    <p>
+     These directives are used to specify various part-specific properties, and are normally
+         used in the part definition include files (partdef.inc). Normally, there is no reason to
+         use these pragmas directly in user programs.
+    </p>
+    <p>
+     Preprocessor macros are not allowed in pragmas. Expressions are not allowed for the
+         numeric arguments, must be pure numbers in decimal, hex, octal, or binary format. String
+         arguments must not be quoted. The pragmas specify the following part-specific
+         properties:
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        The part name, e.g., ATmega8
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        The AVR Core version. This defines the basic instruction set supported. Allowed
+               core versions are currently V0, V0E, V1, V2, and V2E.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Colon-separated list of instructions not supported by this part, relative to the
+               core version.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Colon-separated list of additional instructions supported by this part, relative
+               to the core version.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        FLASH program memory size, in bytes.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        EEPROM memory size, in bytes.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        SRAM memory size, in bytes.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        SRAM memory start address. 0x60 for basic AVR parts, 0x100 or more for parts with
+               extended I/O.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        For AVRASM1 compatibility. Default value: 0. If set to 1, it will cause the
+        <a class="link" href="avrassembler.wb_directives.html#avrassembler.wb_directives.DEF" title="DEF - Set a symbolic name on a register">
+         DEVICE
+        </a>
+        directive to include a file
+               called device.h that is expected to contain the
+        <code class="code">
+         #pragma
+        </code>
+        s described
+               above. This enables partdef.inc files designed for AVRASM1 (containing a
+        <a class="link" href="avrassembler.wb_directives.html#avrassembler.wb_directives.DEF" title="DEF - Set a symbolic name on a register">
+         DEVICE
+        </a>
+        directive but no
+               part-describing
+        <code class="code">
+         #pragma
+        </code>
+        s) to be used with AVRASM2. This property can
+               also be set using the
+        <a class="xref" href="avrassembler.wb_Command_Line_Options.html" title="AVR Assembler Command Line Options">
+         <em>
+          AVR Assembler Command Line Options
+         </em>
+        </a>
+        command
+               line option, and is implicitly set when using the
+        <a class="xref" href="avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.onetwo" title="-1 -2 [Deprecated]">
+         -1/-2
+        </a>
+       </p>
+      </li>
+     </ol>
+    </div>
+    <h3>
+     <a id="N10C97">
+     </a>
+     Examples
+    </h3>
+    <p>
+     Note that the combination of these examples does not describe a real AVR
+         part!
+    </p>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART ADMIN PART_NAME ATmega32
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART CORE CORE_VERSION V2
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART CORE INSTRUCTIONS_NOT_SUPPORTED movw:break:lpm rd,z
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART CORE NEW_INSTRUCTIONS lpm rd,z+
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY PROG_FLASH 131072
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY EEPROM 4096
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY INT_SRAM START_ADDR 0x60
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma AVRPART MEMORY INT_SRAM SIZE 4096
+        </code>
+       </p>
+      </li>
+     </ol>
+    </div>
+   </div>

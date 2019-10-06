@@ -1,0 +1,977 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Arithmetic and logic instructions -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instruction mnemonics
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_instructions.Arithmetic_and_Logic_Instructions">
+        </a>
+        Arithmetic
+    and logic instructions
+       </h2>
+      </div>
+     </div>
+    </div>
+    <div class="informaltable" xmlns="http://www.w3.org/1999/xhtml">
+     <table border="1" xmlns="http://www.w3.org/1999/xhtml">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <span class="bold">
+          <strong>
+           Mnemonic
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Operands
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Description
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Operation
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Flags
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Cycles
+          </strong>
+         </span>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ADD.html" title="ADD - Add without Carry">
+           ADD
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Add without Carry
+        </td>
+        <td>
+         Rd = Rd + Rr
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ADC.html" title="ADC - Add with Carry">
+           ADC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Add with Carry
+        </td>
+        <td>
+         Rd = Rd + Rr + C
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ADIW.html" title="ADIW - Add Immediate to Word">
+           ADIW
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_k">
+           k
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          Add Immediate To Word
+         </p>
+        </td>
+        <td>
+         <p>
+          Rd+1:Rd,K
+         </p>
+        </td>
+        <td>
+         <p>
+          Z,C,N,V,S
+         </p>
+        </td>
+        <td>
+         <p>
+          2
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SUB.html" title="SUB- Subtract without Carry">
+           SUB
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          Subtract without Carry
+         </p>
+        </td>
+        <td>
+         <p>
+          Rd = Rd - Rr
+         </p>
+        </td>
+        <td>
+         <p>
+          Z,C,N,V,H,S
+         </p>
+        </td>
+        <td>
+         <p>
+          1
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SUBI.html" title="SUBI- Subtract Immediate">
+           SUBI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Subtract Immediate
+        </td>
+        <td>
+         Rd = Rd - K8
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBC.html" title="SBC- Subtract with Carry">
+           SBC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Subtract with Carry
+        </td>
+        <td>
+         Rd = Rd - Rr - C
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBCI.html" title="SBCI- Subtract Immediate with Carry">
+           SBCI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Subtract with Carry Immedtiate
+        </td>
+        <td>
+         Rd = Rd - K8 - C
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_AND.html" title="AND - Logical AND">
+           AND
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical AND
+        </td>
+        <td>
+         Rd = Rd · Rr
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ANDI.html" title="ANDI - Logical AND with Immediateand">
+           ANDI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical AND with Immediate
+        </td>
+        <td>
+         Rd = Rd · K8
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_OR.html" title="OR- Logical OR">
+           OR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical OR
+        </td>
+        <td>
+         Rd = Rd V Rr
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ORI.html" title="ORI- Logical OR with Immediate">
+           ORI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical OR with Immediate
+        </td>
+        <td>
+         Rd = Rd V K8
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_EOR.html" title="EOR - Exclusive OR">
+           EOR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical Exclusive OR
+        </td>
+        <td>
+         Rd = Rd EOR Rr
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_COM.html" title="COM- One's Complement">
+           COM
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         One's Complement
+        </td>
+        <td>
+         Rd = $FF - Rd
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_NEG.html" title="NEG- Two's Complement">
+           NEG
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Two's Complement
+        </td>
+        <td>
+         Rd = $00 - Rd
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CBR.html" title="CBR - Clear Bits in Register">
+           CBR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Set Bit(s) in Register
+        </td>
+        <td>
+         Rd = Rd V K8
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CBR.html" title="CBR - Clear Bits in Register">
+           CBR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K8">
+           K8
+          </a>
+         </p>
+        </td>
+        <td>
+         Clear Bit(s) in Register
+        </td>
+        <td>
+         Rd = Rd · ($FF - K8)
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_INC.html" title="INC- Increment">
+           INC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Increment Register
+        </td>
+        <td>
+         Rd = Rd + 1
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_DEC.html" title="DEC- Decrement">
+           DEC
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Decrement Register
+        </td>
+        <td>
+         Rd = Rd -1
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_TST.html" title="TST- Test for Zero or Minus">
+           TST
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Test for Zero or Negative
+        </td>
+        <td>
+         Rd = Rd · Rd
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLR.html" title="CLR - Clear Register">
+           CLR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Clear Register
+        </td>
+        <td>
+         Rd = 0
+        </td>
+        <td>
+         Z,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SER.html" title="SER - Set all bits in Register">
+           SER
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Set Register
+        </td>
+        <td>
+         Rd = $FF
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBIW.html" title="SBIW - Subtract Immediate from Word">
+           SBIW
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rdl">
+           Rdl
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_K6">
+           K6
+          </a>
+         </p>
+        </td>
+        <td>
+         Subtract Immediate from Word
+        </td>
+        <td>
+         Rdh:Rdl = Rdh:Rdl - K 6
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_MUL.html" title="MUL- Multiply Unsigned">
+           MUL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Multiply Unsigned
+        </td>
+        <td>
+         R1:R0 = Rd * Rr
+        </td>
+        <td>
+         Z,C
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_MULS.html" title="MULS - Multiply Signed">
+           MULS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Multiply Signed
+        </td>
+        <td>
+         R1:R0 = Rd * Rr
+        </td>
+        <td>
+         Z,C
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_MULSU.html" title="MULSU - Multiply Signed with Unsigned">
+           MULSU
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Multiply Signed with Unsigned
+        </td>
+        <td>
+         R1:R0 = Rd * Rr
+        </td>
+        <td>
+         Z,C
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_FMUL.html" title="FMUL- Fractional Multiply Unsigned">
+           FMUL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Fractional Multiply Unsigned
+        </td>
+        <td>
+         R1:R0 = (Rd * Rr) &lt;&lt; 1
+        </td>
+        <td>
+         Z,C
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_FMULS.html" title="FMULS - Fractional Multiply Signed">
+           FMULS
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Fractional Multiply Signed
+        </td>
+        <td>
+         R1:R0 = (Rd *Rr) &lt;&lt; 1
+        </td>
+        <td>
+         Z,C
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_FMULSU.html" title="FMULSU - Fractional Multiply Signed with Unsigned">
+           FMULSU
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+         </p>
+        </td>
+        <td>
+         Fractional Multiply Signed with Unsigned
+        </td>
+        <td>
+         R1:R0 = (Rd * Rr) &lt;&lt; 1
+        </td>
+        <td>
+         Z,C
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </div>

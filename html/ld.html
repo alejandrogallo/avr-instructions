@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   LD - Load Indirect from data space to Register using Index X -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instructions
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_LD">
+        </a>
+         <a id="avrassembler.wb_LD1">
+         </a>
+         LD
+        - Load Indirect from data space to Register using Index X
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3>
+     Description:
+    </h3>
+    <p>
+     Loads one byte indirect from the data
+space to a register. For parts with SRAM, the data space consists of the register file, I/O memory and internal SRAM (and external SRAM if applicable). For parts without SRAM, the data space consists of the register file only. The EEPROM has a separate address space.
+    </p>
+    <p>
+     The data location is pointed to by the X (16 bits) pointer register in the register file. Memory access is limited to the current data segment of 64K bytes. To access another data segment in devices with more than 64K bytes data space, the
+     <a class="xref" href="avrassembler.wb_registers.html#avrassembler.RAMPX__RAMPY__RAMPZ" title="RAMPX, RAMPY, RAMPZ">
+      RAMPX, RAMPY, RAMPZ
+     </a>
+     in register in the I/O area has to be changed.
+    </p>
+    <p>
+     The X pointer register can either be left unchanged by the operation, or it can be post-incremented or pre-decremented. These features are especially suited for accessing arrays, tables, and stack pointer usage of the X pointer register.  Note that only the low byte of the X pointer is updated in devices with no more than 256 bytes data space. For such devices, the high byte of the pointer is not used by this instruction and can be used for other purposes. The RAMPX register in the I/O area is updated in parts with more than 64K bytes data space or more than 64K bytes program memory, and the increment/decrement is added to the entire 24-bit address on such devices.
+    </p>
+    <p>
+     Not all variants of this instruction is available in all devices. Refer to the device specific instruction set summary.
+    </p>
+    <p>
+     The result of these combinations is undefined:
+    </p>
+    <p>
+     LD r26, X+
+    </p>
+    <p>
+     LD r27, X+
+    </p>
+    <p>
+     LD r26, -X
+    </p>
+    <p>
+     LD r27, -X
+    </p>
+    <p>
+     Using the X pointer:
+    </p>
+    <p>
+     Operation: Comment:
+    </p>
+    <p>
+     (i)Rd ← (X) X: Unchanged
+    </p>
+    <p>
+     (ii)Rd ← (X) X ← X + 1 X: Post incremented
+    </p>
+    <p>
+     (iii)X ← X - 1 Rd ← (X) X: Pre decremented
+    </p>
+    <p>
+     Syntax: Operands: Program Counter:
+    </p>
+    <p>
+     (i) LD Rd, X 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     (ii)LD Rd, X+ 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     (iii)LD Rd, -X 0 ≤ d ≤ 31 PC ← PC + 1
+    </p>
+    <p>
+     16-bit Opcode:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          (i)
+         </p>
+        </th>
+        <th>
+         <p>
+          1001
+         </p>
+        </th>
+        <th>
+         <p>
+          000d
+         </p>
+        </th>
+        <th>
+         <p>
+          dddd
+         </p>
+        </th>
+        <th>
+         <p>
+          1100
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          (ii)
+         </p>
+        </td>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          000d
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          1101
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          (iii)
+         </p>
+        </td>
+        <td>
+         <p>
+          1001
+         </p>
+        </td>
+        <td>
+         <p>
+          000d
+         </p>
+        </td>
+        <td>
+         <p>
+          dddd
+         </p>
+        </td>
+        <td>
+         <p>
+          1110
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h3>
+     Status Register (SREG) and Boolean Formula:
+    </h3>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+       <col class="col7"/>
+       <col class="col8"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <p>
+          I
+         </p>
+        </th>
+        <th>
+         <p>
+          T
+         </p>
+        </th>
+        <th>
+         <p>
+          H
+         </p>
+        </th>
+        <th>
+         <p>
+          S
+         </p>
+        </th>
+        <th>
+         <p>
+          V
+         </p>
+        </th>
+        <th>
+         <p>
+          N
+         </p>
+        </th>
+        <th>
+         <p>
+          Z
+         </p>
+        </th>
+        <th>
+         <p>
+          C
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+        <td>
+         <p>
+          -
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     Example:
+    </p>
+    <pre class="programlisting">clr r27 ; Clear X high byte
+ldi r26,$60 ; Set X low byte to $60
+ld r0,X+ ; Load r0 with data space loc. $60(X post inc)
+ld r1,X ; Load r1 with data space loc. $61
+ldi r26,$63 ; Set X low byte to $63
+ld r2,X ; Load r2 with data space loc. $63
+ld r3,-X ; Load r3 with data space loc. $62(X pre dec)</pre>
+    <p>
+    </p>
+    <p>
+     Words:1 (2 bytes)
+    </p>
+    <p>
+     Cycles:
+    </p>
+    <div class="informaltable">
+     <table border="1">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+        </th>
+        <th>
+         <p>
+          Cycles
+         </p>
+        </th>
+        <th>
+         <p>
+          Cycles xmega
+         </p>
+        </th>
+        <th>
+         <p>
+          Cycles AVR8L
+         </p>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          (i)
+         </p>
+        </td>
+        <td>
+         <p>
+          2
+         </p>
+        </td>
+        <td>
+         <p>
+          1/2*
+         </p>
+        </td>
+        <td>
+         <p>
+          1/2**
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          (ii)
+         </p>
+        </td>
+        <td>
+         <p>
+          2
+         </p>
+        </td>
+        <td>
+         <p>
+          1/2*
+         </p>
+        </td>
+        <td>
+         <p>
+          1/2**
+         </p>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          (iii)
+         </p>
+        </td>
+        <td>
+         <p>
+          2
+         </p>
+        </td>
+        <td>
+         <p>
+          2/3*
+         </p>
+        </td>
+        <td>
+         <p>
+          2/3**
+         </p>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     (*) When accessing internal SRAM, one extra cycle is required
+	(**) When accessing FLASH, one extra cycle is required.
+    </p>
+   </div>

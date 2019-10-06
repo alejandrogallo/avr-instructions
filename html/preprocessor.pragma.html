@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   #pragma, general purpose -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    AVR Assembler Preprocessor
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_preprocessor.pragma">
+        </a>
+        #pragma, general purpose
+       </h2>
+      </div>
+     </div>
+    </div>
+    <h3 xmlns="http://www.w3.org/1999/xhtml">
+     <a id="N10BB1" xmlns="http://www.w3.org/1999/xhtml">
+     </a>
+     Syntax
+    </h3>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma warning range byte option
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma overlap option
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma error instruction
+        </code>
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <code class="code">
+         #pragma warning instruction
+        </code>
+       </p>
+      </li>
+     </ol>
+    </div>
+    <h3>
+     <a id="N10BCE">
+     </a>
+     Description
+    </h3>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        The assembler evaluates constant integer expressions as 64-bit signed integers
+               internally. When such expressions are used as immediate operands, they must be
+               truncated to the number of bits required by the instructions. For most operands, an
+               out-of -range value will cause an "operand out of range" error message. However, the
+               immediate byte operands for the
+        <a class="xref" href="avrassembler.wb_LDI.html" title="LDI - Load Immediate">
+         LDI
+        </a>
+        ,
+        <a class="xref" href="avrassembler.wb_CPI.html" title="CPI- Compare with Immediate">
+         CPI
+        </a>
+        ,
+        <a class="xref" href="avrassembler.wb_ORI.html" title="ORI- Logical OR with Immediate">
+         ORI
+        </a>
+        ,
+        <a class="xref" href="avrassembler.wb_ANDI.html" title="ANDI - Logical AND with Immediateand">
+         ANDI
+        </a>
+        ,
+        <a class="xref" href="avrassembler.wb_SUBI.html" title="SUBI- Subtract Immediate">
+         SUBI
+        </a>
+        ,
+        <a class="xref" href="avrassembler.wb_SBCI.html" title="SBCI- Subtract Immediate with Carry">
+         SBCI
+        </a>
+        instructions have several possible
+               interpretations that are affected by this option. option= integer The immediate
+               operand is evaluated as an integer, and if its value is outside the range [-128 ...
+               255] a warning is given. The assembler doesn't know if the users intends an integer
+               operand to be signed or unsigned, hence it allows any signed or unsigned value that
+               fits into a byte. option= overflow (default): The immediate operand is basically
+               evaluated as an unsigned byte, and any sign extension bits are ignored. This option
+               is particularly suitable when dealing with bit masks, when the integer interpretation
+               would cause lots of warnings, like
+        <code class="code">
+         ldi r16, ~((1 &lt;&lt; 7) | (1 &lt;&lt; 3))
+        </code>
+        <span class="command">
+         <strong>
+          option=none
+         </strong>
+        </span>
+        Disables all out-of-range warnings for
+               byte operands. Not recommended.
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        If different sections of code are mapped to overlapping memory locations using the
+        <a class="xref" href="avrassembler.wb_directives.html#avrassembler.wb_directives.ORG" title="ORG - Set program origin">
+         ORG
+        </a>
+        directive, an error message is normally
+               issued. This options modifies that behaviour as follows: option= ignoreIgnores
+               overlap conditions altogether; no errors, no warnings. Not recommended. option=
+               warningProduce warnings when overlaps are detected.
+        <span class="command">
+         <strong>
+          option=error
+         </strong>
+        </span>
+        Consider overlaps as error condition; this is the default
+               and recommended setting.
+        <span class="command">
+         <strong>
+          option=default
+         </strong>
+        </span>
+        Revert to
+               default handling -erroror whatever is specified with the
+        <a class="xref" href="avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.O" title="-O i|w|e">
+         -O
+        </a>
+        . The assembler maintains two
+               settings for overlap handling: Thedefaultsetting that is set up by the -O
+               command-line option, and theeffectivesetting, that only can be modified with this
+               #pragma. The two settings are equal upon assembler invocation, this #pragma changes
+               the effective setting from the line it is invoked and until the line it is changed by
+               another invocation of this pragma. Hence, this pragma covers source line ranges and
+               not address ranges. See also:
+        <a class="xref" href="avrassembler.wb_directives.html#avrassembler.wb_directives.OVERLAP" title="OVERLAP/NOOVERLAP - Set up overlapping section">
+         OVERLAP/NOOVERLAP
+        </a>
+        .
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Causes use of instructions that are unsupported on the specified device to cause
+               an assembler error (default behaviour)
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        Causes use of instructions that are unsupported on the specified device to cause
+               an assembler warning.
+       </p>
+      </li>
+     </ol>
+    </div>
+    <h3>
+     <a id="N10C0E">
+     </a>
+     See also
+    </h3>
+    <div class="orderedlist">
+     <ol class="orderedlist" type="1">
+      <li class="listitem">
+       <p>
+        <a class="xref" href="avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.W" title="-W-b |-W+bo | -W+bi">
+         -W-b/-W+bi/o
+        </a>
+        .
+       </p>
+      </li>
+      <li class="listitem">
+       <p>
+        <a class="xref" href="avrassembler.wb_Command_Line_Options.html#avrassembler.wb_Command_Line_Options.O" title="-O i|w|e">
+         -O
+        </a>
+        .
+       </p>
+      </li>
+     </ol>
+    </div>
+   </div>

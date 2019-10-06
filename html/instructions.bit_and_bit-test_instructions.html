@@ -1,0 +1,1048 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>
+   Bit and Bit-test Instructions -  - AVR Assembler
+  </title>
+  <!--[if IE]>
+	<![endif]-->
+ </head>
+ <body>
+  <div id="header">
+   </a>
+   <h1>
+    AVR Assembler
+    Instruction mnemonics
+   </h1>
+  </div>
+  <div id="content">
+   <!-- -->
+   <div class="section">
+    <div class="titlepage" xmlns="">
+     <div>
+      <div>
+       <h2 class="title" style="clear: both" xmlns="http://www.w3.org/1999/xhtml">
+        <a id="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions">
+        </a>
+        Bit and
+    Bit-test Instructions
+       </h2>
+      </div>
+     </div>
+    </div>
+    <div class="informaltable" xmlns="http://www.w3.org/1999/xhtml">
+     <table border="1" xmlns="http://www.w3.org/1999/xhtml">
+      <colgroup>
+       <col class="col1"/>
+       <col class="col2"/>
+       <col class="col3"/>
+       <col class="col4"/>
+       <col class="col5"/>
+       <col class="col6"/>
+      </colgroup>
+      <thead>
+       <tr>
+        <th>
+         <span class="bold">
+          <strong>
+           Mnemonic
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Operands
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Description
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Operation
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Flags
+          </strong>
+         </span>
+        </th>
+        <th>
+         <span class="bold">
+          <strong>
+           Cycles
+          </strong>
+         </span>
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_LSL.html" title="LSL- Logical Shift Left">
+           LSL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical shift left
+        </td>
+        <td>
+         Rd(n+1)=Rd(n), Rd(0)=0, C=Rd(7)
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_LSR.html" title="LSR- Logical Shift Right">
+           LSR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Logical shift right
+        </td>
+        <td>
+         Rd(n)=Rd(n+1), Rd(7)=0, C=Rd(0)
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ROL.html" title="ROL- Rotate Left trough Carry">
+           ROL
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Rotate left through carry
+        </td>
+        <td>
+         Rd(0)=C, Rd(n+1)=Rd(n), C=Rd(7)
+        </td>
+        <td>
+         Z,C,N,V,H,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_OR.html" title="OR- Logical OR">
+           OR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Rotate right through carry
+        </td>
+        <td>
+         Rd(7)=C, Rd(n)=Rd(n+1), C=Rd(0)
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_ASR.html" title="ASR - Arithmetic Shift Right">
+           ASR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Arithmetic shift right
+        </td>
+        <td>
+         Rd(n)=Rd(n+1), n=0,...,6
+        </td>
+        <td>
+         Z,C,N,V,S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SWAP.html" title="SWAP - Swap Nibbles">
+           SWAP
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+         </p>
+        </td>
+        <td>
+         Swap nibbles
+        </td>
+        <td>
+         Rd(3..0) = Rd(7..4), Rd(7..4) = Rd(3..0)
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BSET.html" title="BSET - Bit Set in SREG">
+           BSET
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_s">
+           s
+          </a>
+         </p>
+        </td>
+        <td>
+         Set flag
+        </td>
+        <td>
+         SREG(s) = 1
+        </td>
+        <td>
+         SREG(s)
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BCLR.html" title="BCLR - Bit Clear in SREG">
+           BCLR
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_s">
+           s
+          </a>
+         </p>
+        </td>
+        <td>
+         Clear flag
+        </td>
+        <td>
+         SREG(s) = 0
+        </td>
+        <td>
+         SREG(s)
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SBI.html" title="SBI - Set Bit in I/O Register">
+           SBI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_P">
+           P
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Set bit in I/O register
+        </td>
+        <td>
+         I/O(P,b) = 1
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CBI.html" title="CBI - Clear Bit in I/O Register">
+           CBI
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_P">
+           P
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Clear bit in I/O register
+        </td>
+        <td>
+         I/O(P,b) = 0
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         2
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BST.html" title="BST - Bit Store from Bit in Register to T Flag in SREG">
+           BST
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rr">
+           Rr
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Bit store from register to T
+        </td>
+        <td>
+         T = Rr(b)
+        </td>
+        <td>
+         T
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BLD.html" title="BLD - Bit Load from the T Flag in SREG to a Bit in Register.">
+           BLD
+          </a>
+         </p>
+        </td>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_Rd">
+           Rd
+          </a>
+          ,
+          <a class="xref" href="avrassembler.wb_instructions.Bit_and_Bit-test_Instructions.html#avrassembler.wb_b">
+           b
+          </a>
+         </p>
+        </td>
+        <td>
+         Bit load from register to T
+        </td>
+        <td>
+         Rd(b) = T
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SEC.html" title="SEC - Set Carry Flag">
+           SEC
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set carry flag
+        </td>
+        <td>
+         C =1
+        </td>
+        <td>
+         C
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLC.html" title="CLC - Clear Carry Flag">
+           CLC
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear carry flag
+        </td>
+        <td>
+         C = 0
+        </td>
+        <td>
+         C
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SEN.html" title="SEN - Set Negative Flag">
+           SEN
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set negative flag
+        </td>
+        <td>
+         N = 1
+        </td>
+        <td>
+         N
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLN.html" title="CLN - Clear Negative Flag">
+           CLN
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear negative flag
+        </td>
+        <td>
+         N = 0
+        </td>
+        <td>
+         N
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SEZ.html" title="SEZ - Set Zero Flag">
+           SEZ
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set zero flag
+        </td>
+        <td>
+         Z = 1
+        </td>
+        <td>
+         Z
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLZ.html" title="CLZ - Clear Zero Flag">
+           CLZ
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear zero flag
+        </td>
+        <td>
+         Z = 0
+        </td>
+        <td>
+         Z
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SEI.html" title="SEI - Set Global Interrupt Flag">
+           SEI
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set interrupt flag
+        </td>
+        <td>
+         I = 1
+        </td>
+        <td>
+         I
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLI.html" title="CLI - Clear Global Interrupt Flag">
+           CLI
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear interrupt flag
+        </td>
+        <td>
+         I = 0
+        </td>
+        <td>
+         I
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SES.html" title="SES - Set Signed Flag">
+           SES
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set signed flag
+        </td>
+        <td>
+         S = 1
+        </td>
+        <td>
+         S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLN.html" title="CLN - Clear Negative Flag">
+           CLN
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear signed flag
+        </td>
+        <td>
+         S = 0
+        </td>
+        <td>
+         S
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SEV.html" title="SEV - Overflow Flag">
+           SEV
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set overflow flag
+        </td>
+        <td>
+         V = 1
+        </td>
+        <td>
+         V
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLV.html" title="CLV - Clear Overflow Flag">
+           CLV
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear overflow flag
+        </td>
+        <td>
+         V = 0
+        </td>
+        <td>
+         V
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SET.html" title="SET - Set T Flag">
+           SET
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set T-flag
+        </td>
+        <td>
+         T = 1
+        </td>
+        <td>
+         T
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLT.html" title="CLT - Clear T Flag">
+           CLT
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear T-flag
+        </td>
+        <td>
+         T = 0
+        </td>
+        <td>
+         T
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SEH.html" title="SEH - Set Half Carry Flag">
+           SEH
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Set half carry flag
+        </td>
+        <td>
+         H = 1
+        </td>
+        <td>
+         H
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_CLH.html" title="CLH - Clear Half Carry Flag">
+           CLH
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Clear half carry flag
+        </td>
+        <td>
+         H = 0
+        </td>
+        <td>
+         H
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_NOP.html" title="NOP - No Operation">
+           NOP
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         No operation
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_SLEEP.html" title="SLEEP- Sleep mode">
+           SLEEP
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Sleep
+        </td>
+        <td>
+         See instruction manual
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_WDR.html" title="WDR - Watchdog Reset">
+           WDR
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Watchdog Reset
+        </td>
+        <td>
+         See instruction manual
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <p>
+          <a class="xref" href="avrassembler.wb_BREAK.html" title="BREAK - Break">
+           BREAK
+          </a>
+         </p>
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         Execution Break
+        </td>
+        <td>
+         See instruction manual
+        </td>
+        <td>
+         None
+        </td>
+        <td>
+         1
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <p>
+     The Assembler is not case sensitive.
+    </p>
+    <p>
+     The operands have the following forms:
+    </p>
+    <p>
+      <a id="avrassembler.wb_Rd">
+      </a>
+      Rd
+     : Destination (and source) register in
+    the register file
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_Rr">
+      </a>
+      <strong>
+       Rr
+      </strong>
+     </span>
+     : Source register in
+    the register file
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_b">
+      </a>
+      <strong>
+       b
+      </strong>
+     </span>
+     : Constant (0-7), can be
+    a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_s">
+      </a>
+      <strong>
+       s
+      </strong>
+     </span>
+     : Constant (0-7), can be
+    a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_P">
+      </a>
+      <strong>
+       P
+      </strong>
+     </span>
+     : Constant (0-31/63),
+    can be a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_K6">
+      </a>
+      <strong>
+       K6
+      </strong>
+     </span>
+     ; Constant (0-63), can
+    be a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_K8">
+      </a>
+      <strong>
+       K8
+      </strong>
+     </span>
+     : Constant (0-255),
+    can be a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_k">
+      </a>
+      <strong>
+       k
+      </strong>
+     </span>
+     : Constant, value range
+    depending on instruction. Can be a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_q">
+      </a>
+      <strong>
+       q
+      </strong>
+     </span>
+     : Constant (0-63), can
+    be a constant expression
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_Rdl">
+      </a>
+      <strong>
+       Rdl
+      </strong>
+     </span>
+     : R24, R26, R28,
+    R30. For ADIW and SBIW instructions
+    </p>
+    <p>
+     <span class="bold">
+      <a id="avrassembler.wb_X_Y_Z">
+      </a>
+      <strong>
+       X,Y,Z
+      </strong>
+     </span>
+     : Indirect
+    address registers (X=R27:R26, Y=R29:R28, Z=R31:R30)
+    </p>
+   </div>
