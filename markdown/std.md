@@ -52,18 +52,20 @@ Notes:
 
 16-bit Opcode:
 
+```
 | (i)    | 1000 | 001r | rrrr | 1000 |
 |--------|------|------|------|------|
 | (ii)   | 1001 | 001r | rrrr | 1001 |
 | (iii)  | 1001 | 001r | rrrr | 1010 |
 | (iiii) | 10q0 | qq1r | rrrr | 1qqq |
-
+```
 ### <a href="" id="N19BC6"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -81,6 +83,7 @@ Words:1 (2 bytes)
 
 Cycles:
 
+```
 |        | Cycles | Cycles xmega | Cycles AVR8L |
 |--------|--------|--------------|--------------|
 | (i)    | 2      | 1            | 1            |

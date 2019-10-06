@@ -67,6 +67,7 @@ Quoted strings may be concatenated according to the ANSI C convention, i.e., `  
 
 Character constants are enclosed in single quotes (’), and can be used anywhere an integer expression is allowed. The following C-style escape sequences are recognized, with the same meaning as in C:
 
+```
 | Escape sequence | Meaning                         |
 |-----------------|---------------------------------|
 | \\n             | Newline (ASCII LF 0x0a)         |
@@ -78,7 +79,7 @@ Character constants are enclosed in single quotes (’), and can be used anywher
 | \\v             | Vertical tab (ASCII VT 0x0b)    |
 | \\\\            | Backslash                       |
 | \\0             | Null character (ASCII NUL)      |
-
+```
 \\ooo (ooo = octal number) and \\xhh (hh = hex number) are also recognized.
 
 <a href="" id="N1037B"></a> Examples

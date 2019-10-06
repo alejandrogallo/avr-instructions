@@ -20,10 +20,11 @@ CBR Rd,K 16 ≤ d ≤ 31, 0 ≤ K ≤ 255 PC &lt;- PC + 1
 
 ### <a href="" id="N142A9"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | -   |
-
+```
 S: N ⊕ V, For signed tests.
 
 V:0 Cleared

@@ -18,16 +18,18 @@ CPI Rd,K 16 ≤ d ≤ 31, 0≤ K ≤ 255 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0011 | KKKK | dddd | KKKK |
-
+```
 ### <a href="" id="N14F9C"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 H:
 
 $\\overline{Rd3} {K3} + {K3} {R3}+{R3} \\overline{Rd3}$

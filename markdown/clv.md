@@ -18,16 +18,18 @@ CLV None PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0100 | 1011 | 1000 |
-
+```
 ### <a href="" id="N14924"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | 0   | -   | -   | -   |
-
+```
 V: 0 Overflow flag cleared
 
 Example:

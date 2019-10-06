@@ -22,16 +22,18 @@ EIJMP None See Operation Not Affected
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0100 | 0001 | 1001 |
-
+```
 ### <a href="" id="N154C1"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting

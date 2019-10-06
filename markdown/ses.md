@@ -18,16 +18,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0100 | 0100 | 1000 |
-
+```
 ### <a href="" id="N19536"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | 1   | -   | -   | -   | -   |
-
+```
 S: 1
 
 Signed flag set

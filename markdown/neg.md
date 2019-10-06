@@ -18,16 +18,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 010d | dddd | 0001 |
-
+```
 ### <a href="" id="N17848"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 H:R3 + Rd3
 
 Set if there was a borrow from bit 3; cleared otherwise

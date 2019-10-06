@@ -37,6 +37,7 @@ The Assembler supports a number of operators which are described here. The highe
 
 The following operators are defined:
 
+```
 | <span class="bold"> **Symbol** </span>                                                                                                      | <span class="bold"> **Description** </span>                                                                                                                    |
 |---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a href="avrassembler.wb_expressions.html#avrassembler.Logical_Not" class="link" title="Logical Not">!</a>                                  | <a href="avrassembler.wb_expressions.html#avrassembler.Logical_Not" class="link" title="Logical Not">Logical not</a>                                           |
@@ -61,7 +62,7 @@ The following operators are defined:
 | <a href="avrassembler.wb_expressions.html#avrassembler.Logical_And" class="link" title="Logical And">&amp;&amp;</a>                         | <a href="avrassembler.wb_expressions.html#avrassembler.Logical_And" class="link" title="Logical And">Logical And</a>                                           |
 | <a href="avrassembler.wb_expressions.html#avrassembler.Logical_Or" class="link" title="Logical Or">||</a>                                   | <a href="avrassembler.wb_expressions.html#avrassembler.Logical_Or" class="link" title="Logical Or">Logical Or</a>                                              |
 | <a href="avrassembler.wb_expressions.html#avrassembler.wb_expressions.Conditional_operator" class="link" title="Conditional operator">?</a> | <a href="avrassembler.wb_expressions.html#avrassembler.wb_expressions.Conditional_operator" class="link" title="Conditional operator">Conditional operator</a> |
-
+```
 <a href="" id="avrassembler.Logical_Not"></a> Logical Not
 ---------------------------------------------------------
 
@@ -297,16 +298,18 @@ Example: ldi r18,Low(c1^c2) ;Load r18 with an expression
 <a href="" id="avrassembler.Bitwise_Or"></a> Bitwise Or
 -------------------------------------------------------
 
+```
 Symbol: |
-
+```
 Description: Binary operator which returns the bitwise Or between two expressions
 
 Precedence: 6
 
 Associativity: Left
 
+```
 Example: ldi r18,Low(c1|c2) ;Load r18 with an expression
-
+```
 <a href="" id="avrassembler.Logical_And"></a> Logical And
 ---------------------------------------------------------
 
@@ -323,16 +326,18 @@ Example: ldi r18,Low(c1&&c2) ;Load r18 with an expression
 <a href="" id="avrassembler.Logical_Or"></a> Logical Or
 -------------------------------------------------------
 
+```
 Symbol: ||
-
+```
 Description: Binary operator which returns 1 if one or both of the expressions are nonzero, 0 otherwise
 
 Precedence: 4
 
 Associativity: Left
 
+```
 Example: ldi r18,Low(c1||c2) ;Load r18 with an expression
-
+```
 Conditional operator
 --------------------
 

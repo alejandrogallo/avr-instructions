@@ -20,16 +20,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0111 | KKdd | KKKK |
-
+```
 ### <a href="" id="N18CC0"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 S: N ⊕ V, For signed tests.
 
 V:

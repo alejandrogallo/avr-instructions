@@ -18,16 +18,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0100 | KKKK | dddd | KKKK |
-
+```
 ### <a href="" id="N187CD"></a> Status Register and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 $\\overline{Rd3} {Rr3} + {Rr3} {R3}+{R3} \\overline{Rd3}$
 
 Set if there was a borrow from bit 3; cleared otherwise

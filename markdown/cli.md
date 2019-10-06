@@ -18,16 +18,18 @@ CLI None PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0100 | 1111 | 1000 |
-
+```
 ### <a href="" id="N1455F"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | 0   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 I: 0
 
 Global Interrupt flag cleared

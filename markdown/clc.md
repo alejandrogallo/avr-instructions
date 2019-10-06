@@ -18,16 +18,18 @@ CLC None PC &lt;- PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0100 | 1000 | 1000 |
-
+```
 ### <a href="" id="N143DF"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | 0   |
-
+```
 C: 0 Carry flag cleared
 
 Example:

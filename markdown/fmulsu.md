@@ -8,11 +8,12 @@ FMULSU - Fractional Multiply Signed with Unsigned
 
 This instruction performs 8-bit × 8-bit → 16-bit signed multiplication and shifts the result one bit left.
 
+```
 | Rd           |     | Rr         |       | R1           | R0          |
 |--------------|-----|------------|-------|--------------|-------------|
 | Multiplicand | ×   | Multiplier | -&gt; | Product High | Product Low |
 | 8            |     | 8          |       | 16           |             |
-
+```
 Let (N.Q) denote a fractional number with N binary digits left of the radix point, and Q binary digits right of the radix point. A multiplication between two numbers in the formats (N1.Q1) and (N2.Q2) results in the format ((N1+N2).(Q1+Q2)). For signal processing applications, the format (1.7) is widely used for the inputs, resulting in a (2.14) format for the product. A left shift is required for the high byte of the product to be in the same format as the inputs. The FMULSU instruction incorporates the shift operation in the same number of cycles as MULSU.
 
 The (1.7) format is most commonly used with signed numbers, while FMULSU performs a multiplication with one unsigned and one signed input. This instruction is therefore most useful for calculating two of the partial products when performing a signed multiplication with 16-bit inputs in the (1.15) format, yielding a result in the (1.31) format. Note: the result of the FMULSU operation may suffer from a 2’s complement overflow if interpreted as a number in the (1.15) format. The MSB of the multiplication before shifting must be taken into account, and is found in the carry bit. See the following example.
@@ -31,16 +32,18 @@ FMULSU Rd,Rr 16 ≤ d ≤ 23, 16≤ r ≤ 23 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0000 | 0011 | 1ddd | 1rrr |
-
+```
 ### <a href="" id="N15C51"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | ⇔   | ⇔   |
-
+```
 C: R16
 
 Set if bit 15 of the result before left shift is set; cleared otherwise.

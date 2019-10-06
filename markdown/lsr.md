@@ -10,26 +10,29 @@ Shifts all bits in Rd one place to the right. Bit 7 is cleared. Bit 0 is loaded 
 
 Operation:
 
+```
 |     |     |            |     |     |
 |-----|-----|------------|-----|-----|
 | 0   | →   | b7——————b0 | →   | C   |
-
+```
 Syntax: Operands: Program Counter:
 
 (i) LSR Rd 0 ≤ d ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 010d | dddd | 0110 |
-
+```
 ### Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | ⇔   | 0   | ⇔   | ⇔   |
-
+```
 S: N ⊕ V, For signed tests.
 
 V: N ⊕ C (For N and C after the shift)

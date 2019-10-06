@@ -18,16 +18,18 @@ IN Rd,A 0 ≤ d ≤ 31, 0 ≤ A ≤ 63 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1011 | 0AAd | dddd | AAAA |
-
+```
 ### <a href="" id="N15FBC"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting

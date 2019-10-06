@@ -22,16 +22,18 @@ PC ← PC + 3, Skip a two word instruction
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0001 | 00rd | dddd | rrrr |
-
+```
 ### <a href="" id="N15183"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting

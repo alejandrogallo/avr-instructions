@@ -24,16 +24,18 @@ Syntax: Operands: Program Counter: Stack
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0101 | 0001 | 1000 |
-
+```
 ### <a href="" id="N1817A"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | 1   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 I: 1
 
 The I flag is set.

@@ -54,18 +54,20 @@ Notes:
 
 16-bit Opcode:
 
+```
 | (i)    | 1000 | 000d | dddd | 0000 |
 |--------|------|------|------|------|
 | (ii)   | 1001 | 000d | dddd | 0001 |
 | (iii)  | 1001 | 000d | dddd | 0010 |
 | (iiii) | 10q0 | qq0d | dddd | 0qqq |
-
+```
 ### Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -83,11 +85,12 @@ Words:1 (2 bytes)
 
 Cycles:
 
+```
 |        | Cycles | Cycles xmega | Cycles AVR8L |
 |--------|--------|--------------|--------------|
 | (i)    | 2      | 1/2\*        | 1/2\*\*      |
 | (ii)   | 2      | 1/2\*        | 1/2\*\*      |
 | (iii)  | 2      | 2/3\*        | 2/3\*\*      |
 | (iiii) | 2      | 2/3\*        | N/A          |
-
+```
 (\*) When accessing internal SRAM, one extra cycle is required (\*\*) When accessing FLASH, one extra cycle is required.

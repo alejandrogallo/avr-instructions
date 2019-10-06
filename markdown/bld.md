@@ -18,16 +18,18 @@ BLD Rd,b 0 ≤ d ≤ 31, 0 ≤ b ≤ 7 PC &lt;- PC + 1
 
 16 bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1111 | 100d | dddd | 0bbb |
-
+```
 ### <a href="" id="N12E3A"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting

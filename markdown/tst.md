@@ -18,16 +18,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode: (see AND Rd, Rd)
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0010 | 00dd | dddd | dddd |
-
+```
 ### <a href="" id="N1A4E7"></a> Status Register and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | -   |
-
+```
 S: N ⊕ V, For signed tests.
 
 V:0

@@ -22,16 +22,18 @@ DEC Rd 0 ≤ d ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 010d | dddd | 1010 |
-
+```
 ### <a href="" id="N15250"></a> Status Register and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | -   |
-
+```
 S:N ⊕ V
 
 For signed tests.

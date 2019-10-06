@@ -8,6 +8,7 @@ The preprocessor has a number of pre-defined macros. All have names starting and
 
 Pre-defined macros are either built-in, or they are set by the <a href="avrassembler.wb_preprocessor.pragma.html" class="xref" title="#pragma, general purpose">#pragma</a> directive, as indicated in the table.
 
+```
 | Name                      | type    | Set by                                                                                                       | Description                                                                                                                                                                                       |
 |---------------------------|---------|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | \_\_AVRASM\_VERSION\_\_   | Integer | Built-in                                                                                                     | Assembler version, encoded as (1000\*major + minor)                                                                                                                                               |

@@ -26,16 +26,18 @@ SP ← SP - 3 (3 bytes, 22 bits)
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1101 | kkkk | kkkk | kkkk |
-
+```
 ### <a href="" id="N17FA0"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -51,6 +53,7 @@ Words:1 (2 bytes)
 
 Cycles:
 
+```
 |                        | Cycles | Cycles xmega | Cycles AVR8L |
 |------------------------|--------|--------------|--------------|
 | Devices with 16-bit PC | 3      | 2            | 4            |

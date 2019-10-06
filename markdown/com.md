@@ -18,16 +18,18 @@ COM Rd 0 ≤ d ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 010d | dddd | 0000 |
-
+```
 ### <a href="" id="N14A96"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | 1   |
-
+```
 S:N ⊕ V For signed tests.
 
 V:0 Cleared.

@@ -28,16 +28,18 @@ SP ← SP-3 (3 bytes, 22 bits)
 
 32-bit Opcode:
 
+```
 | 1001 | 010k | kkkk | 111k |
 |------|------|------|------|
 | kkkk | kkkk | kkkk | kkkk |
-
+```
 ### <a href="" id="N14116"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -56,6 +58,7 @@ Words:2 (4 bytes)
 
 Cycles:
 
+```
 |                        | Cycles | Cycles xmega |
 |------------------------|--------|--------------|
 | Devices with 16-bit PC | 4      | 3            |

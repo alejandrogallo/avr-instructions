@@ -18,16 +18,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0001 | 11rd | dddd | rrrr |
-
+```
 ### <a href="" id="N1240C"></a> Status Register (SREG) Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 H:
 
 ${Rd3} {Rr3} + {Rr3} \\overline{R3}+\\overline{R3} {Rd3}$

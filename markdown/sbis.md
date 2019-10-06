@@ -22,16 +22,18 @@ PC ← PC + 3, Skip a two word instruction
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 1011 | AAAA | Abbb |
-
+```
 ### <a href="" id="N18BA2"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -42,6 +44,7 @@ nop ; Continue (do nothing)
 
 Words:1 (2 bytes)
 
+```
 |                                                      | Cycles | Cycles xmega | Cycles AVR8L |
 |------------------------------------------------------|--------|--------------|--------------|
 | Condition is false                                   | 1      | 2            | 1            |

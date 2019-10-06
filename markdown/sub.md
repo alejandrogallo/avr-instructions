@@ -18,16 +18,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0001 | 10rd | dddd | rrrr |
-
+```
 ### <a href="" id="N1A04E"></a> Status Register and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 H:
 
 $\\overline{Rd3} {Rr3} + {Rr3} {R3}+{R3} \\overline{Rd3}$

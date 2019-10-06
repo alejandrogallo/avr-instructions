@@ -20,12 +20,14 @@ PC ← PC + 1, if condition is false
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1111 | 00kk | kkkk | k100 |
-
+```
 ### <a href="" id="N13866"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |

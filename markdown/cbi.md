@@ -18,16 +18,18 @@ CBI A, b 0 ≤ A ≤ 31, 0 ≤ b ≤ 7 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 1000 | AAAA | Abbb |
-
+```
 ### <a href="" id="N1420D"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting

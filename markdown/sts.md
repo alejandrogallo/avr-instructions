@@ -22,16 +22,18 @@ Syntax: Operands: Program Counter:
 
 32-bit Opcode:
 
+```
 | 1001 | 001d | dddd | 0000 |
 |------|------|------|------|
 | kkkk | kkkk | kkkk | kkkk |
-
+```
 ### <a href="" id="N19ECA"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting

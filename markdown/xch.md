@@ -22,16 +22,18 @@ XCH Z, Rd 0 ≤ d ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 000r | rrrr | 0100 |
-
+```
 ### <a href="" id="N1A6E4"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Words:1 (2 bytes)
 
 Cycles: 2

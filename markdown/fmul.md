@@ -52,16 +52,18 @@ FMUL Rd,Rr 16 ≤ d ≤ 23, 16≤ r ≤ 23 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0000 | 0011 | 0ddd | 1rrr |
-
+```
 ### <a href="" id="N15837"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | ⇔   | ⇔   |
-
+```
 C: R16
 
 Set if bit 15 of the result before left shift is set; cleared otherwise.

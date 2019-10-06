@@ -18,16 +18,18 @@ EOR Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0010 | 01rd | dddd | rrrr |
-
+```
 ### <a href="" id="N15692"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | 0   | ⇔   | ⇔   | -   |
-
+```
 S: N ⊕ V, For signed tests.
 
 V:0

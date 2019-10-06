@@ -1,6 +1,7 @@
 AVR Assembler Assembler directives
 ==================================
 
+```
 | <span class="bold"> **Directive** </span>                                                                                                                              | <span class="bold"> **Description** </span>                                                                                                                                        |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.BYTE" class="link" title="BYTE - reserve bytes for a variable">BYTE</a>                            | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.BYTE" class="link" title="BYTE - reserve bytes for a variable">Reserve byte(s) to a variable.</a>              |
@@ -31,7 +32,7 @@ AVR Assembler Assembler directives
 | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.UNDEF" class="link" title="UNDEF - Undefine a register symbolic name">UNDEF</a>                    | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.UNDEF" class="link" title="UNDEF - Undefine a register symbolic name">Undefine register symbol</a>             |
 | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.WARNING" class="link" title="WARNING - Outputs a warning message string">WARNING</a>               | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.WARNING" class="link" title="WARNING - Outputs a warning message string">Outputs a warning message</a>         |
 | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.OVERLAP" class="link" title="OVERLAP/NOOVERLAP - Set up overlapping section">OVERLAP/NOOVERLAP</a> | <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.OVERLAP" class="link" title="OVERLAP/NOOVERLAP - Set up overlapping section">Set up overlapping section</a>    |
-
+```
 ### Note
 
 Note that all directives must be preceded by a period.
@@ -85,8 +86,9 @@ CSEGSIZE - Program Memory Size
 
 <span class="bold"> **Syntax:** </span>
 
+```
 .CSEGSIZE = 10 | 12 | 14 | 16
-
+```
 <span class="bold"> **Example:** </span>
 
 ``` programlisting
@@ -237,12 +239,14 @@ eevarlst: .DQ 0,0xfadebabedeadbeef, 1 << 62
 
 .ELSE
 
+```
 .IFDEF &lt;symbol&gt; |.IFNDEF &lt;symbol&gt;
-
+```
 …
 
+```
 .ELSE | .ELIF&lt;expression&gt;
-
+```
 …
 
 .ENDIF
@@ -268,12 +272,14 @@ Conditionals (.IF…ELIF…ELSE…ENDIF blocks) may be nested, but all condition
 
 .ENDIF
 
+```
 .IFDEF &lt;symbol&gt; |.IFNDEF &lt;symbol&gt;
-
+```
 …
 
+```
 .ELSE | .ELIF&lt;expression&gt;
-
+```
 …
 
 .ENDIF
@@ -434,12 +440,14 @@ Up to 5 levels of nesting is possible.
 
 .IF &lt;expression&gt;
 
+```
 .IFDEF &lt;symbol&gt; |.IFNDEF &lt;symbol&gt;
-
+```
 …
 
+```
 .ELSE | .ELIF&lt;expression&gt;
-
+```
 …
 
 .ENDIF

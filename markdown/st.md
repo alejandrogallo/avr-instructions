@@ -44,17 +44,19 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode :
 
+```
 | (i)   | 1001 | 001r | rrrr | 1100 |
 |-------|------|------|------|------|
 | (ii)  | 1001 | 001r | rrrr | 1101 |
 | (iii) | 1001 | 001r | rrrr | 1110 |
-
+```
 ### <a href="" id="N19A2B"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -71,6 +73,7 @@ Words:1 (2 bytes)
 
 Cycles:
 
+```
 |       | Cycles | Cycles xmega | Cycles AVR8L |
 |-------|--------|--------------|--------------|
 | (i)   | 2      | 1            | 1            |

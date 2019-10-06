@@ -22,16 +22,18 @@ Syntax: Operands: Program Counter:
 
 32-bit Opcode:
 
+```
 | 1001 | 000d | dddd | 0000 |
 |------|------|------|------|
 | kkkk | kkkk | kkkk | kkkk |
-
+```
 ### Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
@@ -42,6 +44,7 @@ sts $FF00,r2 ; Write back
 
 Words: 2 (4 bytes)
 
+```
 |               | Cycles | Cycles xmega |
 |---------------|--------|--------------|
 | I/O           | 2      | 2            |

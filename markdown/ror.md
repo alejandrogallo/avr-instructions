@@ -10,26 +10,29 @@ Shifts all bits in Rd one place to the right. The C flag is shifted into bit 7 o
 
 Operation:
 
+```
 |     |     |            |     |     |
 |-----|-----|------------|-----|-----|
 | C   | →   | b7——————b0 | →   | C   |
-
+```
 Syntax: Operands: Program Counter:
 
 (i) ROR Rd 0 ≤ d ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 010d | dddd | 0111 |
-
+```
 ### <a href="" id="N1849C"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 S: N ⊕ V, For signed tests.
 
 V :N ⊕ C (For N and C after the shift)

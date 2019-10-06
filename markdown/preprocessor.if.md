@@ -25,6 +25,7 @@ Conditionals may be nested to arbitrary depth.
 // code here is never included 
 #endif
 
+```
 #if defined(__ATmega48__) || defined(__ATmega88__) 
 // code specific for these devices 
 #elif defined (__ATmega169__) 

@@ -18,16 +18,18 @@ CP Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31 PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0001 | 01rd | dddd | rrrr |
-
+```
 ### <a href="" id="N14BCE"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 H:
 
 $\\overline{Rd3} {Rr3} + {Rr3} {R3}+{R3} \\overline{Rd3}$

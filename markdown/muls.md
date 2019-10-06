@@ -8,11 +8,12 @@ MULS - Multiply Signed
 
 This instruction performs 8-bit × 8-bit → 16-bit signed multiplication.
 
+```
 | Rd           |     | Rr         |     | R1           | R0          |
 |--------------|-----|------------|-----|--------------|-------------|
 | Multiplicand | ×   | Multiplier | →   | Product High | Product Low |
 | 8            |     | 8          |     | 16           |             |
-
+```
 The multiplicand Rd and the multiplier Rr are two registers containing signed numbers. The 16-bit signed product is placed in R1 (high byte) and R0 (low byte).
 
 This instruction is not available in all devices. Refer to the device specific instruction set summary.
@@ -27,16 +28,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0000 | 0010 | dddd | rrrr |
-
+```
 ### <a href="" id="N1749A"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | ⇔   | ⇔   |
-
+```
 C: R15
 
 Set if bit 15 of the result is set; cleared otherwise.

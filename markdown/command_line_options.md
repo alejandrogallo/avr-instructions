@@ -134,23 +134,26 @@ Print increasing amounts of assembler internal status dump. Mostly used for asse
 
 Formats the List and Map File for Verilog.It sets the Verilog Option.
 
+```
 -O i|w|e
 --------
-
+```
 If different sections of code are mapped to overlapping memory locations using the <a href="avrassembler.wb_directives.html#avrassembler.wb_directives.ORG" class="xref" title="ORG - Set program origin">ORG</a> directive, an error message is normally issued.
 
 This option allows setting this condition to cause an error (-Oe, default), a warning (-Ow) or be completely ignored (-Oi). Not recommended for normal programs.
 
 This may also be set by \#pragma overlap directive.
 
+```
 -W-b |-W+bo | -W+bi
 -------------------
-
+```
 -b, +bo, and +bi correspond to no no warning, warning when overflow, and warning when integer value out of range, respectively. This may also be set by \#pragma warning range.
 
+```
 -W+ie|+iw
 ---------
-
+```
 +ie and +iw selects if use of unsupported instructions gives error or warning, respectively. The default is to give an error. Corresponds to \#pragma error instruction / pragma warning instruction, respectively.
 
 -FDformat -FTformat

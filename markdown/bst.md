@@ -18,16 +18,18 @@ BST Rd,b 0 ≤ d ≤ 31, 0 ≤ b ≤ 7 PC &lt;- PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1111 | 101d | dddd | 0bbb |
-
+```
 ### <a href="" id="N14033"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | ⇔   | -   | -   | -   | -   | -   | -   |
-
+```
 T:0 if bit b in Rd is cleared. Set to 1 otherwise.
 
 Example:

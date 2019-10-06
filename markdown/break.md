@@ -22,16 +22,18 @@ BREAK None PC &lt;- PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0101 | 1001 | 1000 |
-
+```
 ### <a href="" id="N13206"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Words: 1 (2 bytes)
 
 Cycles: 1

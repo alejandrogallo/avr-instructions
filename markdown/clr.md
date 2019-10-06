@@ -18,16 +18,18 @@ CLR Rd 0 ≤ d ≤ 31 PC ← PC + 1
 
 16-bit Opcode: (see EOR Rd,Rd)
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0010 | 01dd | dddd | dddd |
-
+```
 ### <a href="" id="N146DF"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | 0   | 0   | 0   | 1   | -   |
-
+```
 S: 0 Cleared
 
 V:0 Cleared

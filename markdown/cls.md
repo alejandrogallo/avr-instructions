@@ -18,16 +18,18 @@ CLS None PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 0100 | 1100 | 1000 |
-
+```
 ### <a href="" id="N147A6"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | 0   | -   | -   | -   | -   |
-
+```
 S: 0 Signed flag cleared
 
 Example:

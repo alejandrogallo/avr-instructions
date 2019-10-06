@@ -8,11 +8,12 @@ MUL - Multiply Unsigned
 
 This instruction performs 8-bit × 8-bit → 16-bit unsigned multiplication.
 
+```
 | Rd           |     | Rr         |     | R1           | R0          |
 |--------------|-----|------------|-----|--------------|-------------|
 | Multiplicand | ×   | Multiplier | →   | Product High | Product Low |
 | 8            |     | 8          |     | 16           |             |
-
+```
 The multiplicand Rd and the multiplier Rr are two registers containing unsigned numbers. The 16-bit unsigned product is placed in R1 (high byte) and R0 (low byte). Note that if the multiplicand or the multiplier is selected from R0 or R1 the result will overwrite those after multiplication.
 
 This instruction is not available in all devices. Refer to the device specific instruction set summary.
@@ -27,16 +28,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 1001 | 11rd | dddd | rrrr |
-
+```
 ### <a href="" id="N17291"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | ⇔   | ⇔   |
-
+```
 C: R15
 
 Set if bit 15 of the result is set; cleared otherwise.

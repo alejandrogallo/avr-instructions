@@ -20,6 +20,7 @@ AVR Assembler AVR Assembler Preprocessor
 <span class="section"> [Operators](avrassembler.wb_preprocessor.Operators.html) </span>
 <span class="section"> [Pre-defined macros](avrassembler.wb_preprocessor.Pre-defined_macros.html) </span>
 
+```
 |                                                                                                                                                                   |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <a href="avrassembler.wb_preprocessor.Introduction.html" class="xref" title="Introduction">the section called “Introduction”</a>                                  |

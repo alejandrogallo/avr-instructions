@@ -8,11 +8,12 @@ MULSU - Multiply Signed with Unsigned
 
 This instruction performs 8-bit × 8-bit → 16-bit multiplication of a signed and an unsigned number.
 
+```
 | Rd           |     | Rr         |     | R1           | R0          |
 |--------------|-----|------------|-----|--------------|-------------|
 | Multiplicand | ×   | Multiplier | →   | Product High | Product Low |
 | 8            |     | 8          |     | 16           |             |
-
+```
 The multiplicand Rd and the multiplier Rr are two registers. The multiplicand Rd is a signed number, and the multiplier Rr is unsigned. The 16-bit signed product is placed in R1 (high byte) and R0 (low byte).
 
 This instruction is not available in all devices. Refer to the device specific instruction set summary.
@@ -27,16 +28,18 @@ Syntax: Operands: Program Counter:
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0000 | 0011 | 0ddd | 0rrr |
-
+```
 ### <a href="" id="N176A3"></a> Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | ⇔   | ⇔   |
-
+```
 C: R15
 
 Set if bit 15 of the result is set; cleared otherwise.

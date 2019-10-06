@@ -18,16 +18,18 @@ ADD Rd,Rr 0 ≤ d ≤ 31, 0 ≤ r ≤ 31, PC ← PC + 1
 
 16-bit Opcode:
 
+```
 |      |      |      |      |
 |------|------|------|------|
 | 0000 | 11rd | dddd | rrrr |
-
+```
 ### <a href="" id="N125F0"></a> Status Register (SREG) and Boolean Formulae:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   | ⇔   |
-
+```
 H:
 
 ${Rd3} {Rr3} + {Rr3} \\overline{R3}+\\overline{R3} {Rd3}$

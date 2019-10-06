@@ -20,16 +20,18 @@ Syntax: Operands: Program Counter: Stack:
 
 32-bit Opcode:
 
+```
 | 1001 | 010k | kkkk | 110k |
 |------|------|------|------|
 | kkkk | kkkk | kkkk | kkkk |
-
+```
 ### Status Register (SREG) and Boolean Formula:
 
+```
 | I   | T   | H   | S   | V   | N   | Z   | C   |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | -   | -   | -   | -   | -   | -   | -   | -   |
-
+```
 Example:
 
 ``` programlisting
